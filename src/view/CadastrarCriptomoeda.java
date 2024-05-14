@@ -4,6 +4,14 @@
  */
 package view;
 
+import controller.ControllerCadastroCripto;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+
 /**
  *
  * @author beatr
@@ -14,7 +22,113 @@ public class CadastrarCriptomoeda extends javax.swing.JFrame {
      * Creates new form CadastrarCriptomoeda
      */
     public CadastrarCriptomoeda() {
+        setLocationRelativeTo(null);
+        control = new ControllerCadastroCripto(this);
         initComponents();
+    }
+
+    public JButton getBtCadastrar() {
+        return btCadastrar;
+    }
+
+    public void setBtCadastrar(JButton btCadastrar) {
+        this.btCadastrar = btCadastrar;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItemMenu() {
+        return jMenuItemMenu;
+    }
+
+    public void setjMenuItemMenu(JMenuItem jMenuItemMenu) {
+        this.jMenuItemMenu = jMenuItemMenu;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    public JLabel getLblCadastroCriptom() {
+        return lblCadastroCriptom;
+    }
+
+    public void setLblCadastroCriptom(JLabel lblCadastroCriptom) {
+        this.lblCadastroCriptom = lblCadastroCriptom;
+    }
+
+    public JLabel getLblCotacaoCripto() {
+        return lblCotacaoCripto;
+    }
+
+    public void setLblCotacaoCripto(JLabel lblCotacaoCripto) {
+        this.lblCotacaoCripto = lblCotacaoCripto;
+    }
+
+    public JLabel getLblNomeCripto() {
+        return lblNomeCripto;
+    }
+
+    public void setLblNomeCripto(JLabel lblNomeCripto) {
+        this.lblNomeCripto = lblNomeCripto;
+    }
+
+    public JLabel getLblTaxaCompra() {
+        return lblTaxaCompra;
+    }
+
+    public void setLblTaxaCompra(JLabel lblTaxaCompra) {
+        this.lblTaxaCompra = lblTaxaCompra;
+    }
+
+    public JLabel getLblTaxaVenda() {
+        return lblTaxaVenda;
+    }
+
+    public void setLblTaxaVenda(JLabel lblTaxaVenda) {
+        this.lblTaxaVenda = lblTaxaVenda;
+    }
+
+    public JTextField getTxtCotacaoCripto() {
+        return txtCotacaoCripto;
+    }
+
+    public void setTxtCotacaoCripto(JTextField txtCotacaoCripto) {
+        this.txtCotacaoCripto = txtCotacaoCripto;
+    }
+
+    public JTextField getTxtNomeCripto() {
+        return txtNomeCripto;
+    }
+
+    public void setTxtNomeCripto(JTextField txtNomeCripto) {
+        this.txtNomeCripto = txtNomeCripto;
+    }
+
+    public JTextField getTxtTaxaCompra() {
+        return txtTaxaCompra;
+    }
+
+    public void setTxtTaxaCompra(JTextField txtTaxaCompra) {
+        this.txtTaxaCompra = txtTaxaCompra;
+    }
+
+    public JTextField getTxtTaxaVenda() {
+        return txtTaxaVenda;
+    }
+
+    public void setTxtTaxaVenda(JTextField txtTaxaVenda) {
+        this.txtTaxaVenda = txtTaxaVenda;
     }
 
     /**
@@ -49,6 +163,11 @@ public class CadastrarCriptomoeda extends javax.swing.JFrame {
         lblNomeCripto.setText("Nome:");
 
         txtNomeCripto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtNomeCripto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeCriptoActionPerformed(evt);
+            }
+        });
 
         lblCotacaoCripto.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblCotacaoCripto.setText("Cotação:");
@@ -183,44 +302,15 @@ public class CadastrarCriptomoeda extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTaxaVendaActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
-        // TODO add your handling code here:
+        control.salvarCripto();
     }//GEN-LAST:event_btCadastrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastrarCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void txtNomeCriptoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeCriptoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeCriptoActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CadastrarCriptomoeda().setVisible(true);
-            }
-        });
-    }
-
+ 
+     private ControllerCadastroCripto control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JMenuBar jMenuBar1;

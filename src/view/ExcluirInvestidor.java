@@ -24,6 +24,7 @@ public class ExcluirInvestidor extends javax.swing.JFrame {
      */
     public ExcluirInvestidor() {
         controller = new ControllerExcluirInvestidor(this);
+        setLocationRelativeTo(null);
         initComponents();
     }
 

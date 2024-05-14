@@ -271,7 +271,9 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_bt2ActionPerformed
 
     private void bt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt3ActionPerformed
-        // TODO add your handling code here:
+       CadastrarCriptomoeda cacrip = new CadastrarCriptomoeda();
+       cacrip.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_bt3ActionPerformed
 
     private void bt4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt4ActionPerformed

@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import model.Investidor;
+import model.Moedas;
 /**
  *
  * @author beatr
@@ -28,9 +29,20 @@ public class BancoDAO {
                 investidor.getCpf() + "')";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.execute();
-        conn.close();
-        
+        conn.close(); 
     }
+    public void inserirMoeda(Moedas moeda) throws SQLException{
+        String sql = "insert into moedas ( \"Nome\", "
+                + "\"Cotacao\", \"Taxa_compra\", \"Taxa_venda\") values('" +
+                moeda.getNome() + "', '" +
+                moeda.getCotacao() + "', '" +
+                moeda.getTaxaCompra() + "', '" +
+                moeda.getTaxaVenda() + "')";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();
+        conn.close(); 
+    }
+    
       public ResultSet consultar(Investidor investidor) throws SQLException{ 
         String sql = "select * from investidores where \"CPF\" = ? ";
         PreparedStatement statement = conn.prepareStatement(sql);

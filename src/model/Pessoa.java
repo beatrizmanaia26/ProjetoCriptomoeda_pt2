@@ -20,7 +20,6 @@ public class Pessoa {
     public Pessoa() {
     }
     
-
     public String getNome() {
         return nome;
     }

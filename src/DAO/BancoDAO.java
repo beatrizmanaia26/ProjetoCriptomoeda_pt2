@@ -32,7 +32,7 @@ public class BancoDAO {
         
     }
       public ResultSet consultar(Investidor investidor) throws SQLException{ 
-        String sql = "select * from User where CPF = ? ";
+        String sql = "select * from investidores where \"CPF\" = ? ";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
         statement.execute();//excuta a query e gera reesultado do select(da consulta)
@@ -40,7 +40,7 @@ public class BancoDAO {
         return resultado;
     }
       public void excluir(Investidor investidor) throws SQLException{
-        String sql = "delete from User where CPF = ?";
+        String sql = "delete from investidores where \"CPF\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, investidor.getCpf());
         statement.execute();

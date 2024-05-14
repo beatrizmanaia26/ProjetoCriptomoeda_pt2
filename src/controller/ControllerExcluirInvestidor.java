@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import model.Investidor;
 import view.ExcluirInvestidor;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -18,30 +20,50 @@ import java.sql.Connection;
 
 public class ControllerExcluirInvestidor {
     private ExcluirInvestidor view;
-    private Investidor investidor;
+    
 
-    public ControllerExcluirInvestidor(ExcluirInvestidor view, Investidor investidor) {
+    public ControllerExcluirInvestidor(ExcluirInvestidor view) {
         this.view = view;
-        this.investidor = investidor;
+        
     }
     public void remover(){
-        String invest = investidor.getCpf();
-        int option = JOptionPane.showConfirmDialog(view,
-                                  "deseja realmente excluir?" + invest + "?");
-            if(option !=1){
-                 Conexao conexao = new Conexao();
-        
-            try{
-                Connection conn = conexao.getConnection();
-                BancoDAO dao = new BancoDAO(conn);
-                dao.excluir(investidor);
-                JOptionPane.showMessageDialog(view, "excluido com sucesso");
-                view.setVisible(false);       
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(view, "falha de conexao");
+        String cpfInvest = view.getTxtCpfInvest().getText();
+        Investidor invest = new Investidor(null,cpfInvest,
+        null);
+        Conexao conexao = new Conexao();
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+            ResultSet res = dao.consultar(invest);
+            if(res.next()){
+                String nome = res.getString("Nome");
+                String cpf = res.getString("CPF");
+                String senha = res.getString("Senha");
+                Investidor i = new Investidor(nome,cpf,senha);
+                
+                int option = JOptionPane.showConfirmDialog(view,"Deseja realmente excluir " + nome + "?");
+                if(option != 1){
+                    
+                    try{
+                        dao.excluir(i);
+                        JOptionPane.showMessageDialog(view,"Investidor excluido");
+
+
+
+                    }catch(SQLException e){
+                        JOptionPane.showMessageDialog(view,"Erro de conexao");
+                   }
+                }
+                  
+            }else{
+                JOptionPane.showMessageDialog(view,"Investidor não encontrado");
             }
-        }   
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        }
     }
-}
+  }
+       
+
 
    

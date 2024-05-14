@@ -264,7 +264,10 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_bt1ActionPerformed
 
     private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed
-        
+        ExcluirInvestidor e = new ExcluirInvestidor();
+        e.setVisible(true);
+        this.setVisible(false);
+    
     }//GEN-LAST:event_bt2ActionPerformed
 
     private void bt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt3ActionPerformed

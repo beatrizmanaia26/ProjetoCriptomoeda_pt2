@@ -22,8 +22,8 @@ public class ExcluirInvestidor extends javax.swing.JFrame {
     /**
      * Creates new form ExcluirInvestidor
      */
-    public ExcluirInvestidor(Investidor investidor) {
-        controller = new ControllerExcluirInvestidor(this, investidor);
+    public ExcluirInvestidor() {
+        controller = new ControllerExcluirInvestidor(this);
         initComponents();
     }
 

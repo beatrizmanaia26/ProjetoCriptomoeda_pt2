@@ -21,5 +21,14 @@ public class Investidor extends Pessoa{
     public static int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+       
+        return "Investidor{" + "carteira=" + carteira + "Pessoa{" + "nome=" + 
+                getNome() + ", cpf=" + getCpf() + ", senha=" + 
+                getSenha() + "\nId: " + getId() + '}';
+    }
+    
     
 }

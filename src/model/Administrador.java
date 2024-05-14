@@ -12,7 +12,7 @@ public class Administrador extends Pessoa{
     
     public Administrador() {
         setNome("Luana Beatriz");
-        setCpf("52659434865");
+        setCpf("1");
         setSenha("belu<3");
     }
     

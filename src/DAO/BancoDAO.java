@@ -20,14 +20,16 @@ public class BancoDAO {
         this.conn = conn;
     }
     
-    public void inserir(Investidor investidor) throws SQLException{
-        String sql = "insert into User (ID_user, Nome, Senha, CPF) values('" +
-                1 + "', '" + investidor.getNome() + "', '" +
+    public void inserir(Investidor investidor) throws SQLException{//Funciona mais o id ta 
+        String sql = "insert into investidores (\"ID_Investidor\", \"Nome\", "
+                + "\"Senha\", \"CPF\") values('" +
+                investidor.getId() + "', '" + investidor.getNome() + "', '" +
                 investidor.getSenha() + "', '" +
                 investidor.getCpf() + "')";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.execute();
         conn.close();
+        
     }
       public ResultSet consultar(Investidor investidor) throws SQLException{ 
         String sql = "select * from User where CPF = ? ";

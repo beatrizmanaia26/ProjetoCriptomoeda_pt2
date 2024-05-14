@@ -10,24 +10,22 @@ package model;
  */
 public class Investidor extends Pessoa{
     Carteira carteira = new Carteira();
-    private static int id;
+    
 
     public Investidor(String nome, String cpf, String senha) {
         super(nome, cpf, senha);
-        id++;
+        
         
     }
 
-    public static int getId() {
-        return id;
-    }
+    
 
     @Override
     public String toString() {
        
         return "Investidor{" + "carteira=" + carteira + "Pessoa{" + "nome=" + 
                 getNome() + ", cpf=" + getCpf() + ", senha=" + 
-                getSenha() + "\nId: " + getId() + '}';
+                getSenha() + "\nId: "  + '}';
     }
     
     

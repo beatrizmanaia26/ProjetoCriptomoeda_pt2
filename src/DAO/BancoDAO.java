@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import model.Investidor;
-import model.Moedas;
 import model.OutrasMoedas;
 /**
  *
@@ -59,7 +58,7 @@ public class BancoDAO {
         statement.execute();
         conn.close();
       }    
-       public ResultSet consultarCripto(Moedas moeda) throws SQLException{ 
+       public ResultSet consultarCripto(OutrasMoedas moeda) throws SQLException{ 
         String sql = "select * from moedas where \"Nome\" = ? ";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1,moeda.getNome());//1 pq  é primeira interrogação
@@ -67,7 +66,7 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
-      public void excluirCripto(Moedas moeda) throws SQLException{
+      public void excluirCripto(OutrasMoedas moeda) throws SQLException{
         String sql = "delete from moedas where \"Nome\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, moeda.getNome());
@@ -76,7 +75,7 @@ public class BancoDAO {
       }
       
         public ResultSet consultarLogin(Investidor investidor) throws SQLException{
-            String sql = "select * from aluno where \"CPF\" = ? and \"Senha\" = ?";
+            String sql = "select * from investidores where \"CPF\" = ? and \"Senha\" = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, investidor.getCpf());
             statement.setString(2, investidor.getSenha());

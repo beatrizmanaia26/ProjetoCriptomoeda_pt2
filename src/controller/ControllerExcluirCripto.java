@@ -4,7 +4,6 @@
  */
 package controller;
 
-import model.Moedas;
 import view.ExcluirCriptomoeda;
 import DAO.BancoDAO;
 import DAO.Conexao;
@@ -12,6 +11,7 @@ import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.OutrasMoedas;
 
 /**
  *
@@ -25,7 +25,7 @@ public class ControllerExcluirCripto {
     }
        public void removerCripto(){
         String nomeCripto = view.getTxtNomeCripto().getText();
-        Moedas moeda = new Moedas(nomeCripto,
+        OutrasMoedas moeda = new OutrasMoedas(nomeCripto,
         0,0,0); //cria investidor pra comparar se acha um cpf igual ao desse investidor para apagá-lo
         Conexao conexao = new Conexao();
         try{
@@ -37,7 +37,7 @@ public class ControllerExcluirCripto {
                 double cotacao = res.getDouble("Cotacao");
                 float taxaCompra = res.getFloat("Taxa_compra");
                 float taxaVenda = res.getFloat("Taxa_venda");
-                Moedas m = new Moedas(nome,cotacao,taxaCompra,taxaVenda);
+                OutrasMoedas m = new OutrasMoedas(nome,cotacao,taxaCompra,taxaVenda);
                 
                 int option = JOptionPane.showConfirmDialog(view,"Deseja realmente excluir " + nome + "?");
                 if(option != 1){

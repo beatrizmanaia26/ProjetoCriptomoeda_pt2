@@ -9,5 +9,15 @@ package model;
  * @author beatr
  */
 public class Ripple extends Moedas implements Tarifacao{
+
+    @Override
+    public void TaxaCompra() {
+        
+    }
+
+    @Override
+    public void TaxaVenda() {
+      
+    }
     
 }

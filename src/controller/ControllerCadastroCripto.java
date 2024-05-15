@@ -9,7 +9,7 @@ import DAO.Conexao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import model.Moedas;
+import model.OutrasMoedas;
 import view.CadastrarCriptomoeda;
 
 /**
@@ -30,18 +30,18 @@ public class ControllerCadastroCripto {
         float taxaCompra = Float.parseFloat(view.getTxtTaxaCompra().getText());
         float taxaVenda = Float.parseFloat(view.getTxtTaxaVenda().getText());
         
-        Moedas moeda = new Moedas(nome, cotacao, taxaCompra, taxaVenda);
+        OutrasMoedas moeda = new OutrasMoedas(nome, cotacao, taxaCompra, taxaVenda);
         Conexao conexao = new Conexao();
         
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
             dao.inserirMoeda(moeda);
-            JOptionPane.showMessageDialog(view,"Moeda cadastrado");
+            JOptionPane.showMessageDialog(view,"Moeda cadastrada");
       
             
         }catch(SQLException e){
-            JOptionPane.showMessageDialog(view,"Moeda nao cadastrado");
+            JOptionPane.showMessageDialog(view,"Moeda nao cadastrada");
             }
         }
 }

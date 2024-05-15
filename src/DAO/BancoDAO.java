@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import model.Investidor;
 import model.Moedas;
+import model.OutrasMoedas;
 /**
  *
  * @author beatr
@@ -31,7 +32,7 @@ public class BancoDAO {
         statement.execute();
         conn.close(); 
     }
-    public void inserirMoeda(Moedas moeda) throws SQLException{
+    public void inserirMoeda(OutrasMoedas moeda) throws SQLException{
         String sql = "insert into moedas ( \"Nome\", "
                 + "\"Cotacao\", \"Taxa_compra\", \"Taxa_venda\") values('" +
                 moeda.getNome() + "', '" +

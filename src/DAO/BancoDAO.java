@@ -58,4 +58,19 @@ public class BancoDAO {
         statement.execute();
         conn.close();
       }    
+       public ResultSet consultarCripto(Moedas moeda) throws SQLException{ 
+        String sql = "select * from moedas where \"Nome\" = ? ";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1,moeda.getNome());//1 pq  é primeira interrogação
+        statement.execute();//excuta a query e gera reesultado do select(da consulta)
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
+    }
+      public void excluirCripto(Moedas moeda) throws SQLException{
+        String sql = "delete from moedas where \"Nome\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
+        statement.setString(1, moeda.getNome());
+        statement.execute();
+        conn.close();
+      }    
 }

@@ -4,6 +4,14 @@
  */
 package view;
 
+import controller.ControllerExcluirCripto;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+
 /**
  *
  * @author beatr
@@ -14,7 +22,64 @@ public class ExcluirCriptomoeda extends javax.swing.JFrame {
      * Creates new form ExcluirCriptomoeda
      */
     public ExcluirCriptomoeda() {
+        controller = new ControllerExcluirCripto(this);
         initComponents();
+    }
+
+    public JButton getBtExcluir() {
+        return btExcluir;
+    }
+
+    public void setBtExcluir(JButton btExcluir) {
+        this.btExcluir = btExcluir;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItemMenu() {
+        return jMenuItemMenu;
+    }
+
+    public void setjMenuItemMenu(JMenuItem jMenuItemMenu) {
+        this.jMenuItemMenu = jMenuItemMenu;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    public JLabel getLblCadastroCriptom() {
+        return lblCadastroCriptom;
+    }
+
+    public void setLblCadastroCriptom(JLabel lblCadastroCriptom) {
+        this.lblCadastroCriptom = lblCadastroCriptom;
+    }
+
+    public JLabel getLblNomeCripto() {
+        return lblNomeCripto;
+    }
+
+    public void setLblNomeCripto(JLabel lblNomeCripto) {
+        this.lblNomeCripto = lblNomeCripto;
+    }
+
+    public JTextField getTxtNomeCripto() {
+        return txtNomeCripto;
+    }
+
+    public void setTxtNomeCripto(JTextField txtNomeCripto) {
+        this.txtNomeCripto = txtNomeCripto;
     }
 
     /**
@@ -105,44 +170,11 @@ public class ExcluirCriptomoeda extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemMenuActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        // TODO add your handling code here:
+        controller.removerCripto();
     }//GEN-LAST:event_btExcluirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ExcluirCriptomoeda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ExcluirCriptomoeda().setVisible(true);
-            }
-        });
-    }
-
+    
+    private ControllerExcluirCripto controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btExcluir;
     private javax.swing.JMenuBar jMenuBar1;

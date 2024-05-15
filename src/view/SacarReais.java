@@ -15,6 +15,7 @@ public class SacarReais extends javax.swing.JFrame {
      */
     public SacarReais() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

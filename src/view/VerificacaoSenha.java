@@ -15,6 +15,7 @@ public class VerificacaoSenha extends javax.swing.JFrame {
      */
     public VerificacaoSenha() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

@@ -15,6 +15,7 @@ public class ConsultarSaldo extends javax.swing.JFrame {
      */
     public ConsultarSaldo() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

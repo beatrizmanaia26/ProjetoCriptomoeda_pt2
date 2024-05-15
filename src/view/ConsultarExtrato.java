@@ -15,6 +15,7 @@ public class ConsultarExtrato extends javax.swing.JFrame {
      */
     public ConsultarExtrato() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

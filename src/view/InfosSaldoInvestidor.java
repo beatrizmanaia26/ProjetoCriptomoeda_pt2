@@ -20,6 +20,7 @@ public class InfosSaldoInvestidor extends javax.swing.JFrame {
      */
     public InfosSaldoInvestidor() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -203,6 +204,11 @@ public class InfosSaldoInvestidor extends javax.swing.JFrame {
         jMenuMenu.setText("Menu");
 
         jMenuItemMenu.setText("menu");
+        jMenuItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMenuActionPerformed(evt);
+            }
+        });
         jMenuMenu.add(jMenuItemMenu);
 
         jMenuBar1.add(jMenuMenu);
@@ -277,6 +283,11 @@ public class InfosSaldoInvestidor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
+        BemVindoAdministrador adm = new BemVindoAdministrador();
+        adm.setVisible(true);
+    }//GEN-LAST:event_jMenuItemMenuActionPerformed
 
     /**
      * @param args the command line arguments

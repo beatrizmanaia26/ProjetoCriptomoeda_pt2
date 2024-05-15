@@ -9,5 +9,6 @@ package model;
  * @author beatr
  */
 public interface Tarifacao {
- 
+    public void TaxaCompra();
+    public void TaxaVenda();
 }

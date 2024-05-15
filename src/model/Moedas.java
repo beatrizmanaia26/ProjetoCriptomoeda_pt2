@@ -11,7 +11,6 @@ package model;
 public class Moedas {
     private String nome;
     private double cotacao;
-    private float taxaCompra, taxaVenda;
     
     public Moedas() {
     }
@@ -19,8 +18,6 @@ public class Moedas {
     public Moedas(String nome, double cotacao, float taxaCompra, float taxaVenda) {
         this.nome = nome;
         this.cotacao = cotacao;
-        this.taxaCompra = taxaCompra;
-        this.taxaVenda = taxaVenda;
     }
 
     public String getNome() {
@@ -37,21 +34,5 @@ public class Moedas {
 
     public void setCotacao(double cotacao) {
         this.cotacao = cotacao;
-    }
-
-    public float getTaxaCompra() {
-        return taxaCompra;
-    }
-
-    public void setTaxaCompra(float taxaCompra) {
-        this.taxaCompra = taxaCompra;
-    }
-
-    public float getTaxaVenda() {
-        return taxaVenda;
-    }
-
-    public void setTaxaVenda(float taxaVenda) {
-        this.taxaVenda = taxaVenda;
     }
 }

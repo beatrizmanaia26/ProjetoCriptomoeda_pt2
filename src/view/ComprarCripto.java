@@ -15,6 +15,7 @@ public class ComprarCripto extends javax.swing.JFrame {
      */
     public ComprarCripto() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

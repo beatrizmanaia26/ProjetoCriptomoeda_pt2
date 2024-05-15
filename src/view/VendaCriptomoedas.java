@@ -15,6 +15,7 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
      */
     public VendaCriptomoedas() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

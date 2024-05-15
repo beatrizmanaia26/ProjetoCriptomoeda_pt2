@@ -25,7 +25,7 @@ public class ControllerCadastroCripto {
     }
     
     public void salvarCripto(){
-        String nome = view.getLblNomeCripto().getText();
+        String nome = view.getTxtNomeCripto().getText();
         double cotacao = Double.parseDouble(view.getTxtCotacaoCripto().getText());
         float taxaCompra = Float.parseFloat(view.getTxtTaxaCompra().getText());
         float taxaVenda = Float.parseFloat(view.getTxtTaxaVenda().getText());

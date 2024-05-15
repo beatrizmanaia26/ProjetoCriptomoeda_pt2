@@ -15,6 +15,7 @@ public class DepositoReais extends javax.swing.JFrame {
      */
     public DepositoReais() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

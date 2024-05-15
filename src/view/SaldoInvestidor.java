@@ -15,6 +15,7 @@ public class SaldoInvestidor extends javax.swing.JFrame {
      */
     public SaldoInvestidor() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

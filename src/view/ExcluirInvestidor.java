@@ -112,7 +112,8 @@ public class ExcluirInvestidor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
-        // TODO add your handling code here:
+        BemVindoAdministrador adm = new BemVindoAdministrador();
+        adm.setVisible(true);
     }//GEN-LAST:event_jMenuItemMenuActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed

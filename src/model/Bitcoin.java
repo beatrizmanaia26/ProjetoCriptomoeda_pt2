@@ -8,6 +8,6 @@ package model;
  *
  * @author beatr
  */
-public class Bitcoin implements Tarifacao {
+public class Bitcoin extends Moedas implements Tarifacao {
     
 }

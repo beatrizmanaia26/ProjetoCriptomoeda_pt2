@@ -12,7 +12,6 @@ public class Moedas {
     private String nome;
     private double cotacao;
     private float taxaCompra, taxaVenda;
-
     
     public Moedas() {
     }

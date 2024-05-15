@@ -8,6 +8,6 @@ package model;
  *
  * @author beatr
  */
-public class Real implements Tarifacao{
+public class Real extends Moedas implements Tarifacao {
     
 }

@@ -9,5 +9,33 @@ package model;
  * @author beatr
  */
 public class Carteira {
-    Moedas moedas = new Moedas();
+    private Moedas moedas;//composicao
+    private double saldo;
+
+    public Carteira() {
+        this.moedas = new Moedas();
+    }
+
+    public Carteira(Moedas moedas, double saldo) {
+        this.moedas = moedas;
+        this.saldo = saldo;
+        this.moedas = new Moedas();
+    }
+
+    public Moedas getMoedas() {
+        return moedas;
+    }
+
+    public void setMoedas(Moedas moedas) {
+        this.moedas = moedas;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+    
 }

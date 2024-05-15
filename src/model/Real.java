@@ -11,12 +11,16 @@ package model;
 public class Real extends Moedas implements Tarifacao {
 
     @Override
-    public void TaxaCompra() {
+    public double TaxaCompra() {
+       
+        return 0;
        
     }
 
     @Override
-    public void TaxaVenda() {
+    public double TaxaVenda() {
+       
+        return 0;
        
     }
     

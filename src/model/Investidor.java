@@ -8,17 +8,17 @@ package model;
  *
  * @author beatr
  */
-public class Investidor extends Pessoa{
-    Carteira carteira = new Carteira();
+public class Investidor extends Pessoa {
+    
+    private Carteira carteira; //composicao
     
 
     public Investidor(String nome, String cpf, String senha) {
         super(nome, cpf, senha);
-        
-        
+        this.carteira = new Carteira(); 
     }
 
-    
+  
 
     @Override
     public String toString() {

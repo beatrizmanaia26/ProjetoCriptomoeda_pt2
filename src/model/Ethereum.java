@@ -8,6 +8,6 @@ package model;
  *
  * @author beatr
  */
-public class Ethereum implements Tarifacao {
+public class Ethereum extends Moedas implements Tarifacao {
     
 }

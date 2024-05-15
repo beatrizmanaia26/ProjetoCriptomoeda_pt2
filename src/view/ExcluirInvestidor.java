@@ -53,7 +53,7 @@ public class ExcluirInvestidor extends javax.swing.JFrame {
         txtCpfInvest.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         lblCpfInvest.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblCpfInvest.setText("CPF::");
+        lblCpfInvest.setText("CPF:");
 
         btExcluir.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         btExcluir.setText("Excluir");

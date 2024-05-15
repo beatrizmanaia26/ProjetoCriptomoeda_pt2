@@ -28,37 +28,41 @@
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="bt2" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="bt3" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="bt4" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="bt5" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="bt6" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="bt8" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="bt7" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblAtualizar" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblSair" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblVender" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblExtrato" min="-2" pref="192" max="-2" attributes="0"/>
-                          <Component id="lblCompra" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblSacar" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                          <Component id="lblDeposito" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="bt1" min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblSaldo" min="-2" pref="192" max="-2" attributes="0"/>
+                      <EmptySpace pref="237" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="bt1" min="-2" pref="39" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblSaldo" min="-2" pref="192" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="bt2" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="bt3" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="bt4" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="bt5" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="bt6" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="bt8" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="bt7" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAtualizar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSair" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblVender" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblExtrato" min="-2" pref="192" max="-2" attributes="0"/>
+                                  <Component id="lblCompra" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSacar" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                                  <Component id="lblDeposito" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="lblTitulo" min="-2" pref="474" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblNome" min="-2" pref="240" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -68,7 +72,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNome" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="bt1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
@@ -120,7 +127,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Book Antiqua" size="36" style="3"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Bem-Vinda, Luana Beatriz "/>
+        <Property name="text" type="java.lang.String" value="Bem-Vinde, "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="bt1">
@@ -313,6 +320,14 @@
           <Font name="Segoe UI" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Sair"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblNome">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Book Antiqua" size="36" style="3"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="- "/>
       </Properties>
     </Component>
   </SubComponents>

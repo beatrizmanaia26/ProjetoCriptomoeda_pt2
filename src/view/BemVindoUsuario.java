@@ -4,6 +4,10 @@
  */
 package view;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import model.Investidor;
+
 /**
  *
  * @author beatr
@@ -13,9 +17,158 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     /**
      * Creates new form BemVindoAdm
      */
-    public BemVindoUsuario() {
+    public BemVindoUsuario(Investidor investidor) {
         initComponents();
+        setLocationRelativeTo(null);
+        this.lblNome.setText(investidor.getNome());
+        
     }
+
+    public JButton getBt1() {
+        return bt1;
+    }
+
+    public void setBt1(JButton bt1) {
+        this.bt1 = bt1;
+    }
+
+    public JButton getBt2() {
+        return bt2;
+    }
+
+    public void setBt2(JButton bt2) {
+        this.bt2 = bt2;
+    }
+
+    public JButton getBt3() {
+        return bt3;
+    }
+
+    public void setBt3(JButton bt3) {
+        this.bt3 = bt3;
+    }
+
+    public JButton getBt4() {
+        return bt4;
+    }
+
+    public void setBt4(JButton bt4) {
+        this.bt4 = bt4;
+    }
+
+    public JButton getBt5() {
+        return bt5;
+    }
+
+    public void setBt5(JButton bt5) {
+        this.bt5 = bt5;
+    }
+
+    public JButton getBt6() {
+        return bt6;
+    }
+
+    public void setBt6(JButton bt6) {
+        this.bt6 = bt6;
+    }
+
+    public JButton getBt7() {
+        return bt7;
+    }
+
+    public void setBt7(JButton bt7) {
+        this.bt7 = bt7;
+    }
+
+    public JButton getBt8() {
+        return bt8;
+    }
+
+    public void setBt8(JButton bt8) {
+        this.bt8 = bt8;
+    }
+
+    public JLabel getLblAtualizar() {
+        return lblAtualizar;
+    }
+
+    public void setLblAtualizar(JLabel lblAtualizar) {
+        this.lblAtualizar = lblAtualizar;
+    }
+
+    public JLabel getLblCompra() {
+        return lblCompra;
+    }
+
+    public void setLblCompra(JLabel lblCompra) {
+        this.lblCompra = lblCompra;
+    }
+
+    public JLabel getLblDeposito() {
+        return lblDeposito;
+    }
+
+    public void setLblDeposito(JLabel lblDeposito) {
+        this.lblDeposito = lblDeposito;
+    }
+
+    public JLabel getLblExtrato() {
+        return lblExtrato;
+    }
+
+    public void setLblExtrato(JLabel lblExtrato) {
+        this.lblExtrato = lblExtrato;
+    }
+
+    public JLabel getLblNome() {
+        return lblNome;
+    }
+
+    public void setLblNome(JLabel lblNome) {
+        this.lblNome = lblNome;
+    }
+
+    public JLabel getLblSacar() {
+        return lblSacar;
+    }
+
+    public void setLblSacar(JLabel lblSacar) {
+        this.lblSacar = lblSacar;
+    }
+
+    public JLabel getLblSair() {
+        return lblSair;
+    }
+
+    public void setLblSair(JLabel lblSair) {
+        this.lblSair = lblSair;
+    }
+
+    public JLabel getLblSaldo() {
+        return lblSaldo;
+    }
+
+    public void setLblSaldo(JLabel lblSaldo) {
+        this.lblSaldo = lblSaldo;
+    }
+
+    public JLabel getLblTitulo() {
+        return lblTitulo;
+    }
+
+    public void setLblTitulo(JLabel lblTitulo) {
+        this.lblTitulo = lblTitulo;
+    }
+
+    public JLabel getLblVender() {
+        return lblVender;
+    }
+
+    public void setLblVender(JLabel lblVender) {
+        this.lblVender = lblVender;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,12 +195,13 @@ public class BemVindoUsuario extends javax.swing.JFrame {
         lblVender = new javax.swing.JLabel();
         lblAtualizar = new javax.swing.JLabel();
         lblSair = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Investidor");
 
         lblTitulo.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
-        lblTitulo.setText("Bem-Vinda, Luana Beatriz ");
+        lblTitulo.setText("Bem-Vinde, ");
 
         bt1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bt1.setText("1");
@@ -145,6 +299,9 @@ public class BemVindoUsuario extends javax.swing.JFrame {
         lblSair.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblSair.setText("Sair");
 
+        lblNome.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
+        lblNome.setText("- ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,38 +310,43 @@ public class BemVindoUsuario extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bt2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAtualizar)
-                            .addComponent(lblSair)
-                            .addComponent(lblVender)
-                            .addComponent(lblExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCompra)
-                            .addComponent(lblSacar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(237, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bt2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bt7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAtualizar)
+                                    .addComponent(lblSair)
+                                    .addComponent(lblVender)
+                                    .addComponent(lblExtrato, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCompra)
+                                    .addComponent(lblSacar, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblTitulo)
                                 .addGap(18, 18, 18)
-                                .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(lblTitulo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitulo)
+                    .addComponent(lblNome))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,6 +464,7 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel lblCompra;
     private javax.swing.JLabel lblDeposito;
     private javax.swing.JLabel lblExtrato;
+    private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblSacar;
     private javax.swing.JLabel lblSair;
     private javax.swing.JLabel lblSaldo;

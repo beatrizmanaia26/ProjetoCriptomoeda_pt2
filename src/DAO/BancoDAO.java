@@ -4,7 +4,6 @@
  */
 package DAO;
 
-import java.util.Random;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
@@ -85,36 +84,37 @@ public class BancoDAO {
             ResultSet resultado = statement.getResultSet();
             return resultado;
     }
-        public ResultSet consultarCotacaoBitcoin(Bitcoin bit) throws SQLException{
-            String sql = "select * from moedas where \"Nome\" = Bitcoin";
+     
+      //  public ResultSet ConsultarCotacaoBitcoin() throws SQLException { //precisa do Bitcoin bit
+       //     String sql = "select \"Cotacao\" from moedas where \"Nome\" = 'Bitcoin'"; 
+       //     PreparedStatement statement = conn.prepareStatement(sql);
+       //     statement.execute();
+       //     ResultSet resultado = statement.getResultSet();
+       //     return resultado;
+       // }
+      
+        public ResultSet ConsultarParaAtualizarCriptomoedas() throws SQLException { //precisa do Bitcoin bit
+            String sql = "select \"Cotacao\" from moedas"; 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.execute();
             ResultSet resultado = statement.getResultSet();
             return resultado;
         }
-        public ResultSet ConsultarCotacaoBitcoin(Bitcoin bit) throws SQLException {
-            String sql = "select cotacao from moedas where \"Nome\" = 'Bitcoin'"; // Corrigido o nome Bitcoin
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.execute();
-            ResultSet resultado = statement.getResultSet();
-            return resultado;
-}
 
-        public void UpdateCotacaoBitcoin(Bitcoin bit) throws SQLException {
-            ResultSet r = this.ConsultarCotacaoBitcoin(bit);
-            if (r.next()) { // Move o cursor para a primeira linha do ResultSet
-            double cotacao = r.getDouble("cotacao");
-        
-            // Gera um número aleatório entre -5% e +5%
-            Random random = new Random();
-            double variacaoPercentual = (random.nextDouble() * 0.1) - 0.05; // -5% a +5%
-            double novaCotacao = cotacao * (1 + variacaoPercentual);
+      //  public void AtualizarCotacaoBitcoin(Bitcoin bit) throws SQLException {
+      //      String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = 'Bitcoin'";
+       //     PreparedStatement statement = conn.prepareStatement(sql);
+        //    statement.setDouble(1, bit.getCotacao());
+        //    statement.execute();//pq n statement como no alunodao teo 10
+       //     statement.close();
+       // conn.close();
+         
+           public void AtualizarCriptomoedas() throws SQLException {
             String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = 'Bitcoin'";
-            PreparedStatement updateStatement = conn.prepareStatement(sql);
-            updateStatement.setDouble(1, novaCotacao);
-            updateStatement.executeUpdate();
-            updateStatement.close();
-            } //COMO RELACIONAR ISSO COM BOTAO 7 DA VIEW ADMINISTRADOR
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setDouble(1, bit.getCotacao());
+            statement.execute();//pq n statement como no alunodao teo 10
+            statement.close();
         conn.close();
-    }
+    }   
 }

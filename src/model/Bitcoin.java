@@ -10,12 +10,11 @@ import java.util.Random;
  * @author beatr
  */
 public class Bitcoin extends Moedas implements Tarifacao {
-    
-  //  public double AtualizarCotacao(){
-  //      double novaCotacao = random.nextInt(6);
-   //     return novaCotacao;  
-   // }
-            
+
+    public Bitcoin(double cotacao) {
+        super(cotacao);
+    }
+
     @Override
     public double TaxaCompra() {
         return 0.02;

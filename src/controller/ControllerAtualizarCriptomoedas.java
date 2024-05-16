@@ -15,6 +15,7 @@ import model.OutrasMoedas;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Moedas;
+import view.BemVindoUsuario;
 
 /**
  *
@@ -22,7 +23,12 @@ import model.Moedas;
  */
 public class ControllerAtualizarCriptomoedas {
     private BemVindoAdministrador view;
+    private BemVindoUsuario viewUser;
 
+    public ControllerAtualizarCriptomoedas(BemVindoUsuario viewUser) {
+        this.viewUser = viewUser;
+    }
+    
     public ControllerAtualizarCriptomoedas(BemVindoAdministrador view) {
         this.view = view;
     }

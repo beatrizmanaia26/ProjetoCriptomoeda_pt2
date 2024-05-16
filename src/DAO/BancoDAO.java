@@ -94,7 +94,11 @@ public class BancoDAO {
             ResultSet resultado = statement.getResultSet();
             return resultado;
     }
+<<<<<<< Updated upstream
       
+=======
+
+>>>>>>> Stashed changes
         public ResultSet ConsultarParaAtualizarCriptomoedas() throws SQLException { 
             String sql = "select * from moedas"; 
             PreparedStatement statement = conn.prepareStatement(sql);

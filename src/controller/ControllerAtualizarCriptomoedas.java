@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import model.Bitcoin;
 import model.OutrasMoedas;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import model.Moedas;
 
 /**
  *
@@ -26,14 +28,40 @@ public class ControllerAtualizarCriptomoedas {
     }
     public void AtualizarCriptomoedas(){
         Conexao conexao = new Conexao();
+        ArrayList<Moedas> moedas = new ArrayList<>();
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
             ResultSet res= dao.ConsultarParaAtualizarCriptomoedas();
-        }catch(Exception e){
-           
+            while (res.next()) {
+                String nome = res.getString("Nome");
+                String cotacao = res.getString("Cotacao");
+                String tcompra = res.getString("Taxa_compra");
+                String tvenda = res.getString("Taxa_venda");
+                double doubleCotacao = Double.parseDouble(cotacao);
+                float floatCompra = Float.parseFloat(tcompra);
+                float floatVenda = Float.parseFloat(tvenda);
+                Moedas mo = new Moedas(nome,doubleCotacao,floatCompra, floatVenda);
+                moedas.add(mo);
+                
+            }
+        } catch(Exception e){
+           JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
-    }
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+       
+         for (int i = 0; i < moedas.size(); i++){
+               // Moedas mo = new Moedas(doubleCotacaoMoeda);
+                moedas.get(i).setCotacao(moedas.get(i).atualizar());
+                dao.AtualizarCriptomoedas(moedas.get(i));
+            }
+            conn.close();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(view,"Erro de conexao 2");
+        }
+}
    // public void SalvarBitcoin(){
    //     Conexao conexao = new Conexao();
     //    try {

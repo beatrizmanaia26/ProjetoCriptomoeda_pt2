@@ -10,16 +10,24 @@ package model;
  */
 public class Ethereum extends Moedas implements Tarifacao {
 
+  
+
+    public Ethereum(String nome, double cotacao, float taxaCompra, float taxaVenda) {
+        super(nome, cotacao, taxaCompra, taxaVenda);
+        
+    }
+    
+
     @Override
     public double TaxaCompra() {
-        
-        return 0; 
+ 
+        return 0.01;
     }
 
     @Override
     public double TaxaVenda() {
       
-        return 0;    
+        return 0.02;    
     }
     
 }

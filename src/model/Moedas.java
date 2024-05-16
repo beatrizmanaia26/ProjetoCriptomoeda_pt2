@@ -19,6 +19,7 @@ public class Moedas {
     }
     
     public Moedas() {
+        
     }
 
     public Moedas(String nome, double cotacao, float taxaCompra, float taxaVenda) {
@@ -41,6 +42,7 @@ public class Moedas {
     public void setCotacao(double cotacao) {
         this.cotacao = cotacao;
     }
+
     public double atualizar(){
         Random random = new Random();
         double variacaoPercentual = (random.nextDouble() * 0.1) - 0.05; // -5% a +5%

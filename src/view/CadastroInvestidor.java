@@ -243,6 +243,7 @@ public class CadastroInvestidor extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         BemVindoAdministrador adm = new BemVindoAdministrador();
         adm.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
    

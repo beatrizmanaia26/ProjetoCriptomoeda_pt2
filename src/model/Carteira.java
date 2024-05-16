@@ -12,10 +12,6 @@ public class Carteira {
     private Moedas moedas;//composicao
     private double saldo;
 
-    public Carteira() {
-        this.moedas = new Moedas();
-    }
-
     public Carteira(Moedas moedas, double saldo) {
         this.moedas = moedas;
         this.saldo = saldo;

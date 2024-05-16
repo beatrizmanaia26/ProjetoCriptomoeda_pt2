@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import model.Bitcoin;
 import model.Carteira;
 import model.Investidor;
+import model.Moedas;
 import model.OutrasMoedas;
 /**
  *
@@ -102,8 +103,8 @@ public class BancoDAO {
        //     return resultado;
        // }
       
-        public ResultSet ConsultarParaAtualizarCriptomoedas() throws SQLException { //precisa do Bitcoin bit
-            String sql = "select \"Cotacao\" from moedas"; 
+        public ResultSet ConsultarParaAtualizarCriptomoedas() throws SQLException { 
+            String sql = "select * from moedas"; 
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.execute();
             ResultSet resultado = statement.getResultSet();
@@ -133,24 +134,25 @@ public class BancoDAO {
             ResultSet resultado = statement.getResultSet();
             return resultado;
         }
-
-      //  public void AtualizarCotacaoBitcoin(Bitcoin bit) throws SQLException {
-      //      String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = 'Bitcoin'";
-       //     PreparedStatement statement = conn.prepareStatement(sql);
-        //    statement.setDouble(1, bit.getCotacao());
-        //    statement.execute();//pq n statement como no alunodao teo 10
-       //     statement.close();
-       // conn.close();
          
-        public void AtualizarCriptomoedas() throws SQLException {
-            String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = 'Bitcoin'";
+        public ResultSet ConsultarTodaMoeda() throws SQLException{
+            String sql = "select * from moedas ";
             PreparedStatement statement = conn.prepareStatement(sql);
+            statement.execute();
+            ResultSet resultado = statement.getResultSet();
+            return resultado;
+        }
+        
+        public void AtualizarCriptomoedas(Moedas moeda) throws SQLException {
+            String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, String.valueOf(moeda.getCotacao()));
+            statement.setString(2, moeda.getNome());
 //            statement.setDouble());
             statement.execute();//pq n statement como no alunodao teo 10
             statement.close();
-        conn.close();
     }
-        
+       
         public void inserirCarteira(Investidor investidor,double saldo, String tipoMoeda) throws SQLException{
             String sql = "insert into Carteira (\"CPF\", "
                     + "\"NomeMoeda\", \"Saldo\") values('" +

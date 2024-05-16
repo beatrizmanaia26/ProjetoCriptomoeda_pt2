@@ -13,8 +13,7 @@ public class Ethereum extends Moedas implements Tarifacao {
     @Override
     public double TaxaCompra() {
         
-        return 0;
-        
+        return 0; 
     }
 
     @Override

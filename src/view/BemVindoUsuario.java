@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.ControllerConsultarSaldo;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import model.Investidor;
@@ -13,14 +14,16 @@ import model.Investidor;
  * @author beatr
  */
 public class BemVindoUsuario extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form BemVindoAdm
      */
     public BemVindoUsuario(Investidor investidor) {
         initComponents();
         setLocationRelativeTo(null);
+        control = new ControllerConsultarSaldo(this,investidor);
         this.lblNome.setText(investidor.getNome());
+        this.investidor = investidor;
         
     }
 
@@ -196,6 +199,9 @@ public class BemVindoUsuario extends javax.swing.JFrame {
         lblAtualizar = new javax.swing.JLabel();
         lblSair = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Investidor");
@@ -302,6 +308,20 @@ public class BemVindoUsuario extends javax.swing.JFrame {
         lblNome.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         lblNome.setText("- ");
 
+        jMenu1.setText("Login");
+
+        jMenuItem1.setText("Login");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -379,7 +399,7 @@ public class BemVindoUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bt8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -394,7 +414,9 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bt2ActionPerformed
 
     private void bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt1ActionPerformed
-        // TODO add your handling code here:
+
+        control.buscaMoedas();
+        
     }//GEN-LAST:event_bt1ActionPerformed
 
     private void bt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt3ActionPerformed
@@ -416,6 +438,12 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     private void bt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bt7ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        Login l = new Login();
+        l.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     
 //    public static void main(String args[]) {
@@ -450,7 +478,8 @@ public class BemVindoUsuario extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    private ControllerConsultarSaldo control;
+    private Investidor investidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt1;
     private javax.swing.JButton bt2;
@@ -460,6 +489,9 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     private javax.swing.JButton bt6;
     private javax.swing.JButton bt7;
     private javax.swing.JButton bt8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblAtualizar;
     private javax.swing.JLabel lblCompra;
     private javax.swing.JLabel lblDeposito;

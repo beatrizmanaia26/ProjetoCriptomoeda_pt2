@@ -13,6 +13,7 @@ public class Moedas {
     private double cotacao;
     
     public Moedas() {
+        
     }
 
     public Moedas(String nome, double cotacao, float taxaCompra, float taxaVenda) {
@@ -35,4 +36,6 @@ public class Moedas {
     public void setCotacao(double cotacao) {
         this.cotacao = cotacao;
     }
+    
+    
 }

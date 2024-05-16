@@ -4,6 +4,12 @@
  */
 package view;
 
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import model.Investidor;
+
 /**
  *
  * @author luana
@@ -13,10 +19,108 @@ public class ConsultarSaldo extends javax.swing.JFrame {
     /**
      * Creates new form ConsultarSaldo
      */
-    public ConsultarSaldo() {
+    public ConsultarSaldo(Investidor investidor) {
         initComponents();
         setLocationRelativeTo(null);
+        this.investidor = investidor;
+        this.getTxtNome().setText(investidor.getNome());
+        this.getTxtCPF().setText(investidor.getCpf());
     }
+
+    public JLabel getLblSaldoInvest() {
+        return lblSaldoInvest;
+    }
+
+    public void setLblSaldoInvest(JLabel lblSaldoInvest) {
+        this.lblSaldoInvest = lblSaldoInvest;
+    }
+
+    public JLabel getLblInformacoes() {
+        return lblSaldoInvest;
+    }
+
+    public void setLblInformacoes(JLabel lblInformacoes) {
+        this.lblSaldoInvest = lblInformacoes;
+    }
+
+    public Investidor getInvestidor() {
+        return investidor;
+    }
+
+    public void setInvestidor(Investidor investidor) {
+        this.investidor = investidor;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItemMenu() {
+        return jMenuItemMenu;
+    }
+
+    public void setjMenuItemMenu(JMenuItem jMenuItemMenu) {
+        this.jMenuItemMenu = jMenuItemMenu;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    
+
+    public JLabel getLblCPF() {
+        return lblCPF;
+    }
+
+    public void setLblCPF(JLabel lblCPF) {
+        this.lblCPF = lblCPF;
+    }
+
+    
+
+    public JLabel getLblNome() {
+        return lblNome;
+    }
+
+    public void setLblNome(JLabel lblNome) {
+        this.lblNome = lblNome;
+    }
+
+    public JLabel getLblSaldo() {
+        return lblSaldo;
+    }
+
+    public void setLblSaldo(JLabel lblSaldo) {
+        this.lblSaldo = lblSaldo;
+    }
+
+    public JLabel getTxtCPF() {
+        return txtCPF;
+    }
+
+    public void setTxtCPF(JLabel txtCPF) {
+        this.txtCPF = txtCPF;
+    }
+
+    public JLabel getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JLabel txtNome) {
+        this.txtNome = txtNome;
+    }
+
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,18 +132,12 @@ public class ConsultarSaldo extends javax.swing.JFrame {
     private void initComponents() {
 
         txtNome = new javax.swing.JLabel();
-        lblBitcoinRes = new javax.swing.JLabel();
-        lblEthereumRes = new javax.swing.JLabel();
-        lblRippleRes = new javax.swing.JLabel();
-        lblReais = new javax.swing.JLabel();
-        lblBitcoin = new javax.swing.JLabel();
-        lblEthereum = new javax.swing.JLabel();
-        lblRipple = new javax.swing.JLabel();
         lblNome = new javax.swing.JLabel();
-        txtNome1 = new javax.swing.JLabel();
         txtCPF = new javax.swing.JLabel();
         lblCPF = new javax.swing.JLabel();
         lblSaldo = new javax.swing.JLabel();
+        lblSaldoInvest = new javax.swing.JLabel();
+        lblInformacoes = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMenu = new javax.swing.JMenu();
         jMenuItemMenu = new javax.swing.JMenuItem();
@@ -48,28 +146,8 @@ public class ConsultarSaldo extends javax.swing.JFrame {
 
         txtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        lblBitcoinRes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        lblEthereumRes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        lblRippleRes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        lblReais.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblReais.setText("Reais:");
-
-        lblBitcoin.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblBitcoin.setText("Bitcoin:");
-
-        lblEthereum.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblEthereum.setText("Ethereum:");
-
-        lblRipple.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblRipple.setText("Ripple:");
-
         lblNome.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblNome.setText("Nome:");
-
-        txtNome1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         txtCPF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -79,9 +157,20 @@ public class ConsultarSaldo extends javax.swing.JFrame {
         lblSaldo.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         lblSaldo.setText("Saldo");
 
+        lblSaldoInvest.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
+        lblSaldoInvest.setText("-");
+
+        lblInformacoes.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
+        lblInformacoes.setText("-");
+
         jMenuMenu.setText("Menu");
 
         jMenuItemMenu.setText("menu");
+        jMenuItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMenuActionPerformed(evt);
+            }
+        });
         jMenuMenu.add(jMenuItemMenu);
 
         jMenuBar1.add(jMenuMenu);
@@ -93,46 +182,35 @@ public class ConsultarSaldo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblReais)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblEthereum)
-                                        .addComponent(lblRipple))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblEthereumRes, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(lblRippleRes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(lblBitcoin)
-                                            .addGap(40, 40, 40))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(lblNome)
-                                            .addGap(53, 53, 53)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(lblBitcoinRes, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(txtNome1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addComponent(lblCPF))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(lblSaldo)
-                .addGap(0, 179, Short.MAX_VALUE))
+                            .addComponent(lblCPF)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNome)
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(174, 174, 174)
+                        .addComponent(lblSaldo)))
+                .addGap(0, 98, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSaldoInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(lblInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(252, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -142,30 +220,24 @@ public class ConsultarSaldo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblCPF)
                     .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblReais)
-                    .addComponent(txtNome1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblBitcoin)
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblBitcoinRes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblEthereum)
-                    .addComponent(lblEthereumRes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblRippleRes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRipple))
-                .addGap(33, 33, 33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(lblSaldoInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(200, Short.MAX_VALUE)
+                    .addComponent(lblInformacoes, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(11, 11, 11)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
+        BemVindoUsuario b = new BemVindoUsuario(investidor);
+        b.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItemMenuActionPerformed
 
 
 //    public static void main(String args[]) {
@@ -199,23 +271,17 @@ public class ConsultarSaldo extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    private Investidor investidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemMenu;
     private javax.swing.JMenu jMenuMenu;
-    private javax.swing.JLabel lblBitcoin;
-    private javax.swing.JLabel lblBitcoinRes;
     private javax.swing.JLabel lblCPF;
-    private javax.swing.JLabel lblEthereum;
-    private javax.swing.JLabel lblEthereumRes;
+    private javax.swing.JLabel lblInformacoes;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblReais;
-    private javax.swing.JLabel lblRipple;
-    private javax.swing.JLabel lblRippleRes;
     private javax.swing.JLabel lblSaldo;
+    private javax.swing.JLabel lblSaldoInvest;
     private javax.swing.JLabel txtCPF;
     private javax.swing.JLabel txtNome;
-    private javax.swing.JLabel txtNome1;
     // End of variables declaration//GEN-END:variables
 }

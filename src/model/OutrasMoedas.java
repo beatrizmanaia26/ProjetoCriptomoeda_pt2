@@ -34,6 +34,5 @@ public class OutrasMoedas extends Moedas {
 
     public void setTaxaVenda(float TaxaVenda) {
         this.TaxaVenda = TaxaVenda;
-    }
-    
+    } 
 }

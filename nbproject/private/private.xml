@@ -3,29 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Real.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/ExcluirInvestidor.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Bitcoin.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/ExcluirCriptomoeda.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Ethereum.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/VerificacaoSenha.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/VendaCriptomoedas.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Tarifacao.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/SacarReais.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/CadastroInvestidor.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerCadastroCripto.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Ripple.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerExcluirCripto.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/Login.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Moedas.java</file>
             <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/DAO/BancoDAO.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerCadastro.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/SaldoInvestidor.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/BemVindoUsuario.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Carteira.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/ExtratoInvestidor.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/ConsultarSaldo.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/model/Investidor.java</file>
         </group>
     </open-files>
 </project-private>

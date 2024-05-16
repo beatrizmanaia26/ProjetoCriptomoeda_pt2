@@ -13,15 +13,13 @@ public class Real extends Moedas implements Tarifacao {
     @Override
     public double TaxaCompra() {
        
-        return 0;
-       
+        return 0; 
     }
 
     @Override
     public double TaxaVenda() {
        
         return 0;
-       
     }
     
 }

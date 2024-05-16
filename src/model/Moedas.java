@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.Random;
+
 /**
  *
  * @author beatr
@@ -11,6 +13,10 @@ package model;
 public class Moedas {
     private String nome;
     private double cotacao;
+
+    public Moedas(double cotacao) {
+        this.cotacao = cotacao;
+    }
     
     public Moedas() {
         
@@ -36,6 +42,11 @@ public class Moedas {
     public void setCotacao(double cotacao) {
         this.cotacao = cotacao;
     }
-    
-    
+
+    public double atualizar(){
+        Random random = new Random();
+        double variacaoPercentual = (random.nextDouble() * 0.1) - 0.05; // -5% a +5%
+        double novaCotacao = getCotacao() * (1 + variacaoPercentual);
+        return novaCotacao;
+    }
 }

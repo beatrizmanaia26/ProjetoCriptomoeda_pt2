@@ -12,16 +12,12 @@ public class Ripple extends Moedas implements Tarifacao{
 
     @Override
     public double TaxaCompra() {
-        
-        return 0;
-        
+        return 0.01;
     }
 
     @Override
     public double TaxaVenda() {
-      
-        return 0;
-      
+        return 0.01;
     }
     
 }

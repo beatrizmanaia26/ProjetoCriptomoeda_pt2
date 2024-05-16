@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import model.Bitcoin;
 import model.Carteira;
 import model.Investidor;
 import model.OutrasMoedas;
@@ -16,7 +17,7 @@ import model.OutrasMoedas;
  * @author beatr
  */
 public class BancoDAO {
-    private Connection conn;
+    private Connection conn; 
 
     public BancoDAO(Connection conn) {
         this.conn = conn;
@@ -87,12 +88,26 @@ public class BancoDAO {
             String sql = "select * from investidores where \"CPF\" = ? and \"Senha\" = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, investidor.getCpf());
-            statement.setString(2, investidor.getSenha());
+            statement.setString(2, investidor.getSenha()); 
             statement.execute();
             ResultSet resultado = statement.getResultSet();
             return resultado;
-        
     }
+     
+      //  public ResultSet ConsultarCotacaoBitcoin() throws SQLException { //precisa do Bitcoin bit
+       //     String sql = "select \"Cotacao\" from moedas where \"Nome\" = 'Bitcoin'"; 
+       //     PreparedStatement statement = conn.prepareStatement(sql);
+       //     statement.execute();
+       //     ResultSet resultado = statement.getResultSet();
+       //     return resultado;
+       // }
+      
+        public ResultSet ConsultarParaAtualizarCriptomoedas() throws SQLException { //precisa do Bitcoin bit
+            String sql = "select \"Cotacao\" from moedas"; 
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.execute();
+            ResultSet resultado = statement.getResultSet();
+            return resultado;
         
         public ResultSet consultarSaldo(Investidor investidor, String tipoMoeda) throws SQLException{ 
             String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = ?";
@@ -116,6 +131,23 @@ public class BancoDAO {
             statement.execute();
             ResultSet resultado = statement.getResultSet();
             return resultado;
+        }
+
+      //  public void AtualizarCotacaoBitcoin(Bitcoin bit) throws SQLException {
+      //      String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = 'Bitcoin'";
+       //     PreparedStatement statement = conn.prepareStatement(sql);
+        //    statement.setDouble(1, bit.getCotacao());
+        //    statement.execute();//pq n statement como no alunodao teo 10
+       //     statement.close();
+       // conn.close();
+         
+           public void AtualizarCriptomoedas() throws SQLException {
+            String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = 'Bitcoin'";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setDouble(1, bit.getCotacao());
+            statement.execute();//pq n statement como no alunodao teo 10
+            statement.close();
+        conn.close();
     }
         
         public void inserirCarteira(Investidor investidor,double saldo, String tipoMoeda) throws SQLException{
@@ -128,5 +160,4 @@ public class BancoDAO {
             statement.execute();
             
     }
-        
 }

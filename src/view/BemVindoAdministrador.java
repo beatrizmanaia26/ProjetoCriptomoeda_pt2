@@ -4,6 +4,8 @@
  */
 package view;
 
+//import controller.ControllerAtualizacaoBitcoin;
+import controller.ControllerAtualizarCriptomoedas;
 import model.Investidor;
 
 /**
@@ -16,6 +18,7 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
      * Creates new form BemVindoInvestidor
      */
     public BemVindoAdministrador() {
+        controller = new ControllerAtualizarCriptomoedas(this);
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -291,7 +294,7 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_bt6ActionPerformed
 
     private void bt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt7ActionPerformed
-        // TODO add your handling code here:
+    controller.SalvarBitcoin();
     }//GEN-LAST:event_bt7ActionPerformed
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
@@ -303,8 +306,6 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
         l.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-   
 
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
@@ -338,7 +339,7 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+   private ControllerAtualizarCriptomoedas controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt1;
     private javax.swing.JButton bt2;

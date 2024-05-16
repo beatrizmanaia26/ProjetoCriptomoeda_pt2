@@ -12,22 +12,42 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import view.BemVindoUsuario;
 import view.ConsultarSaldo;
+import view.InfosSaldoInvestidor;
+import view.SaldoInvestidor;
 
 /**
  *
  * @author luana
  */
-public class ControllerConsultarSaldo {
-    
-    private BemVindoUsuario view;
+public class ControllerConsultarSaldoInvest {
+    private SaldoInvestidor view;
     private Investidor investidor;
 
-    public ControllerConsultarSaldo(BemVindoUsuario view,Investidor invest) {
+    public ControllerConsultarSaldoInvest(SaldoInvestidor view) {
         this.view = view;
-        investidor = invest;
-        
+    }
+    
+    public void buscaUsuario(){
+        String cpfD = view.getTxtCPF().getText();
+        Investidor invest = new Investidor(null,cpfD,
+        null);
+        Conexao conexao = new Conexao();
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+            ResultSet res = dao.consultar(invest);
+            if(res.next()){
+                String nome = res.getString("Nome");
+                String cpf = res.getString("CPF");
+                String senha = res.getString("Senha");
+                investidor = new Investidor(nome,cpf,senha);              
+            }else{
+                JOptionPane.showMessageDialog(view,"Cpf não encontrado");
+            }
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        }
     }
     
     public void buscaMoedas(){
@@ -38,15 +58,10 @@ public class ControllerConsultarSaldo {
             BancoDAO dao = new BancoDAO(conn);
             ResultSet res = dao.consultarMoedas();
             while (res.next()) {
-                // Acesse os valores das colunas para a linha atual
-                String id = res.getString("Nome"); // pego id da moeda para usar no resto
-                // Faça o que for necessário com os valores, por exemplo, imprima-os
+                String id = res.getString("Nome"); 
                 moedasExistentes.add(id);
                 }
                 res.close();
-                
-                
-            
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
@@ -71,6 +86,7 @@ public class ControllerConsultarSaldo {
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }       
        }
+    
     public void MostrarCarteira(){  
         Conexao conexao = new Conexao();
         try{
@@ -84,15 +100,13 @@ public class ControllerConsultarSaldo {
                 texto = texto + id_moeda + ": " + saldo + "<br>";
                 
             }
-            ConsultarSaldo cs = new ConsultarSaldo(investidor);
-            cs.getLblSaldoInvest().setText(texto);
-            cs.setVisible(true);
+            InfosSaldoInvestidor i = new InfosSaldoInvestidor(investidor);
+            i.getLblSaldoInvest().setText(texto);
+            i.setVisible(true);
             view.setVisible(false);
                 
            }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");
            }
       }
-
-   }
-
+}

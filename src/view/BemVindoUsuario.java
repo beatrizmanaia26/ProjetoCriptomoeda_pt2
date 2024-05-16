@@ -416,6 +416,7 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     private void bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt1ActionPerformed
 
         control.buscaMoedas();
+        control.MostrarCarteira();
         
     }//GEN-LAST:event_bt1ActionPerformed
 

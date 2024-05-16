@@ -69,12 +69,12 @@ public class BancoDAO {
       }
       
        public ResultSet consultarCripto(OutrasMoedas moeda) throws SQLException{ 
-        String sql = "select * from moedas where \"Nome\" = ? ";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1,moeda.getNome());//1 pq  é primeira interrogação
-        statement.execute();//excuta a query e gera reesultado do select(da consulta)
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
+            String sql = "select * from moedas where \"Nome\" = ? ";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1,moeda.getNome());//1 pq  é primeira interrogação
+            statement.execute();//excuta a query e gera reesultado do select(da consulta)
+            ResultSet resultado = statement.getResultSet();
+            return resultado;
     }
       public void excluirCripto(OutrasMoedas moeda) throws SQLException{
         String sql = "delete from moedas where \"Nome\" = ?";
@@ -148,7 +148,7 @@ public class BancoDAO {
 //            statement.setDouble());
             statement.execute();//pq n statement como no alunodao teo 10
             statement.close();
-        conn.close();
+            conn.close();
     }
         
         public void inserirCarteira(Investidor investidor,double saldo, String tipoMoeda) throws SQLException{
@@ -161,4 +161,14 @@ public class BancoDAO {
             statement.execute();
             
     }
+        
+       public ResultSet consultarCarteira(Investidor investidor) throws SQLException{ 
+        String sql = "select * from \"carteira\" where \"CPF\" = ? ";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
+        statement.execute();//excuta a query e gera reesultado do select(da consulta)
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
+    }
+        
 }

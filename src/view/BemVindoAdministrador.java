@@ -286,7 +286,9 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_bt4ActionPerformed
 
     private void bt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt5ActionPerformed
-        // TODO add your handling code here:
+        SaldoInvestidor i = new SaldoInvestidor();
+        i.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt5ActionPerformed
 
     private void bt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt6ActionPerformed

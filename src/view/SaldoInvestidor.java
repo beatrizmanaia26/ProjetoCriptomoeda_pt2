@@ -4,6 +4,14 @@
  */
 package view;
 
+import controller.ControllerConsultarSaldoInvest;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+
 /**
  *
  * @author beatr
@@ -16,7 +24,66 @@ public class SaldoInvestidor extends javax.swing.JFrame {
     public SaldoInvestidor() {
         initComponents();
         setLocationRelativeTo(null);
+        control = new ControllerConsultarSaldoInvest(this);
     }
+
+    public JButton getBtConsultar() {
+        return btConsultar;
+    }
+
+    public void setBtConsultar(JButton btConsultar) {
+        this.btConsultar = btConsultar;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItemMenu() {
+        return jMenuItemMenu;
+    }
+
+    public void setjMenuItemMenu(JMenuItem jMenuItemMenu) {
+        this.jMenuItemMenu = jMenuItemMenu;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    public JLabel getLblCPFInvest() {
+        return lblCPFInvest;
+    }
+
+    public void setLblCPFInvest(JLabel lblCPFInvest) {
+        this.lblCPFInvest = lblCPFInvest;
+    }
+
+    public JLabel getLblSaldoInvestidor() {
+        return lblSaldoInvestidor;
+    }
+
+    public void setLblSaldoInvestidor(JLabel lblSaldoInvestidor) {
+        this.lblSaldoInvestidor = lblSaldoInvestidor;
+    }
+
+    public JTextField getTxtCPF() {
+        return txtCPF;
+    }
+
+    public void setTxtCPF(JTextField txtCPF) {
+        this.txtCPF = txtCPF;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +96,7 @@ public class SaldoInvestidor extends javax.swing.JFrame {
 
         lblSaldoInvestidor = new javax.swing.JLabel();
         lblCPFInvest = new javax.swing.JLabel();
-        txtCPFAdmin = new javax.swing.JTextField();
+        txtCPF = new javax.swing.JTextField();
         btConsultar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMenu = new javax.swing.JMenu();
@@ -44,7 +111,7 @@ public class SaldoInvestidor extends javax.swing.JFrame {
         lblCPFInvest.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblCPFInvest.setText("CPF:");
 
-        txtCPFAdmin.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         btConsultar.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         btConsultar.setText("Consultar");
@@ -57,6 +124,11 @@ public class SaldoInvestidor extends javax.swing.JFrame {
         jMenuMenu.setText("Menu");
 
         jMenuItemMenu.setText("menu");
+        jMenuItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMenuActionPerformed(evt);
+            }
+        });
         jMenuMenu.add(jMenuItemMenu);
 
         jMenuBar1.add(jMenuMenu);
@@ -74,75 +146,75 @@ public class SaldoInvestidor extends javax.swing.JFrame {
                         .addComponent(lblSaldoInvestidor, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(lblCPFInvest))
+                        .addComponent(lblCPFInvest)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(100, 100, 100)
-                    .addComponent(txtCPFAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(101, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(lblSaldoInvestidor, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(lblCPFInvest)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCPFInvest)
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(94, 94, 94)
-                    .addComponent(txtCPFAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(94, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-        // TODO add your handling code here:
+        control.buscaUsuario();
+        control.buscaMoedas();
+        control.MostrarCarteira();
     }//GEN-LAST:event_btConsultarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
+        BemVindoAdministrador adm = new BemVindoAdministrador();
+        adm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItemMenuActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SaldoInvestidor().setVisible(true);
-            }
-        });
-    }
 
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(SaldoInvestidor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new SaldoInvestidor().setVisible(true);
+//            }
+//        });
+//    }
+    private ControllerConsultarSaldoInvest control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btConsultar;
     private javax.swing.JMenuBar jMenuBar1;
@@ -150,6 +222,6 @@ public class SaldoInvestidor extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuMenu;
     private javax.swing.JLabel lblCPFInvest;
     private javax.swing.JLabel lblSaldoInvestidor;
-    private javax.swing.JTextField txtCPFAdmin;
+    private javax.swing.JTextField txtCPF;
     // End of variables declaration//GEN-END:variables
 }

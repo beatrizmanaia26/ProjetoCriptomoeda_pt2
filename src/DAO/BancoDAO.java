@@ -58,7 +58,15 @@ public class BancoDAO {
         statement.setString(1, investidor.getCpf());
         statement.execute();
         conn.close();
-      }    
+      }
+      public void excluirCarteira(Investidor investidor) throws SQLException{
+        String sql = "delete from carteira where \"CPF\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
+        statement.setString(1, investidor.getCpf());
+        statement.execute();
+        
+      }
+      
        public ResultSet consultarCripto(OutrasMoedas moeda) throws SQLException{ 
         String sql = "select * from moedas where \"Nome\" = ? ";
         PreparedStatement statement = conn.prepareStatement(sql);

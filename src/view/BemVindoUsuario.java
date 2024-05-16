@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.ControllerAtualizarCriptomoedas;
 import controller.ControllerConsultarSaldo;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -21,6 +22,7 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     public BemVindoUsuario(Investidor investidor) {
         initComponents();
         setLocationRelativeTo(null);
+        controller = new ControllerAtualizarCriptomoedas(this);
         control = new ControllerConsultarSaldo(this,investidor);
         this.lblNome.setText(investidor.getNome());
         this.investidor = investidor;
@@ -437,7 +439,7 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bt6ActionPerformed
 
     private void bt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt7ActionPerformed
-        // TODO add your handling code here:
+       controller.AtualizarCriptomoedas();
     }//GEN-LAST:event_bt7ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -479,6 +481,7 @@ public class BemVindoUsuario extends javax.swing.JFrame {
 //            }
 //        });
 //    }
+    private ControllerAtualizarCriptomoedas controller;
     private ControllerConsultarSaldo control;
     private Investidor investidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables

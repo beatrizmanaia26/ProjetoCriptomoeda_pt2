@@ -108,6 +108,7 @@ public class BancoDAO {
             statement.execute();
             ResultSet resultado = statement.getResultSet();
             return resultado;
+        }
         
         public ResultSet consultarSaldo(Investidor investidor, String tipoMoeda) throws SQLException{ 
             String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = ?";
@@ -141,10 +142,10 @@ public class BancoDAO {
        //     statement.close();
        // conn.close();
          
-           public void AtualizarCriptomoedas() throws SQLException {
+        public void AtualizarCriptomoedas() throws SQLException {
             String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = 'Bitcoin'";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setDouble(1, bit.getCotacao());
+//            statement.setDouble());
             statement.execute();//pq n statement como no alunodao teo 10
             statement.close();
         conn.close();

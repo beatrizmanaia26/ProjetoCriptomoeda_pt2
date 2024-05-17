@@ -47,9 +47,10 @@ public class BancoDAO {
     }
     
       public ResultSet consultar(Investidor investidor) throws SQLException{ 
-        String sql = "select * from investidores where \"CPF\" = ? ";
+        String sql = "select * from investidores where \"CPF\" = ? and \"Senha\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
+        statement.setString(2,investidor.getSenha());
         statement.execute();//excuta a query e gera reesultado do select(da consulta)
         ResultSet resultado = statement.getResultSet();
         return resultado;
@@ -143,9 +144,15 @@ public class BancoDAO {
 //            statement.setDouble());
             statement.execute();//pq n statement como no alunodao teo 10
             statement.close();
-
-     
-
+    }
+        public void AtualizarReaisSaque(Investidor investidor) throws SQLException {
+            String sql = "update carteira set \"Saldo\" = ? where "
+                    + "\"CPF\" = ? and \"NomeMoeda\" = 'Reais'";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, String.valueOf(investidor.getCarteira().getSaldo()));
+            statement.setString(2, investidor.getCpf());
+            statement.execute();
+            statement.close();
     }
        
         public void inserirCarteira(Investidor investidor,double saldo, String tipoMoeda) throws SQLException{

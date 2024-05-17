@@ -44,9 +44,7 @@ public class ControllerConsultarSaldo {
                 moedasExistentes.add(id);
                 }
                 res.close();
-                
-                
-            
+
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
@@ -70,7 +68,8 @@ public class ControllerConsultarSaldo {
              e.printStackTrace(); 
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }       
-       }
+    }
+    
     public void MostrarCarteira(){  
         Conexao conexao = new Conexao();
         try{

@@ -62,10 +62,17 @@ public class BancoDAO {
         statement.execute();
         conn.close();
       }
-      public void excluirCarteira(Investidor investidor) throws SQLException{
+      public void excluirCarteiraInvest(Investidor investidor) throws SQLException{
         String sql = "delete from carteira where \"CPF\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, investidor.getCpf());
+        statement.execute();
+        
+      }
+      public void excluirCarteiraMoeda(OutrasMoedas moeda) throws SQLException{
+        String sql = "delete from carteira where \"NomeMoeda\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
+        statement.setString(1, moeda.getNome());
         statement.execute();
         
       }

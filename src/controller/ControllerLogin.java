@@ -56,7 +56,7 @@ public class ControllerLogin {
                 b.setVisible(true);
                 view.setVisible(false);
             }else{
-                JOptionPane.showMessageDialog(view,"Login não foi feito");
+                JOptionPane.showMessageDialog(view,"Dados incorretos");
             }
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");

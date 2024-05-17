@@ -179,13 +179,14 @@ public class SacarReais extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
-        BemVindoAdministrador adm = new BemVindoAdministrador();
-        adm.setVisible(true);
+        BemVindoUsuario u = new BemVindoUsuario(investidor);
+        u.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItemMenuActionPerformed
 
     private void btSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSacarActionPerformed
-        control.ConsultarCarteira();
+        control.consultarCarteira();
+        control.sacarReais();
     }//GEN-LAST:event_btSacarActionPerformed
 
 //    public static void main(String args[]) {

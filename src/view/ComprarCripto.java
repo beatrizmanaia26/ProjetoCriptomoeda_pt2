@@ -29,20 +29,12 @@ public class ComprarCripto extends javax.swing.JFrame {
 
         lblReaisRes = new javax.swing.JLabel();
         lblCompra = new javax.swing.JLabel();
-        lblEthereum = new javax.swing.JLabel();
-        lblRipple = new javax.swing.JLabel();
         txtCotBitcoin = new javax.swing.JLabel();
-        txtCotEthereum = new javax.swing.JLabel();
-        txtCotRipple = new javax.swing.JLabel();
-        lblBitcoin = new javax.swing.JLabel();
         lblReais1 = new javax.swing.JLabel();
         txtNomeInvest = new javax.swing.JTextField();
         lblReais2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         lblReais3 = new javax.swing.JLabel();
+        lblSaldoInvest = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -54,20 +46,7 @@ public class ComprarCripto extends javax.swing.JFrame {
         lblCompra.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         lblCompra.setText("Comprar Criptomoedas");
 
-        lblEthereum.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblEthereum.setText("Ethereum:");
-
-        lblRipple.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblRipple.setText("Ripple:");
-
         txtCotBitcoin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        txtCotEthereum.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        txtCotRipple.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        lblBitcoin.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblBitcoin.setText("Bitcoin:");
 
         lblReais1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblReais1.setText("Cotações:");
@@ -77,30 +56,11 @@ public class ComprarCripto extends javax.swing.JFrame {
         lblReais2.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblReais2.setText("Quantidade:");
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setText("Reais");
-
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton2.setText("Bitcoin");
-
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton3.setText("Ethereum");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton4.setText("Ripple");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         lblReais3.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblReais3.setText("Qual deseja comprar?");
+
+        lblSaldoInvest.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        lblSaldoInvest.setText("-");
 
         jMenuMenu.setText("Menu");
 
@@ -123,83 +83,47 @@ public class ComprarCripto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblBitcoin)
-                                .addGap(41, 41, 41)
-                                .addComponent(txtCotBitcoin, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEthereum)
-                                    .addComponent(lblRipple))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addComponent(txtCotRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtCotEthereum, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(lblCompra))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblReais1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblReais2)
-                        .addGap(4, 4, 4)
-                        .addComponent(txtNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(lblReais3)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblSaldoInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(28, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblReais1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblReais2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCotBitcoin, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblReais1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBitcoin, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCotBitcoin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblReais3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblEthereum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRipple))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(txtCotEthereum, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCotRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblReais2)
                     .addComponent(txtNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblReais3)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addGap(21, 21, 21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCotBitcoin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblReais1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSaldoInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,14 +132,6 @@ public class ComprarCripto extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 //
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
@@ -250,24 +166,16 @@ public class ComprarCripto extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenuMenu;
-    private javax.swing.JLabel lblBitcoin;
     private javax.swing.JLabel lblCompra;
-    private javax.swing.JLabel lblEthereum;
     private javax.swing.JLabel lblReais1;
     private javax.swing.JLabel lblReais2;
     private javax.swing.JLabel lblReais3;
     private javax.swing.JLabel lblReaisRes;
-    private javax.swing.JLabel lblRipple;
+    private javax.swing.JLabel lblSaldoInvest;
     private javax.swing.JLabel txtCotBitcoin;
-    private javax.swing.JLabel txtCotEthereum;
-    private javax.swing.JLabel txtCotRipple;
     private javax.swing.JTextField txtNomeInvest;
     // End of variables declaration//GEN-END:variables
 }

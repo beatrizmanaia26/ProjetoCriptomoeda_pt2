@@ -4,6 +4,15 @@
  */
 package view;
 
+import controller.ControllerSacar;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+import model.Investidor;
+
 /**
  *
  * @author luana
@@ -13,10 +22,79 @@ public class SacarReais extends javax.swing.JFrame {
     /**
      * Creates new form SacarReais
      */
-    public SacarReais() {
+    public SacarReais(Investidor invest) {
         initComponents();
         setLocationRelativeTo(null);
+        investidor = invest;
+        control = new ControllerSacar(this,invest);
+        
     }
+
+    public Investidor getInvestidor() {
+        return investidor;
+    }
+
+    public void setInvestidor(Investidor investidor) {
+        this.investidor = investidor;
+    }
+
+    public JButton getBtSacar() {
+        return btSacar;
+    }
+
+    public void setBtSacar(JButton btSacar) {
+        this.btSacar = btSacar;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItemMenu() {
+        return jMenuItemMenu;
+    }
+
+    public void setjMenuItemMenu(JMenuItem jMenuItemMenu) {
+        this.jMenuItemMenu = jMenuItemMenu;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    public JLabel getLblReais() {
+        return lblReais;
+    }
+
+    public void setLblReais(JLabel lblReais) {
+        this.lblReais = lblReais;
+    }
+
+    public JLabel getLblSaque() {
+        return lblSaque;
+    }
+
+    public void setLblSaque(JLabel lblSaque) {
+        this.lblSaque = lblSaque;
+    }
+
+    public JTextField getTxtReaisSaque() {
+        return txtReaisSaque;
+    }
+
+    public void setTxtReaisSaque(JTextField txtReaisSaque) {
+        this.txtReaisSaque = txtReaisSaque;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,10 +125,20 @@ public class SacarReais extends javax.swing.JFrame {
 
         btSacar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btSacar.setText("Sacar");
+        btSacar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSacarActionPerformed(evt);
+            }
+        });
 
         jMenuMenu.setText("Menu");
 
         jMenuItemMenu.setText("menu");
+        jMenuItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMenuActionPerformed(evt);
+            }
+        });
         jMenuMenu.add(jMenuItemMenu);
 
         jMenuBar1.add(jMenuMenu);
@@ -90,6 +178,16 @@ public class SacarReais extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
+        BemVindoAdministrador adm = new BemVindoAdministrador();
+        adm.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItemMenuActionPerformed
+
+    private void btSacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSacarActionPerformed
+        control.ConsultarCarteira();
+    }//GEN-LAST:event_btSacarActionPerformed
+
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -121,7 +219,8 @@ public class SacarReais extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    private ControllerSacar control;
+    private Investidor investidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btSacar;
     private javax.swing.JMenuBar jMenuBar1;

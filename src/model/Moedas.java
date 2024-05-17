@@ -49,4 +49,11 @@ public class Moedas {
         double novaCotacao = getCotacao() * (1 + variacaoPercentual);
         return novaCotacao;
     }
+
+    @Override
+    public String toString() {
+        return "Moedas{" + "nome=" + nome + ", cotacao=" + cotacao + '}';
+    }
+    
+    
 }

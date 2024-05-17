@@ -15,10 +15,18 @@ public class Investidor extends Pessoa {
 
     public Investidor(String nome, String cpf, String senha) {
         super(nome, cpf, senha);
-//        this.carteira = new Carteira(); 
+        this.carteira = new Carteira(); 
     }
 
- 
+    public Carteira getCarteira() {
+        return carteira;
+    }
+
+    public void setCarteira(Carteira carteira) {
+        this.carteira = carteira;
+    }
+    
+
     @Override
     public String toString() {
        

@@ -10,6 +10,11 @@ package model;
  */
 public class Real extends Moedas implements Tarifacao {
 
+    public Real() {
+        setNome("Real");
+        setCotacao(0);
+    }
+
     @Override
     public double TaxaCompra() {
        

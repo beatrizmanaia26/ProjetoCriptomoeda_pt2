@@ -94,11 +94,7 @@ public class BancoDAO {
             ResultSet resultado = statement.getResultSet();
             return resultado;
     }
-<<<<<<< Updated upstream
-      
-=======
 
->>>>>>> Stashed changes
         public ResultSet ConsultarParaAtualizarCriptomoedas() throws SQLException { 
             String sql = "select * from moedas"; 
             PreparedStatement statement = conn.prepareStatement(sql);
@@ -164,12 +160,20 @@ public class BancoDAO {
     }
         
        public ResultSet consultarCarteira(Investidor investidor) throws SQLException{ 
-        String sql = "select * from \"carteira\" where \"CPF\" = ? ";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
-        statement.execute();//excuta a query e gera reesultado do select(da consulta)
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
+            String sql = "select * from \"carteira\" where \"CPF\" = ? ";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
+            statement.execute();//excuta a query e gera reesultado do select(da consulta)
+            ResultSet resultado = statement.getResultSet();
+            return resultado;
+    }
+        public ResultSet consultarReais(Investidor investidor) throws SQLException{ 
+            String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = 'Reais'";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1,investidor.getCpf());
+            statement.execute();
+            ResultSet resultado = statement.getResultSet();
+            return resultado;
     }
         
 }

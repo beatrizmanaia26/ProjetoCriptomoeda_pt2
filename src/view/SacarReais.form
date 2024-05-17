@@ -13,6 +13,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="menu"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemMenuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -107,6 +110,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Sacar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSacarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

@@ -18,6 +18,10 @@ public class Carteira {
         this.moedas = new Moedas();
     }
 
+    public Carteira() {
+    }
+    
+
     public Moedas getMoedas() {
         return moedas;
     }
@@ -33,5 +37,12 @@ public class Carteira {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+    @Override
+    public String toString() {
+        return "Carteira{" + "moedas=" + moedas + ", saldo=" + saldo + '}';
+    }
+    
+    
     
 }

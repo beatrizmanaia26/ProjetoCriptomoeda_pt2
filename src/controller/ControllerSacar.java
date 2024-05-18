@@ -77,8 +77,7 @@ public class ControllerSacar {
                     investidor.getCarteira().setMoedas(r);
                     investidor.getCarteira().setSaldo(doubleSaldo);
 
-                }else{
-                    JOptionPane.showMessageDialog(view,"Login não foi feito");
+                
                 }
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(view,"Erro de conexao");

@@ -45,7 +45,7 @@ public class ControllerExcluirInvestidor {
                 if(option != 1){
                     
                     try{
-                        dao.excluirCarteira(i);
+                        dao.excluirCarteiraInvest(i);
                         dao.excluir(i);
                     
                         JOptionPane.showMessageDialog(view,"Investidor excluido");

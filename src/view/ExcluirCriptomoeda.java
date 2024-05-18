@@ -24,6 +24,7 @@ public class ExcluirCriptomoeda extends javax.swing.JFrame {
     public ExcluirCriptomoeda() {
         controller = new ControllerExcluirCripto(this);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     public JButton getBtExcluir() {

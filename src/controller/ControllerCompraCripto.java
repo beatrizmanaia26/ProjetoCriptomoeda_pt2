@@ -12,25 +12,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import view.BemVindoUsuario;
-import view.ConsultarSaldo;
+import view.ComprarCripto;
 
 /**
  *
  * @author luana
  */
-public class ControllerConsultarSaldo {
-    
-    private ConsultarSaldo view;
+public class ControllerCompraCripto {
+    private ComprarCripto view;
     private Investidor investidor;
 
-    public ControllerConsultarSaldo(ConsultarSaldo view,Investidor invest) {
+    public ControllerCompraCripto(ComprarCripto view, Investidor investidor) {
         this.view = view;
-        investidor = invest;
-        
+        this.investidor = investidor;
     }
     
-    public void buscaMoedas(){
+    public void fazCarteira(){
         Conexao conexao = new Conexao();
         ArrayList<String> moedasExistentes = new ArrayList<>();
         try{
@@ -38,9 +35,7 @@ public class ControllerConsultarSaldo {
             BancoDAO dao = new BancoDAO(conn);
             ResultSet res = dao.consultarMoedas();
             while (res.next()) {
-                // Acesse os valores das colunas para a linha atual
-                String id = res.getString("Nome"); // pego id da moeda para usar no resto
-                // Faça o que for necessário com os valores, por exemplo, imprima-os
+                String id = res.getString("Nome"); 
                 moedasExistentes.add(id);
                 }
                 res.close();
@@ -67,10 +62,10 @@ public class ControllerConsultarSaldo {
         }catch(SQLException e){
              e.printStackTrace(); 
             JOptionPane.showMessageDialog(view,"Erro de conexao");
-        }       
+        }
     }
     
-    public void MostrarCarteira(){  
+    public void mostrarCotacao(){
         Conexao conexao = new Conexao();
         try{
             Connection conn = conexao.getConnection();
@@ -83,12 +78,10 @@ public class ControllerConsultarSaldo {
                 texto = texto + id_moeda + ": " + saldo + "<br>";
                 
             }
-            view.getLblSaldoInvest().setText(texto);
-               
+                
            }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");
            }
-      }
-
-   }
-
+      
+    }
+}

@@ -62,10 +62,17 @@ public class BancoDAO {
         statement.execute();
         conn.close();
       }
-      public void excluirCarteira(Investidor investidor) throws SQLException{
+      public void excluirCarteiraInvest(Investidor investidor) throws SQLException{
         String sql = "delete from carteira where \"CPF\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, investidor.getCpf());
+        statement.execute();
+        
+      }
+      public void excluirCarteiraMoeda(OutrasMoedas moeda) throws SQLException{
+        String sql = "delete from carteira where \"NomeMoeda\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
+        statement.setString(1, moeda.getNome());
         statement.execute();
         
       }
@@ -147,7 +154,7 @@ public class BancoDAO {
     }
         public void AtualizarReaisSaque(Investidor investidor) throws SQLException {
             String sql = "update carteira set \"Saldo\" = ? where "
-                    + "\"CPF\" = ? and \"NomeMoeda\" = 'Reais'";
+                    + "\"CPF\" = ? and \"NomeMoeda\" = 'Real'";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, String.valueOf(investidor.getCarteira().getSaldo()));
             statement.setString(2, investidor.getCpf());
@@ -175,7 +182,7 @@ public class BancoDAO {
             return resultado;
     }
         public ResultSet consultarReais(Investidor investidor) throws SQLException{ 
-            String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = 'Reais'";
+            String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = 'Real'";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1,investidor.getCpf());
             statement.execute();

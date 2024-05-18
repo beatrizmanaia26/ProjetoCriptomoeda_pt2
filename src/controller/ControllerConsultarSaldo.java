@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import view.BemVindoUsuario;
 import view.ConsultarSaldo;
 
 /**
@@ -79,7 +78,7 @@ public class ControllerConsultarSaldo {
             String texto = "<html>";
             while (res.next()) {
                 String id_moeda = res.getString("NomeMoeda"); 
-                String saldo = res.getString("Saldo"); 
+                String saldo = res.getString("Saldo");
                 texto = texto + id_moeda + ": " + saldo + "<br>";
                 
             }

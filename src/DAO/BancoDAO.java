@@ -34,6 +34,7 @@ public class BancoDAO {
         statement.execute();
         conn.close(); 
     }
+    
     public void inserirMoeda(OutrasMoedas moeda) throws SQLException{
         String sql = "insert into moedas ( \"Nome\", "
                 + "\"Cotacao\", \"Taxa_compra\", \"Taxa_venda\") values('" +
@@ -55,37 +56,39 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
-      public void excluir(Investidor investidor) throws SQLException{
+    
+    public void excluir(Investidor investidor) throws SQLException{
         String sql = "delete from investidores where \"CPF\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, investidor.getCpf());
         statement.execute();
         conn.close();
       }
+  
       public void excluirCarteiraInvest(Investidor investidor) throws SQLException{
         String sql = "delete from carteira where \"CPF\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, investidor.getCpf());
-        statement.execute();
-        
+        statement.execute();   
       }
+  
       public void excluirCarteiraMoeda(OutrasMoedas moeda) throws SQLException{
         String sql = "delete from carteira where \"NomeMoeda\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, moeda.getNome());
-        statement.execute();
-        
+        statement.execute();    
       }
       
-       public ResultSet consultarCripto(OutrasMoedas moeda) throws SQLException{ 
-            String sql = "select * from moedas where \"Nome\" = ? ";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1,moeda.getNome());//1 pq  é primeira interrogação
-            statement.execute();//excuta a query e gera reesultado do select(da consulta)
-            ResultSet resultado = statement.getResultSet();
-            return resultado;
+    public ResultSet consultarCripto(OutrasMoedas moeda) throws SQLException{ 
+        String sql = "select * from moedas where \"Nome\" = ? ";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1,moeda.getNome());//1 pq  é primeira interrogação
+        statement.execute();//excuta a query e gera reesultado do select(da consulta)
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
-      public void excluirCripto(OutrasMoedas moeda) throws SQLException{
+    
+    public void excluirCripto(OutrasMoedas moeda) throws SQLException{
         String sql = "delete from moedas where \"Nome\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao
         statement.setString(1, moeda.getNome());
@@ -93,57 +96,57 @@ public class BancoDAO {
         conn.close();
       }
       
-        public ResultSet consultarLogin(Investidor investidor) throws SQLException{
-            String sql = "select * from investidores where \"CPF\" = ? and \"Senha\" = ?";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, investidor.getCpf());
-            statement.setString(2, investidor.getSenha()); 
-            statement.execute();
-            ResultSet resultado = statement.getResultSet();
-            return resultado;
+    public ResultSet consultarLogin(Investidor investidor) throws SQLException{
+        String sql = "select * from investidores where \"CPF\" = ? and \"Senha\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, investidor.getCpf());
+        statement.setString(2, investidor.getSenha()); 
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
 
-        public ResultSet ConsultarParaAtualizarCriptomoedas() throws SQLException { 
-            String sql = "select * from moedas"; 
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.execute();
-            ResultSet resultado = statement.getResultSet();
-            return resultado;
-        }
-        
-        public ResultSet consultarSaldo(Investidor investidor, String tipoMoeda) throws SQLException{ 
-            String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = ?";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1,investidor.getCpf());
-            statement.setString(2,tipoMoeda);
-            statement.execute();
-            ResultSet resultado = statement.getResultSet();//result null saldo 0
-            if (resultado.next()) {
-            // Retorna o ResultSet se houver resultados
-                return resultado;
-            } else {
-                // Retorna null se não houver resultados;
-                return null;
-            }
+    public ResultSet consultarParaAtualizarCriptomoedas() throws SQLException { 
+        String sql = "select * from moedas"; 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
         
-        public ResultSet consultarMoedas() throws SQLException{ 
-            String sql = "select \"Nome\" from moedas";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.execute();
-            ResultSet resultado = statement.getResultSet();
+    public ResultSet consultarSaldo(Investidor investidor, String tipoMoeda) throws SQLException{ 
+        String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1,investidor.getCpf());
+        statement.setString(2,tipoMoeda);
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();//result null saldo 0
+        if (resultado.next()) {
+       // Retorna o ResultSet se houver resultados
             return resultado;
+        } else {
+            // Retorna null se não houver resultados;
+            return null;
         }
-         
-        public ResultSet ConsultarTodaMoeda() throws SQLException{
-            String sql = "select * from moedas ";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.execute();
-            ResultSet resultado = statement.getResultSet();
-            return resultado;
-        }
+    }
         
-        public void AtualizarCriptomoedas(Moedas moeda) throws SQLException {
+    public ResultSet consultarMoedas() throws SQLException{ 
+        String sql = "select \"Nome\" from moedas";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
+    }
+         
+    public ResultSet consultarTodaMoeda() throws SQLException{
+        String sql = "select * from moedas ";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
+    }
+  
+        public void atualizarCriptomoedas(Moedas moeda) throws SQLException {
             String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, String.valueOf(moeda.getCotacao()));
@@ -162,25 +165,34 @@ public class BancoDAO {
             statement.close();
     }
        
-        public void inserirCarteira(Investidor investidor,double saldo, String tipoMoeda) throws SQLException{
-            String sql = "insert into Carteira (\"CPF\", "
-                    + "\"NomeMoeda\", \"Saldo\") values('" +
-                    investidor.getCpf() + "', '" +
-                    tipoMoeda + "', '" +
-                    saldo + "')";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.execute();
-            
+    public void inserirCarteira(Investidor investidor,double saldo, String tipoMoeda) throws SQLException{
+        String sql = "insert into Carteira (\"CPF\", "
+                + "\"NomeMoeda\", \"Saldo\") values('" +
+                investidor.getCpf() + "', '" +
+                tipoMoeda + "', '" +
+                saldo + "')";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();  
     }
         
-       public ResultSet consultarCarteira(Investidor investidor) throws SQLException{ 
-            String sql = "select * from \"carteira\" where \"CPF\" = ? ";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
-            statement.execute();//excuta a query e gera reesultado do select(da consulta)
-            ResultSet resultado = statement.getResultSet();
-            return resultado;
+    public ResultSet consultarCarteira(Investidor investidor) throws SQLException{ 
+        String sql = "select * from \"carteira\" where \"CPF\" = ? ";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
+        statement.execute();//excuta a query e gera reesultado do select(da consulta)
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
+    
+    public void depositoReais(Investidor investidor) throws SQLException{
+        String sql = "update carteira set \"Saldo\" = ? where \"NomeMoeda\" = 'Real' and \"CPF\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, String.valueOf(investidor.getCarteira().getSaldo()));
+        statement.setString(2, String.valueOf(investidor.getCpf())); //
+        statement.execute();
+        statement.close();
+    }
+  
         public ResultSet consultarReais(Investidor investidor) throws SQLException{ 
             String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = 'Real'";
             PreparedStatement statement = conn.prepareStatement(sql);
@@ -189,5 +201,4 @@ public class BancoDAO {
             ResultSet resultado = statement.getResultSet();
             return resultado;
     }
-        
 }

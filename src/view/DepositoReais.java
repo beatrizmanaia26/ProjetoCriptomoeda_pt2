@@ -4,6 +4,15 @@
  */
 package view;
 
+import controller.ControllerDepositarMoedas;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+import model.Investidor;
+
 /**
  *
  * @author luana
@@ -13,11 +22,12 @@ public class DepositoReais extends javax.swing.JFrame {
     /**
      * Creates new form DepositoReais
      */
-    public DepositoReais() {
+    public DepositoReais(Investidor investidor) {
+        this.investidor = investidor;
+        controller = new ControllerDepositarMoedas(this,investidor);
         initComponents();
         setLocationRelativeTo(null);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,13 +54,28 @@ public class DepositoReais extends javax.swing.JFrame {
         lblReais.setText("R$");
 
         txtReaisDeposito.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtReaisDeposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtReaisDepositoActionPerformed(evt);
+            }
+        });
 
         btDepositar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         btDepositar.setText("Depositar");
+        btDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDepositarActionPerformed(evt);
+            }
+        });
 
         jMenuMenu.setText("Menu");
 
         jMenuItemMenu.setText("menu");
+        jMenuItemMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemMenuActionPerformed(evt);
+            }
+        });
         jMenuMenu.add(jMenuItemMenu);
 
         jMenuBar1.add(jMenuMenu);
@@ -89,39 +114,88 @@ public class DepositoReais extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-  
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(DepositoReais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(DepositoReais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(DepositoReais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(DepositoReais.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new DepositoReais().setVisible(true);
-//            }
-//        });
-//    }
+    private void txtReaisDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtReaisDepositoActionPerformed
+     
+    }//GEN-LAST:event_txtReaisDepositoActionPerformed
 
+    private void btDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositarActionPerformed
+        controller.buscaMoedas();
+        controller.consultarCarteira();
+        controller.DepositarReais();
+    }//GEN-LAST:event_btDepositarActionPerformed
+
+    private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
+       BemVindoUsuario menu = new BemVindoUsuario(investidor);
+       menu.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenuItemMenuActionPerformed
+
+    public ControllerDepositarMoedas getController() {
+        return controller;
+    }
+
+    public void setController(ControllerDepositarMoedas controller) {
+        this.controller = controller;
+    }
+
+    public JButton getBtDepositar() {
+        return btDepositar;
+    }
+
+    public void setBtDepositar(JButton btDepositar) {
+        this.btDepositar = btDepositar;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItemMenu() {
+        return jMenuItemMenu;
+    }
+
+    public void setjMenuItemMenu(JMenuItem jMenuItemMenu) {
+        this.jMenuItemMenu = jMenuItemMenu;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    public JLabel getLblDeposito() {
+        return lblDeposito;
+    }
+
+    public void setLblDeposito(JLabel lblDeposito) {
+        this.lblDeposito = lblDeposito;
+    }
+
+    public JLabel getLblReais() {
+        return lblReais;
+    }
+
+    public void setLblReais(JLabel lblReais) {
+        this.lblReais = lblReais;
+    }
+
+    public JTextField getTxtReaisDeposito() {
+        return txtReaisDeposito;
+    }
+
+    public void setTxtReaisDeposito(JTextField txtReaisDeposito) {
+        this.txtReaisDeposito = txtReaisDeposito;
+    }
+    
+    private Investidor investidor;
+    private ControllerDepositarMoedas controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDepositar;
     private javax.swing.JMenuBar jMenuBar1;

@@ -32,13 +32,14 @@ public class ControllerAtualizarCriptomoedas {
     public ControllerAtualizarCriptomoedas(BemVindoAdministrador view) {
         this.view = view;
     }
+    
     public void AtualizarCriptomoedas(){
         Conexao conexao = new Conexao();
         ArrayList<Moedas> moedas = new ArrayList<>();
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-            ResultSet res= dao.ConsultarParaAtualizarCriptomoedas();
+            ResultSet res= dao.consultarParaAtualizarCriptomoedas();
             while (res.next()) {
                 String nome = res.getString("Nome");
                 String cotacao = res.getString("Cotacao");
@@ -61,38 +62,11 @@ public class ControllerAtualizarCriptomoedas {
          for (int i = 0; i < moedas.size(); i++){
                // Moedas mo = new Moedas(doubleCotacaoMoeda);
                 moedas.get(i).setCotacao(moedas.get(i).atualizar());
-                dao.AtualizarCriptomoedas(moedas.get(i));
+                dao.atualizarCriptomoedas(moedas.get(i));
             }
             conn.close();
         }catch(Exception e){
             JOptionPane.showMessageDialog(view,"Erro de conexao 2");
         }
-}
-   // public void SalvarBitcoin(){
-   //     Conexao conexao = new Conexao();
-    //    try {
-     //       Connection conn = conexao.getConnection();
-      //      BancoDAO dao = new BancoDAO(conn);
-       //     ResultSet res= dao.ConsultarCotacaoBitcoin();
-           // if (res.next()) { // Verifica se há pelo menos uma linha no ResultSet
-          //      String cotacao = res.getString("Cotacao");
-          //      try {
-          //          double doubleCotacaoBitcoin = Double.parseDouble(cotacao);
-          //          Bitcoin bit = new Bitcoin(doubleCotacaoBitcoin);
-           //         bit.setCotacao(bit.atualizar());
-           //         dao.AtualizarCotacaoBitcoin(bit);
-          //      } catch (NumberFormatException e) {
-                    // Tratar erro de conversão
-          //          e.printStackTrace();
-         //       }
-        //    } else {
-                // Tratar caso não haja resultados
-        ///        System.out.println("Não há resultados na consulta.");
-       //     }
-
-      //      conn.close(); // Não esqueça de fechar a conexão
-     ///   } catch (SQLException e) {
-     //       JOptionPane.showMessageDialog(view,"Erro de conexao");
-     //   }
-   // }
+    }
 }

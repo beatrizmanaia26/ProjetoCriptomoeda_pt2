@@ -74,15 +74,15 @@ public class ControllerCompraCripto {
             String texto = "<html>";
             while (res.next()) {
                 String id_moeda = res.getString("Nome"); 
-                String valor = res.getString("Cotacao");
+                String valor = res.getString("Cotacao"); 
                 if(id_moeda.equals("Real")){
-                
+                    
                 }else{
                     texto = texto + id_moeda + ": R$" + valor + "<br>";
                 }
+                
             }
             view.getLblCotacao().setText(texto);
-            
                 
            }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");

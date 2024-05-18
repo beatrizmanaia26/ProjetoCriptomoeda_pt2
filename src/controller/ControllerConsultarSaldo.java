@@ -78,7 +78,7 @@ public class ControllerConsultarSaldo {
             String texto = "<html>";
             while (res.next()) {
                 String id_moeda = res.getString("NomeMoeda"); 
-                String saldo = res.getString("Saldo"); 
+                String saldo = res.getString("Saldo");
                 texto = texto + id_moeda + ": " + saldo + "<br>";
                 
             }

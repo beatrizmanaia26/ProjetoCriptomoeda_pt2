@@ -36,7 +36,7 @@ public class ControllerConsultarSaldoInvest {
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-            ResultSet res = dao.consultarInvest(invest);
+            ResultSet res = dao.consultarInvestidor(invest);//////////
             if(res.next()){
                 String nome = res.getString("Nome");
                 String cpf = res.getString("CPF");

@@ -34,7 +34,7 @@ public class ControllerExcluirInvestidor {
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-            ResultSet res = dao.consultar(invest); //pega investidor com cpf desejado
+            ResultSet res = dao.consultarInvestidor(invest); //pega investidor com cpf desejado
             if(res.next()){
                 String nome = res.getString("Nome"); //pega nome do investidor com cpf desejado
                 String cpf = res.getString("CPF");

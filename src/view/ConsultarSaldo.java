@@ -4,6 +4,7 @@
  */
 package view;
 
+import controller.ControllerConsultarSaldo;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -23,6 +24,9 @@ public class ConsultarSaldo extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.investidor = investidor;
+        control = new ControllerConsultarSaldo(this,investidor);
+        control.buscaMoedas();
+        control.MostrarCarteira();
         this.getTxtNome().setText(investidor.getNome());
         this.getTxtCPF().setText(investidor.getCpf());
     }
@@ -252,6 +256,7 @@ public class ConsultarSaldo extends javax.swing.JFrame {
 //            }
 //        });
 //    }
+    private ControllerConsultarSaldo control;
     private Investidor investidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;

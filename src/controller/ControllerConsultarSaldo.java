@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import view.BemVindoUsuario;
 import view.ConsultarSaldo;
 
 /**

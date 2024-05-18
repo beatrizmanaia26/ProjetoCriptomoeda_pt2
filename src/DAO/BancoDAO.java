@@ -56,6 +56,14 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
+      public ResultSet consultarInvest(Investidor investidor) throws SQLException{ 
+        String sql = "select * from investidores where \"CPF\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1,investidor.getCpf());
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
+    }
     
     public void excluir(Investidor investidor) throws SQLException{
         String sql = "delete from investidores where \"CPF\" = ?";

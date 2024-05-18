@@ -26,6 +26,8 @@ public class ComprarCripto extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         investidor = invest;
         control = new ControllerCompraCripto(this, investidor);
+        control.fazCarteira();
+        control.mostrarCotacao();
     }
 
     public Investidor getInvestidor() {
@@ -76,12 +78,28 @@ public class ComprarCripto extends javax.swing.JFrame {
         this.lblCompra = lblCompra;
     }
 
-    public JLabel getLblReais1() {
-        return lblReais1;
+    public JLabel getLblCot() {
+        return lblCot;
     }
 
-    public void setLblReais1(JLabel lblReais1) {
-        this.lblReais1 = lblReais1;
+    public void setLblCot(JLabel lblCot) {
+        this.lblCot = lblCot;
+    }
+
+    public JLabel getLblCotacao() {
+        return lblCotacao;
+    }
+
+    public void setLblCotacao(JLabel lblCotacao) {
+        this.lblCotacao = lblCotacao;
+    }
+
+    public JLabel getLblDecisao() {
+        return lblDecisao;
+    }
+
+    public void setLblDecisao(JLabel lblDecisao) {
+        this.lblDecisao = lblDecisao;
     }
 
     public JLabel getLblReais2() {
@@ -92,14 +110,6 @@ public class ComprarCripto extends javax.swing.JFrame {
         this.lblReais2 = lblReais2;
     }
 
-    public JLabel getLblReais3() {
-        return lblReais3;
-    }
-
-    public void setLblReais3(JLabel lblReais3) {
-        this.lblReais3 = lblReais3;
-    }
-
     public JLabel getLblReaisRes() {
         return lblReaisRes;
     }
@@ -108,12 +118,12 @@ public class ComprarCripto extends javax.swing.JFrame {
         this.lblReaisRes = lblReaisRes;
     }
 
-    public JLabel getLblSaldoInvest() {
-        return lblSaldoInvest;
+    public JTextField getTxtMoeda() {
+        return txtMoeda;
     }
 
-    public void setLblSaldoInvest(JLabel lblSaldoInvest) {
-        this.lblSaldoInvest = lblSaldoInvest;
+    public void setTxtMoeda(JTextField txtMoeda) {
+        this.txtMoeda = txtMoeda;
     }
 
     public JTextField getTxtQuantMoeda() {
@@ -123,15 +133,10 @@ public class ComprarCripto extends javax.swing.JFrame {
     public void setTxtQuantMoeda(JTextField txtQuantMoeda) {
         this.txtQuantMoeda = txtQuantMoeda;
     }
-
-    public JTextField getTxtQuantMoeda1() {
-        return txtQuantMoeda1;
-    }
-
-    public void setTxtQuantMoeda1(JTextField txtQuantMoeda1) {
-        this.txtQuantMoeda1 = txtQuantMoeda1;
-    }
     
+    
+
+  
     
 
     /**
@@ -145,12 +150,12 @@ public class ComprarCripto extends javax.swing.JFrame {
 
         lblReaisRes = new javax.swing.JLabel();
         lblCompra = new javax.swing.JLabel();
-        lblReais1 = new javax.swing.JLabel();
+        lblCot = new javax.swing.JLabel();
         txtQuantMoeda = new javax.swing.JTextField();
         lblReais2 = new javax.swing.JLabel();
-        lblReais3 = new javax.swing.JLabel();
-        lblSaldoInvest = new javax.swing.JLabel();
-        txtQuantMoeda1 = new javax.swing.JTextField();
+        lblDecisao = new javax.swing.JLabel();
+        lblCotacao = new javax.swing.JLabel();
+        txtMoeda = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -162,21 +167,21 @@ public class ComprarCripto extends javax.swing.JFrame {
         lblCompra.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         lblCompra.setText("Comprar Criptomoedas");
 
-        lblReais1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblReais1.setText("Cotações:");
+        lblCot.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        lblCot.setText("Cotações:");
 
         txtQuantMoeda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         lblReais2.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblReais2.setText("Quantidade:");
 
-        lblReais3.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblReais3.setText("Qual moeda deseja comprar?");
+        lblDecisao.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        lblDecisao.setText("Qual moeda deseja comprar?");
 
-        lblSaldoInvest.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
-        lblSaldoInvest.setText("-");
+        lblCotacao.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        lblCotacao.setText("-");
 
-        txtQuantMoeda1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtMoeda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         jMenuMenu.setText("Menu");
 
@@ -197,31 +202,31 @@ public class ComprarCripto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSaldoInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtQuantMoeda1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblReais2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtQuantMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(lblCompra))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblReais3))
+                        .addComponent(lblCot))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblReais1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(txtMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDecisao))))
+                .addGap(0, 26, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCotacao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblReais2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtQuantMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,17 +234,17 @@ public class ComprarCripto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblReais3)
+                .addComponent(lblDecisao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtQuantMoeda1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblReais2)
                     .addComponent(txtQuantMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(lblReais1)
+                .addComponent(lblCot)
                 .addGap(18, 18, 18)
-                .addComponent(lblSaldoInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
 
@@ -290,12 +295,12 @@ public class ComprarCripto extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenuMenu;
     private javax.swing.JLabel lblCompra;
-    private javax.swing.JLabel lblReais1;
+    private javax.swing.JLabel lblCot;
+    private javax.swing.JLabel lblCotacao;
+    private javax.swing.JLabel lblDecisao;
     private javax.swing.JLabel lblReais2;
-    private javax.swing.JLabel lblReais3;
     private javax.swing.JLabel lblReaisRes;
-    private javax.swing.JLabel lblSaldoInvest;
+    private javax.swing.JTextField txtMoeda;
     private javax.swing.JTextField txtQuantMoeda;
-    private javax.swing.JTextField txtQuantMoeda1;
     // End of variables declaration//GEN-END:variables
 }

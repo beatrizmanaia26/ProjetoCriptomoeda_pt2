@@ -52,26 +52,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="lblSaldoInvest" min="-2" pref="399" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtQuantMoeda1" min="-2" pref="276" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblReais2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtQuantMoeda" min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="2" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -80,14 +60,33 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblReais3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblCot" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblReais1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                              <Component id="txtMoeda" min="-2" pref="276" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblDecisao" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblCotacao" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblReais2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtQuantMoeda" min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -97,18 +96,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblCompra" min="-2" pref="72" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblReais3" min="-2" max="-2" attributes="0"/>
+              <Component id="lblDecisao" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtQuantMoeda1" min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="txtMoeda" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblReais2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtQuantMoeda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="14" max="32767" attributes="0"/>
-              <Component id="lblReais1" min="-2" max="-2" attributes="0"/>
+              <Component id="lblCot" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblSaldoInvest" min="-2" pref="209" max="-2" attributes="0"/>
+              <Component id="lblCotacao" min="-2" pref="209" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -123,7 +122,7 @@
         <Property name="text" type="java.lang.String" value="Comprar Criptomoedas"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblReais1">
+    <Component class="javax.swing.JLabel" name="lblCot">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Book Antiqua" size="24" style="1"/>
@@ -146,7 +145,7 @@
         <Property name="text" type="java.lang.String" value="Quantidade:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblReais3">
+    <Component class="javax.swing.JLabel" name="lblDecisao">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Book Antiqua" size="24" style="1"/>
@@ -154,7 +153,7 @@
         <Property name="text" type="java.lang.String" value="Qual moeda deseja comprar?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblSaldoInvest">
+    <Component class="javax.swing.JLabel" name="lblCotacao">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Book Antiqua" size="24" style="0"/>
@@ -162,7 +161,7 @@
         <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtQuantMoeda1">
+    <Component class="javax.swing.JTextField" name="txtMoeda">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>

@@ -70,14 +70,19 @@ public class ControllerCompraCripto {
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-            ResultSet res = dao.consultarCarteira(investidor);
+            ResultSet res = dao.consultarTodaMoeda();
             String texto = "<html>";
             while (res.next()) {
-                String id_moeda = res.getString("NomeMoeda"); 
-                String saldo = res.getString("Saldo"); 
-                texto = texto + id_moeda + ": " + saldo + "<br>";
+                String id_moeda = res.getString("Nome"); 
+                String valor = res.getString("Cotacao"); 
+                if(id_moeda.equals("Real")){
+                    
+                }else{
+                    texto = texto + id_moeda + ": R$" + valor + "<br>";
+                }
                 
             }
+            view.getLblCotacao().setText(texto);
                 
            }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");

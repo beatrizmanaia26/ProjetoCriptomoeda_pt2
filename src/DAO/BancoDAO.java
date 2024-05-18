@@ -56,10 +56,8 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
-<<<<<<< Updated upstream
-=======
       
-    public ResultSet consultarInvestidor(Investidor investidor) throws SQLException{ 
+      public ResultSet consultarInvestidor(Investidor investidor) throws SQLException{ 
         String sql = "select * from investidores where \"CPF\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1,investidor.getCpf());//1 pq  é primeira interrogação
@@ -67,8 +65,7 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
->>>>>>> Stashed changes
-    
+  
     public void excluir(Investidor investidor) throws SQLException{
         String sql = "delete from investidores where \"CPF\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql); //passa string para a conexao

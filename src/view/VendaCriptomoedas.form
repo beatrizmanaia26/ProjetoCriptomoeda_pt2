@@ -45,96 +45,129 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Component id="lblVenda" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+<<<<<<< Updated upstream
+          <Group type="102" attributes="0">
+              <EmptySpace pref="25" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblBitcoin" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="txtCotBitcoin" min="-2" pref="173" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblEthereum" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblRipple" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                              <Component id="txtCotRipple" min="-2" pref="174" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="lblCotacaoVendaCripto" min="-2" pref="279" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtCotBitcoin" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                                  <Component id="txtCotRipple" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <Component id="txtCotEthereum" alignment="0" min="-2" pref="174" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
+                          <Component id="lblReais1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblReais2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtCotEthereum" min="-2" pref="174" max="-2" attributes="0"/>
+                              <Component id="txtNomeInvest" min="-2" pref="51" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblVendaEscolha" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="txtCriptoComprar" min="-2" pref="242" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="lblReais1" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblReais2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="txtNomeInvest" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="lblVenda" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="lblVendaEscolha" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+=======
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+              <Component id="lblVenda" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="105" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lblCotacao" alignment="1" min="-2" pref="437" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblReais1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="196" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="lblReais2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtQtdMoeda" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="vender" min="-2" pref="105" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lblVendaEscolha" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="txtVender" min="-2" pref="162" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+>>>>>>> Stashed changes
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="lblVenda" min="-2" pref="72" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblReais1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+<<<<<<< Updated upstream
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblBitcoin" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtCotBitcoin" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="lblEthereum" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblRipple" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="txtCotBitcoin" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="txtCotEthereum" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtCotRipple" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblCotacaoVendaCripto" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblReais2" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNomeInvest" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+=======
+              <Component id="lblCotacao" min="-2" pref="174" max="-2" attributes="0"/>
+              <EmptySpace pref="27" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtVender" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="lblVendaEscolha" alignment="3" min="-2" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
+              </Group>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< Updated upstream
+                  <Component id="lblVendaEscolha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCriptoComprar" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+=======
                   <Component id="lblReais2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNomeInvest" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="txtQtdMoeda" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="vender" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
-              <Component id="lblVendaEscolha" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+>>>>>>> Stashed changes
           </Group>
       </Group>
     </DimensionLayout>
@@ -148,17 +181,7 @@
         <Property name="text" type="java.lang.String" value="Vender Criptomoedas"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ripple"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
-      </Events>
-    </Component>
+<<<<<<< Updated upstream
     <Component class="javax.swing.JLabel" name="txtCotRipple">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -166,14 +189,8 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblBitcoin">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Book Antiqua" size="24" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Bitcoin:"/>
-      </Properties>
-    </Component>
+=======
+>>>>>>> Stashed changes
     <Component class="javax.swing.JLabel" name="lblReais1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -187,22 +204,18 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Book Antiqua" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Qual deseja comprar?"/>
+<<<<<<< Updated upstream
+        <Property name="text" type="java.lang.String" value="Qual deseja vender?"/>
+=======
+        <Property name="text" type="java.lang.String" value="Qual moeda deseja vender?"/>
+>>>>>>> Stashed changes
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNomeInvest">
+    <Component class="javax.swing.JTextField" name="txtQtdMoeda">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblEthereum">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Book Antiqua" size="24" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ethereum:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblReais2">
@@ -213,30 +226,7 @@
         <Property name="text" type="java.lang.String" value="Quantidade:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRipple">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Book Antiqua" size="24" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ripple:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Reais"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Bitcoin"/>
-      </Properties>
-    </Component>
+<<<<<<< Updated upstream
     <Component class="javax.swing.JLabel" name="txtCotBitcoin">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -244,23 +234,52 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JLabel" name="txtCotEthereum">
+=======
+    <Component class="javax.swing.JLabel" name="lblCotacao">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Dialog" size="18" style="1"/>
+          <Font name="Book Antiqua" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ethereum"/>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="vender">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="VENDER"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="venderActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="txtCotEthereum">
+    <Component class="javax.swing.JTextField" name="txtVender">
+>>>>>>> Stashed changes
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="0"/>
+          <Font name="Segoe UI" size="14" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVenderActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCotacaoVendaCripto">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Book Antiqua" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCriptoComprar">
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="vender"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

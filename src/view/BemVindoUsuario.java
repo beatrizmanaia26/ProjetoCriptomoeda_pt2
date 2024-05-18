@@ -5,7 +5,6 @@
 package view;
 
 import controller.ControllerAtualizarCriptomoedas;
-import controller.ControllerCompraCripto;
 import controller.ControllerConsultarSaldo;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -434,13 +433,13 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bt4ActionPerformed
 
     private void bt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt5ActionPerformed
-        ComprarCripto c = new ComprarCripto(investidor);
-        c.setVisible(true);
-        this.setVisible(false);
+      
     }//GEN-LAST:event_bt5ActionPerformed
 
     private void bt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt6ActionPerformed
-        // TODO add your handling code here:
+        VendaCriptomoedas v = new VendaCriptomoedas(investidor);
+        v.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt6ActionPerformed
 
     private void bt7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt7ActionPerformed

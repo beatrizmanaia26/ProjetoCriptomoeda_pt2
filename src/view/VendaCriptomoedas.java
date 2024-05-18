@@ -4,6 +4,20 @@
  */
 package view;
 
+<<<<<<< Updated upstream
+import controller.ControllerDepositarMoedas;
+import controller.ControllerVenderCriptomoedas;
+=======
+import controller.ControllerVenderCripto;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+>>>>>>> Stashed changes
+import model.Investidor;
+
 /**
  *
  * @author luana
@@ -13,9 +27,119 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
     /**
      * Creates new form VendaCriptomoedas
      */
-    public VendaCriptomoedas() {
+    public VendaCriptomoedas(Investidor investidor) {
+        this.investidor = investidor;
+<<<<<<< Updated upstream
+        controller = new ControllerVenderCriptomoedas(this,investidor);
+=======
+        controller = new ControllerVenderCripto(this,investidor);
+>>>>>>> Stashed changes
         initComponents();
         setLocationRelativeTo(null);
+    }
+
+    public Investidor getInvestidor() {
+        return investidor;
+    }
+
+    public void setInvestidor(Investidor investidor) {
+        this.investidor = investidor;
+    }
+
+    public ControllerVenderCripto getController() {
+        return controller;
+    }
+
+    public void setController(ControllerVenderCripto controller) {
+        this.controller = controller;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItem1() {
+        return jMenuItem1;
+    }
+
+    public void setjMenuItem1(JMenuItem jMenuItem1) {
+        this.jMenuItem1 = jMenuItem1;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    public JLabel getLblCotacao() {
+        return lblCotacao;
+    }
+
+    public void setLblCotacao(JLabel lblCotacao) {
+        this.lblCotacao = lblCotacao;
+    }
+
+    public JLabel getLblReais1() {
+        return lblReais1;
+    }
+
+    public void setLblReais1(JLabel lblReais1) {
+        this.lblReais1 = lblReais1;
+    }
+
+    public JLabel getLblReais2() {
+        return lblReais2;
+    }
+
+    public void setLblReais2(JLabel lblReais2) {
+        this.lblReais2 = lblReais2;
+    }
+
+    public JLabel getLblVenda() {
+        return lblVenda;
+    }
+
+    public void setLblVenda(JLabel lblVenda) {
+        this.lblVenda = lblVenda;
+    }
+
+    public JLabel getLblVendaEscolha() {
+        return lblVendaEscolha;
+    }
+
+    public void setLblVendaEscolha(JLabel lblVendaEscolha) {
+        this.lblVendaEscolha = lblVendaEscolha;
+    }
+
+    public JTextField getTxtQtdMoeda() {
+        return txtQtdMoeda;
+    }
+
+    public void setTxtQtdMoeda(JTextField txtQtdMoeda) {
+        this.txtQtdMoeda = txtQtdMoeda;
+    }
+
+    public JTextField getTxtVender() {
+        return txtVender;
+    }
+
+    public void setTxtVender(JTextField txtVender) {
+        this.txtVender = txtVender;
+    }
+
+    public JButton getVender() {
+        return vender;
+    }
+
+    public void setVender(JButton vender) {
+        this.vender = vender;
     }
 
     /**
@@ -28,20 +152,26 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
     private void initComponents() {
 
         lblVenda = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+<<<<<<< Updated upstream
         txtCotRipple = new javax.swing.JLabel();
-        lblBitcoin = new javax.swing.JLabel();
         lblReais1 = new javax.swing.JLabel();
         lblVendaEscolha = new javax.swing.JLabel();
         txtNomeInvest = new javax.swing.JTextField();
-        lblEthereum = new javax.swing.JLabel();
         lblReais2 = new javax.swing.JLabel();
-        lblRipple = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         txtCotBitcoin = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         txtCotEthereum = new javax.swing.JLabel();
+        lblCotacaoVendaCripto = new javax.swing.JLabel();
+        txtCriptoComprar = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+=======
+        lblReais1 = new javax.swing.JLabel();
+        lblVendaEscolha = new javax.swing.JLabel();
+        txtQtdMoeda = new javax.swing.JTextField();
+        lblReais2 = new javax.swing.JLabel();
+        lblCotacao = new javax.swing.JLabel();
+        vender = new javax.swing.JButton();
+        txtVender = new javax.swing.JTextField();
+>>>>>>> Stashed changes
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -51,54 +181,62 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
         lblVenda.setFont(new java.awt.Font("Book Antiqua", 3, 36)); // NOI18N
         lblVenda.setText("Vender Criptomoedas");
 
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton4.setText("Ripple");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
+<<<<<<< Updated upstream
         txtCotRipple.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        lblBitcoin.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblBitcoin.setText("Bitcoin:");
-
+=======
+>>>>>>> Stashed changes
         lblReais1.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblReais1.setText("Cotações:");
 
         lblVendaEscolha.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblVendaEscolha.setText("Qual deseja comprar?");
+<<<<<<< Updated upstream
+        lblVendaEscolha.setText("Qual deseja vender?");
 
         txtNomeInvest.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+=======
+        lblVendaEscolha.setText("Qual moeda deseja vender?");
 
-        lblEthereum.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblEthereum.setText("Ethereum:");
+        txtQtdMoeda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+>>>>>>> Stashed changes
 
         lblReais2.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblReais2.setText("Quantidade:");
 
-        lblRipple.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        lblRipple.setText("Ripple:");
-
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton1.setText("Reais");
-
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton2.setText("Bitcoin");
-
+<<<<<<< Updated upstream
         txtCotBitcoin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton3.setText("Ethereum");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         txtCotEthereum.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
+        lblCotacaoVendaCripto.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        lblCotacaoVendaCripto.setText("-");
+
+        jButton1.setText("vender");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+=======
+        lblCotacao.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        lblCotacao.setText("-");
+
+        vender.setText("VENDER");
+        vender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                venderActionPerformed(evt);
+            }
+        });
+
+        txtVender.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtVender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtVenderActionPerformed(evt);
+            }
+        });
+
+>>>>>>> Stashed changes
         jMenuMenu.setText("Menu");
 
         jMenuItem1.setText("menu");
@@ -118,93 +256,126 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(lblVenda)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+<<<<<<< Updated upstream
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblBitcoin)
-                        .addGap(41, 41, 41)
-                        .addComponent(txtCotBitcoin, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEthereum)
-                            .addComponent(lblRipple))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(txtCotRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
+                                .addComponent(lblCotacaoVendaCripto, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCotBitcoin, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCotRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCotEthereum, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblReais1)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblReais2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtCotEthereum, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(lblReais1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblReais2)
-                        .addGap(4, 4, 4)
-                        .addComponent(txtNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblVendaEscolha))
-                .addContainerGap())
+                                .addComponent(txtNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblVendaEscolha)
+                                .addGap(12, 12, 12)
+                                .addComponent(txtCriptoComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)))
+                        .addGap(12, 12, 12))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblVenda)
+                        .addGap(116, 116, 116))))
+=======
+                .addGap(75, 75, 75)
+                .addComponent(lblVenda)
+                .addGap(0, 105, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblReais1)
+                                    .addGap(196, 196, 196))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblReais2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtQtdMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(vender, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblVendaEscolha)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtVender, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+>>>>>>> Stashed changes
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblReais1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblBitcoin, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCotBitcoin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+<<<<<<< Updated upstream
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblEthereum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRipple))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addComponent(txtCotBitcoin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
                         .addComponent(txtCotEthereum, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCotRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCotRipple, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCotacaoVendaCripto, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblReais2)
+                            .addComponent(txtNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblVendaEscolha)
+                    .addComponent(txtCriptoComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+=======
+                .addComponent(lblCotacao, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtVender, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVendaEscolha))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblReais2)
-                    .addComponent(txtNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addComponent(lblVendaEscolha)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addContainerGap())
+                    .addComponent(txtQtdMoeda, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vender))
+                .addGap(20, 20, 20))
+>>>>>>> Stashed changes
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+       BemVindoUsuario menu = new BemVindoUsuario(investidor);
+       menu.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+<<<<<<< Updated upstream
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
+=======
+    private void venderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_venderActionPerformed
+       controller.venderCripto();
+    }//GEN-LAST:event_venderActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void txtVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVenderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_txtVenderActionPerformed
+>>>>>>> Stashed changes
 
 //   
 //    public static void main(String args[]) {
@@ -238,25 +409,37 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+    private Investidor investidor;
+<<<<<<< Updated upstream
+    private ControllerVenderCriptomoedas controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenuMenu;
-    private javax.swing.JLabel lblBitcoin;
-    private javax.swing.JLabel lblEthereum;
+    private javax.swing.JLabel lblCotacaoVendaCripto;
+=======
+    private ControllerVenderCripto controller;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu jMenuMenu;
+    private javax.swing.JLabel lblCotacao;
+>>>>>>> Stashed changes
     private javax.swing.JLabel lblReais1;
     private javax.swing.JLabel lblReais2;
-    private javax.swing.JLabel lblRipple;
     private javax.swing.JLabel lblVenda;
     private javax.swing.JLabel lblVendaEscolha;
+<<<<<<< Updated upstream
     private javax.swing.JLabel txtCotBitcoin;
     private javax.swing.JLabel txtCotEthereum;
     private javax.swing.JLabel txtCotRipple;
+    private javax.swing.JTextField txtCriptoComprar;
     private javax.swing.JTextField txtNomeInvest;
+=======
+    private javax.swing.JTextField txtQtdMoeda;
+    private javax.swing.JTextField txtVender;
+    private javax.swing.JButton vender;
+>>>>>>> Stashed changes
     // End of variables declaration//GEN-END:variables
 }

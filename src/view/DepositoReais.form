@@ -13,6 +13,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="menu"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemMenuActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -96,6 +99,9 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtReaisDepositoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btDepositar">
       <Properties>
@@ -104,6 +110,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Depositar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btDepositarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

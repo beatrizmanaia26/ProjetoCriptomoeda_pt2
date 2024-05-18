@@ -44,9 +44,7 @@ public class ControllerConsultarSaldo {
                 moedasExistentes.add(id);
                 }
                 res.close();
-                
-                
-            
+  
         }catch(SQLException e){
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }

@@ -20,7 +20,6 @@ public class Carteira {
 
     public Carteira() {
     }
-    
 
     public Moedas getMoedas() {
         return moedas;

@@ -5,6 +5,7 @@
 package view;
 
 import controller.ControllerAtualizarCriptomoedas;
+import controller.ControllerCompraCripto;
 import controller.ControllerConsultarSaldo;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -23,7 +24,6 @@ public class BemVindoUsuario extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         controller = new ControllerAtualizarCriptomoedas(this);
-        control = new ControllerConsultarSaldo(this,investidor);
         this.lblNome.setText(investidor.getNome());
         this.investidor = investidor;
         
@@ -416,10 +416,9 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bt2ActionPerformed
 
     private void bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt1ActionPerformed
-
-        control.buscaMoedas();
-        control.MostrarCarteira();
-        
+        ConsultarSaldo c = new ConsultarSaldo(investidor);
+        c.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt1ActionPerformed
 
     private void bt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt3ActionPerformed
@@ -433,7 +432,9 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bt4ActionPerformed
 
     private void bt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt5ActionPerformed
-        // TODO add your handling code here:
+        ComprarCripto c = new ComprarCripto(investidor);
+        c.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt5ActionPerformed
 
     private void bt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt6ActionPerformed
@@ -484,7 +485,6 @@ public class BemVindoUsuario extends javax.swing.JFrame {
 //        });
 //    }
     private ControllerAtualizarCriptomoedas controller;
-    private ControllerConsultarSaldo control;
     private Investidor investidor;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bt1;

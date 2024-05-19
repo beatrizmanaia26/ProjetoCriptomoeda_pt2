@@ -90,7 +90,7 @@ public class ControllerVenderCripto {
                             double novoSaldoReais = saldoReais + valorReais;
                             investidor.getCarteira().setSaldo(novoSaldoReais);
                             dao.depositoReais(investidor);
-                            JOptionPane.showMessageDialog(view, "Venda realizada com sucesso.");              
+                            JOptionPane.showMessageDialog(view, "Venda realizada com sucesso.\nSaldo atual: " + investidor.getCarteira().getSaldo());              
                         } else {
                             JOptionPane.showMessageDialog(view, "Saldo em reais não encontrado.");
                         }    

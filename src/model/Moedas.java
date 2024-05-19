@@ -27,6 +27,13 @@ public class Moedas {
         this.cotacao = cotacao;
     }
 
+    public Moedas(String nome, double cotacao) {
+        this.nome = nome;
+        this.cotacao = cotacao;
+    }
+    
+    
+
     public String getNome() {
         return nome;
     }

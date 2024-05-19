@@ -20,7 +20,7 @@ public class ControllerVenderCripto {
         this.investidor = investidor;
     }
 
-    public void CriarCarteira() {
+    public void criarCarteira() {
          Conexao conexao = new Conexao();
         ArrayList<String> moedasExistentes = new ArrayList<>();
         try{
@@ -112,6 +112,29 @@ public class ControllerVenderCripto {
     }     
 }
 
+    public void mostrarCotacoes(){
+        Conexao conexao = new Conexao();
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+            ResultSet res = dao.consultarTodaMoeda();
+            String texto = "<html>";
+            while (res.next()) {
+                String id_moeda = res.getString("Nome"); 
+                String valor = res.getString("Cotacao"); 
+                if(id_moeda.equals("Real")){
+                    
+                }else{
+                    texto = texto + id_moeda + ": R$" + valor + "<br>";
+                }
+                
+            }
+            view.getLblCotacao().setText(texto);
+                
+        }catch(SQLException e){
+            
+        }
+    }
 }
 
 

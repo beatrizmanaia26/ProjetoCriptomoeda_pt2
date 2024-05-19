@@ -264,7 +264,7 @@ public class ComprarCripto extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void btCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCompraActionPerformed
-        // TODO add your handling code here:
+        control.CompraMoeda();
     }//GEN-LAST:event_btCompraActionPerformed
 //
 //    public static void main(String args[]) {

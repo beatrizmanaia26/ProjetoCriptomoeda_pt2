@@ -112,6 +112,7 @@ public class ControllerDepositarMoedas {
                     Real r = new Real();
                     investidor.getCarteira().setMoedas(r);
                     investidor.getCarteira().setSaldo(doubleSaldo);
+                   
 
                 }else{
                     JOptionPane.showMessageDialog(view,"Login não foi feito");
@@ -133,6 +134,14 @@ public class ControllerDepositarMoedas {
             JOptionPane.showMessageDialog(view,"Deposito feito com sucesso\n"
                     + "Saldo atual: "+ investidor.getCarteira().getSaldo());
         }catch(SQLException e){
+             JOptionPane.showMessageDialog(view,"Erro de conexao");
+        }
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+           dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal);
+        }catch(SQLException e){
+             e.printStackTrace(); 
              JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
     }

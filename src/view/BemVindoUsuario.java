@@ -407,11 +407,13 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_bt8ActionPerformed
 
     private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed
-        // TODO add your handling code here:
+       Extrato e = new Extrato(investidor);
+       e.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_bt2ActionPerformed
 
     private void bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt1ActionPerformed

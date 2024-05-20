@@ -48,4 +48,5 @@ public class ControllerExtratoInvestidor {
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
     }
+    
 }

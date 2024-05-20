@@ -79,6 +79,7 @@ public class ControllerVenderCripto {
                     moeda.setNome(nomeMoeda);
                     ResultSet resMoeda = dao.consultarCripto(moeda);
                     if (resMoeda.next()) {
+                        //pega informações pra fazer calculo dos valores 
                         double cotacao = resMoeda.getDouble("Cotacao");
                         double taxaVenda = resMoeda.getDouble("Taxa_venda");
                         double valorReais = quantidadeVender * cotacao * (1 - taxaVenda);
@@ -90,7 +91,11 @@ public class ControllerVenderCripto {
                             double novoSaldoReais = saldoReais + valorReais;
                             investidor.getCarteira().setSaldo(novoSaldoReais);
                             dao.depositoReais(investidor);
-                            JOptionPane.showMessageDialog(view, "Venda realizada com sucesso.\nSaldo atual: " + investidor.getCarteira().getSaldo());              
+                            JOptionPane.showMessageDialog(view, "Venda realizada com sucesso.\nSaldo atual: " 
+                                                                + investidor.getCarteira().getSaldo()); 
+                            //informações para extrato
+                            dao.InserirExtrato(investidor, "Real", "+", valorReais, novoSaldoReais);
+                            dao.InserirExtrato(investidor, nomeMoeda , "-", quantidadeVender , novoSaldoMoeda);
                         } else {
                             JOptionPane.showMessageDialog(view, "Saldo em reais não encontrado.");
                         }    

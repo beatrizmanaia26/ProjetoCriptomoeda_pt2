@@ -161,7 +161,8 @@ public class ControllerCompraCripto {
                         + " comprada com sucesso!\n"
                         + "Valor atual de reais da conta: " 
                         + saldoFinal);
-
+                
+               // dao.InserirExtrato(investidor, nomeMoeda, "+", quant);
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(view,"Erro de conexao ao "
                         + "atualizar Real");

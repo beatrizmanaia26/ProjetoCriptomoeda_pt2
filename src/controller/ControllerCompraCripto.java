@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import model.Moedas;
 import model.OutrasMoedas;
 import view.ComprarCripto;
 
@@ -162,7 +161,7 @@ public class ControllerCompraCripto {
                         + "Valor atual de reais da conta: " 
                         + saldoFinal);
                 
-               // dao.InserirExtrato(investidor, nomeMoeda, "+", quant);
+               dao.InserirExtrato(investidor, "Real", "-", valorTotal, saldoFinal);
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(view,"Erro de conexao ao "
                         + "atualizar Real");
@@ -173,6 +172,9 @@ public class ControllerCompraCripto {
                 double valorTotalCripto = investidor.getCarteira().getSaldo() + quant;
                 investidor.getCarteira().setSaldo(valorTotalCripto);
                 dao.AtualizarMoedaCompra(investidor);
+                dao.InserirExtrato(investidor, 
+                        investidor.getCarteira().getMoedas().getNome(),
+                        "+", quant, valorTotalCripto);
 
 
             }catch(SQLException e){

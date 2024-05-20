@@ -14,9 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Investidor;
-import model.Moedas;
 import model.Real;
-import view.ConsultarSaldo;
 
 /**
  *
@@ -99,6 +97,7 @@ public class ControllerSacar {
                 JOptionPane.showMessageDialog(view,"Saque feito com sucesso\n"
                         + "Valor atual de reais da conta: " 
                         + investidor.getCarteira().getSaldo());
+                dao.InserirExtrato(investidor, "Real", "-", valorRetirado, saldoFinal);
 
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(view,"Erro de conexao");

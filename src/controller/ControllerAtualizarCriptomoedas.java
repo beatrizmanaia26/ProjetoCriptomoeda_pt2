@@ -8,10 +8,7 @@ import view.BemVindoAdministrador;
 import DAO.BancoDAO;
 import DAO.Conexao;
 import java.sql.Connection;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import model.Bitcoin;
-import model.OutrasMoedas;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Moedas;
@@ -57,13 +54,13 @@ public class ControllerAtualizarCriptomoedas {
         }
         try{
             Connection conn = conexao.getConnection();
-            BancoDAO dao = new BancoDAO(conn);
-       
-         for (int i = 0; i < moedas.size(); i++){
-               // Moedas mo = new Moedas(doubleCotacaoMoeda);
-                moedas.get(i).setCotacao(moedas.get(i).atualizar());
-                dao.atualizarCriptomoedas(moedas.get(i));
-            }
+            BancoDAO dao = new BancoDAO(conn);  
+            for (int i = 0; i < moedas.size(); i++){
+                  // Moedas mo = new Moedas(doubleCotacaoMoeda);
+                   moedas.get(i).setCotacao(moedas.get(i).atualizar());
+                   dao.atualizarCriptomoedas(moedas.get(i));
+               }
+            JOptionPane.showMessageDialog(view,"Cotações atualizadas com sucesso");
             conn.close();
         }catch(Exception e){
             JOptionPane.showMessageDialog(view,"Erro de conexao 2");

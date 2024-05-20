@@ -170,7 +170,8 @@ public class ControllerCompraCripto {
             try{
                 Connection conn = conexao.getConnection();
                 BancoDAO dao = new BancoDAO(conn);
-                investidor.getCarteira().setSaldo(quant);
+                double valorTotalCripto = investidor.getCarteira().getSaldo() + quant;
+                investidor.getCarteira().setSaldo(valorTotalCripto);
                 dao.AtualizarMoedaCompra(investidor);
 
 

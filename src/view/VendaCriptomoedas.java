@@ -25,6 +25,7 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
     public VendaCriptomoedas(Investidor investidor) {
         this.investidor = investidor;
         initComponents();
+        setLocationRelativeTo(null);
         controller = new ControllerVenderCripto(this,investidor);
         controller.criarCarteira();
         controller.mostrarCotacoes();

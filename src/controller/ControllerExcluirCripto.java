@@ -25,6 +25,10 @@ public class ControllerExcluirCripto {
     }
        public void removerCripto(){
         String nomeCripto = view.getTxtNomeCripto().getText();
+        if(nomeCripto.equals("Real")){
+            JOptionPane.showMessageDialog(view,"Não é possivel excluir real!");
+            return;
+        }
         OutrasMoedas moeda = new OutrasMoedas(nomeCripto,
         0,0,0); //cria investidor pra comparar se acha um cpf igual ao desse investidor para apagá-lo
         Conexao conexao = new Conexao();

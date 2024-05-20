@@ -22,9 +22,9 @@ public class CadastrarCriptomoeda extends javax.swing.JFrame {
      * Creates new form CadastrarCriptomoeda
      */
     public CadastrarCriptomoeda() {
-        setLocationRelativeTo(null);
         control = new ControllerCadastroCripto(this);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     public JButton getBtCadastrar() {

@@ -31,6 +31,10 @@ public class ControllerLogin {
    public void ValidarUsuario(){
        Administrador a = new Administrador(); 
        String cpfLogin = view.getTxtCPF().getText();
+       if (cpfLogin.contains(".") || cpfLogin.contains("-")) {
+        JOptionPane.showMessageDialog(view, "CPF não pode conter . ou -");
+        return;
+        }
        String senhaLogin = view.getTxtSenha().getText();
        
        if(cpfLogin.equals(a.getCpf()) && senhaLogin.equals(a.getSenha())){

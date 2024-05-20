@@ -4,6 +4,14 @@
  */
 package view;
 
+import controller.ControllerExtratoInvestidor;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+
 /**
  *
  * @author beatr
@@ -16,6 +24,63 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
     public ExtratoInvestidor() {
         initComponents();
         setLocationRelativeTo(null);
+        controller = new ControllerExtratoInvestidor(this);
+    }
+
+    public JButton getBtConsultar() {
+        return btConsultar;
+    }
+
+    public void setBtConsultar(JButton btConsultar) {
+        this.btConsultar = btConsultar;
+    }
+
+    public JMenuBar getjMenuBar1() {
+        return jMenuBar1;
+    }
+
+    public void setjMenuBar1(JMenuBar jMenuBar1) {
+        this.jMenuBar1 = jMenuBar1;
+    }
+
+    public JMenuItem getjMenuItemMenu() {
+        return jMenuItemMenu;
+    }
+
+    public void setjMenuItemMenu(JMenuItem jMenuItemMenu) {
+        this.jMenuItemMenu = jMenuItemMenu;
+    }
+
+    public JMenu getjMenuMenu() {
+        return jMenuMenu;
+    }
+
+    public void setjMenuMenu(JMenu jMenuMenu) {
+        this.jMenuMenu = jMenuMenu;
+    }
+
+    public JLabel getLblCPFInvest() {
+        return lblCPFInvest;
+    }
+
+    public void setLblCPFInvest(JLabel lblCPFInvest) {
+        this.lblCPFInvest = lblCPFInvest;
+    }
+
+    public JLabel getLblExtratoInvestidor() {
+        return lblExtratoInvestidor;
+    }
+
+    public void setLblExtratoInvestidor(JLabel lblExtratoInvestidor) {
+        this.lblExtratoInvestidor = lblExtratoInvestidor;
+    }
+
+    public JTextField getTxtCPF() {
+        return txtCPF;
+    }
+
+    public void setTxtCPF(JTextField txtCPF) {
+        this.txtCPF = txtCPF;
     }
 
     /**
@@ -29,7 +94,7 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
 
         lblExtratoInvestidor = new javax.swing.JLabel();
         lblCPFInvest = new javax.swing.JLabel();
-        txtCPFAdmin = new javax.swing.JTextField();
+        txtCPF = new javax.swing.JTextField();
         btConsultar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuMenu = new javax.swing.JMenu();
@@ -44,7 +109,7 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
         lblCPFInvest.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         lblCPFInvest.setText("CPF:");
 
-        txtCPFAdmin.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        txtCPF.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         btConsultar.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         btConsultar.setText("Consultar");
@@ -82,7 +147,7 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(lblCPFInvest)
                         .addGap(41, 41, 41)
-                        .addComponent(txtCPFAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -95,7 +160,7 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCPFInvest)
-                    .addComponent(txtCPFAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -105,7 +170,7 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
@@ -145,7 +210,7 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-
+     private ControllerExtratoInvestidor controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btConsultar;
     private javax.swing.JMenuBar jMenuBar1;
@@ -153,6 +218,6 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuMenu;
     private javax.swing.JLabel lblCPFInvest;
     private javax.swing.JLabel lblExtratoInvestidor;
-    private javax.swing.JTextField txtCPFAdmin;
+    private javax.swing.JTextField txtCPF;
     // End of variables declaration//GEN-END:variables
 }

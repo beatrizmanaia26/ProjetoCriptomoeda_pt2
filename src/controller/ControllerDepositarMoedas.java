@@ -139,7 +139,7 @@ public class ControllerDepositarMoedas {
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-           dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal);
+            dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal);
         }catch(SQLException e){
              e.printStackTrace(); 
              JOptionPane.showMessageDialog(view,"Erro de conexao");

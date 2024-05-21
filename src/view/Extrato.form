@@ -69,10 +69,10 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="lblExtratoInvest1" min="-2" pref="751" max="-2" attributes="0"/>
+                      <Component id="lblExtratoInvest1" min="-2" pref="876" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -130,7 +130,7 @@
     <Component class="javax.swing.JLabel" name="lblExtratoInvest1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Book Antiqua" size="24" style="0"/>
+          <Font name="Book Antiqua" size="18" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="-"/>
       </Properties>

@@ -153,7 +153,7 @@ public class Extrato extends javax.swing.JFrame {
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        lblExtratoInvest1.setFont(new java.awt.Font("Book Antiqua", 0, 24)); // NOI18N
+        lblExtratoInvest1.setFont(new java.awt.Font("Book Antiqua", 0, 18)); // NOI18N
         lblExtratoInvest1.setText("-");
 
         jMenuMenu3.setText("Menu");
@@ -188,8 +188,8 @@ public class Extrato extends javax.swing.JFrame {
                         .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(lblExtratoInvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblExtratoInvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 876, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

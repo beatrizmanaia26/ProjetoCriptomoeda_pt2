@@ -77,7 +77,6 @@ public class ControllerConsultarSaldoInvest {
                         JOptionPane.showMessageDialog(view,"Erro de carteira");
                     }   
                 }
-                
             }
             conn.close();
         }catch(SQLException e){
@@ -97,7 +96,6 @@ public class ControllerConsultarSaldoInvest {
                 String id_moeda = res.getString("NomeMoeda"); 
                 String saldo = res.getString("Saldo"); 
                 texto = texto + id_moeda + ": " + saldo + "<br>";
-                
             }
             InfosSaldoInvestidor i = new InfosSaldoInvestidor(investidor);
             i.getLblSaldoInvest().setText(texto);

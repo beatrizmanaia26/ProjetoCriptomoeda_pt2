@@ -25,8 +25,7 @@ public class ControllerConsultarSaldo {
 
     public ControllerConsultarSaldo(ConsultarSaldo view,Investidor invest) {
         this.view = view;
-        investidor = invest;
-        
+        investidor = invest; 
     }
     
     public void buscaMoedas(){
@@ -60,7 +59,6 @@ public class ControllerConsultarSaldo {
                         JOptionPane.showMessageDialog(view,"Erro de carteira");
                     }   
                 }
-                
             }
             conn.close();
         }catch(SQLException e){
@@ -80,7 +78,6 @@ public class ControllerConsultarSaldo {
                 String id_moeda = res.getString("NomeMoeda"); 
                 String saldo = res.getString("Saldo");
                 texto = texto + id_moeda + ": " + saldo + "<br>";
-                
             }
             view.getLblSaldoInvest().setText(texto);
                

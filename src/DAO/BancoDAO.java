@@ -309,5 +309,28 @@ public class BancoDAO {
         statement.setString(1, moeda.getNome());
         statement.execute();    
     }
-      
+     
+    //se tem jeito mlhr pra fazer!!!!!!!!!!
+    
+    public ResultSet consultarCotacao(String moeda) throws SQLException { 
+        String sql = "SELECT \"Cotacao\" FROM moedas WHERE \"Nome\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, moeda);
+        return statement.executeQuery();
+    }
+    
+    public ResultSet consultarTaxaCompra(String moeda) throws SQLException { 
+        String sql = "SELECT \"Taxa_compra\" FROM moedas WHERE \"Nome\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, moeda);
+        return statement.executeQuery();
+    }
+    
+    public ResultSet consultarTaxaVenda(String moeda) throws SQLException { 
+        String sql = "SELECT \"Taxa_venda\" FROM moedas WHERE \"Nome\" = ?";
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, moeda);
+        return statement.executeQuery();
+    }
+        
 }

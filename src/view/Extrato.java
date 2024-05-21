@@ -24,7 +24,9 @@ public class Extrato extends javax.swing.JFrame {
         controller = new ControllerExtrato(this,investidor);
         initComponents();
         setLocationRelativeTo(null); //embaixo do ini pra fica no meio mesmo
-        this.investidor = investidor;
+        this.investidor = investidor; 
+        this.lblNome.setText(investidor.getNome()); 
+        this.lblCpf.setText(investidor.getCpf()); 
         controller.verificaExistenciaExtrato();
     }
 
@@ -44,30 +46,6 @@ public class Extrato extends javax.swing.JFrame {
         this.controller = controller;
     }
 
-    public JMenuBar getjMenuBar1() {
-        return jMenuBar1;
-    }
-
-    public void setjMenuBar1(JMenuBar jMenuBar1) {
-        this.jMenuBar1 = jMenuBar1;
-    }
-
-    public JMenuBar getjMenuBar2() {
-        return jMenuBar2;
-    }
-
-    public void setjMenuBar2(JMenuBar jMenuBar2) {
-        this.jMenuBar2 = jMenuBar2;
-    }
-
-    public JMenuBar getjMenuBar3() {
-        return jMenuBar3;
-    }
-
-    public void setjMenuBar3(JMenuBar jMenuBar3) {
-        this.jMenuBar3 = jMenuBar3;
-    }
-
     public JMenuBar getjMenuBar4() {
         return jMenuBar4;
     }
@@ -76,60 +54,12 @@ public class Extrato extends javax.swing.JFrame {
         this.jMenuBar4 = jMenuBar4;
     }
 
-    public JMenuItem getjMenuItem1() {
-        return jMenuItem1;
-    }
-
-    public void setjMenuItem1(JMenuItem jMenuItem1) {
-        this.jMenuItem1 = jMenuItem1;
-    }
-
-    public JMenuItem getjMenuItem2() {
-        return jMenuItem2;
-    }
-
-    public void setjMenuItem2(JMenuItem jMenuItem2) {
-        this.jMenuItem2 = jMenuItem2;
-    }
-
-    public JMenuItem getjMenuItem3() {
-        return jMenuItem3;
-    }
-
-    public void setjMenuItem3(JMenuItem jMenuItem3) {
-        this.jMenuItem3 = jMenuItem3;
-    }
-
     public JMenuItem getjMenuItem4() {
         return jMenuItem4;
     }
 
     public void setjMenuItem4(JMenuItem jMenuItem4) {
         this.jMenuItem4 = jMenuItem4;
-    }
-
-    public JMenu getjMenuMenu() {
-        return jMenuMenu;
-    }
-
-    public void setjMenuMenu(JMenu jMenuMenu) {
-        this.jMenuMenu = jMenuMenu;
-    }
-
-    public JMenu getjMenuMenu1() {
-        return jMenuMenu1;
-    }
-
-    public void setjMenuMenu1(JMenu jMenuMenu1) {
-        this.jMenuMenu1 = jMenuMenu1;
-    }
-
-    public JMenu getjMenuMenu2() {
-        return jMenuMenu2;
-    }
-
-    public void setjMenuMenu2(JMenu jMenuMenu2) {
-        this.jMenuMenu2 = jMenuMenu2;
     }
 
     public JMenu getjMenuMenu3() {
@@ -187,6 +117,7 @@ public class Extrato extends javax.swing.JFrame {
     public void setLblNomeInvest(JLabel lblNomeInvest) {
         this.lblNomeInvest = lblNomeInvest;
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -247,34 +178,33 @@ public class Extrato extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCPFInvest)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNomeInvest)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lblCPFInvest)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lblExtratoInvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(lblNomeInvest)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(lblExtratoInvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblNomeInvest, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCPFInvest)
                     .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblExtratoInvest1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                .addGap(39, 39, 39))
+                .addGap(41, 41, 41)
+                .addComponent(lblExtratoInvest1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -289,17 +219,8 @@ public class Extrato extends javax.swing.JFrame {
     private Investidor investidor;
     private ControllerExtrato controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenu jMenuMenu;
-    private javax.swing.JMenu jMenuMenu1;
-    private javax.swing.JMenu jMenuMenu2;
     private javax.swing.JMenu jMenuMenu3;
     private javax.swing.JLabel lblCPFInvest;
     private javax.swing.JLabel lblCpf;

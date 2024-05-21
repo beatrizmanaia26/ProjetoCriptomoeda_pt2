@@ -43,16 +43,15 @@ public class ControllerExcluirInvestidor {
                 
                 int option = JOptionPane.showConfirmDialog(view,"Deseja realmente excluir " + nome + "?");
                 if(option != 1){
-                    
                     try{
+                        dao.excluirExtrato(i);
                         dao.excluirCarteiraInvest(i);
                         dao.excluir(i);
                     
                         JOptionPane.showMessageDialog(view,"Investidor excluido");
 
-
-
                     }catch(SQLException e){
+                        e.printStackTrace();
                         JOptionPane.showMessageDialog(view,"Erro de conexao");
                    }
                 }
@@ -60,7 +59,10 @@ public class ControllerExcluirInvestidor {
             }else{
                 JOptionPane.showMessageDialog(view,"Investidor não encontrado");
             }
+            res.close();
+            conn.close();
         }catch(SQLException e){
+            e.printStackTrace();
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
     }

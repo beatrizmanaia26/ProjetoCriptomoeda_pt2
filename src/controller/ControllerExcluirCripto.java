@@ -47,6 +47,7 @@ public class ControllerExcluirCripto {
                 if(option != 1){
                     
                     try{
+                        dao.excluirExtratoMoeda(m);
                         dao.excluirCarteiraMoeda(m);
                         dao.excluirCripto(m);
                         JOptionPane.showMessageDialog(view,"Moeda excluida");

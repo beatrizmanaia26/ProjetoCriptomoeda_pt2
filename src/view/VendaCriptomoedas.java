@@ -173,7 +173,7 @@ public class VendaCriptomoedas extends javax.swing.JFrame {
         txtQtdMoeda.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
 
         btVender.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
-        btVender.setText("Comprar");
+        btVender.setText("Vender");
         btVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btVenderActionPerformed(evt);

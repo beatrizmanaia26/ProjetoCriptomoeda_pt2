@@ -8,8 +8,6 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
-import model.Bitcoin;
-import model.Carteira;
 import model.Investidor;
 import model.Moedas;
 import model.OutrasMoedas;

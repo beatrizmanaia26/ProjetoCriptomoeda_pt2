@@ -4,12 +4,14 @@
  */
 package view;
 
+import controller.ControllerVerificaSenha;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
+import model.Investidor;
 
 /**
  *
@@ -20,8 +22,12 @@ public class VerificacaoDeSenha extends javax.swing.JFrame {
     /**
      * Creates new form VerificacaoDeSenha
      */
-    public VerificacaoDeSenha() {
+    public VerificacaoDeSenha(Investidor investidor, int contador) {
         initComponents();
+        setLocationRelativeTo(null);
+        this.investidor = investidor;
+        this.contador = contador;
+        control = new ControllerVerificaSenha(this, investidor);
     }
 
     public JButton getBtConfirmarSenha7() {
@@ -114,6 +120,11 @@ public class VerificacaoDeSenha extends javax.swing.JFrame {
         });
 
         btConfirmarSenha7.setText("CONFIRMAR");
+        btConfirmarSenha7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConfirmarSenha7ActionPerformed(evt);
+            }
+        });
 
         jMenuMenu.setText("Menu");
 
@@ -158,7 +169,7 @@ public class VerificacaoDeSenha extends javax.swing.JFrame {
                     .addComponent(lblSenha)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btConfirmarSenha7))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,10 +180,18 @@ public class VerificacaoDeSenha extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        BemVindoUsuario b = new BemVindoUsuario(investidor);
+        b.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void btConfirmarSenha7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConfirmarSenha7ActionPerformed
+        control.verificaSenha(contador);
+    }//GEN-LAST:event_btConfirmarSenha7ActionPerformed
     
+    private int contador;
+    private Investidor investidor;
+    private ControllerVerificaSenha control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btConfirmarSenha7;
     private javax.swing.JMenuBar jMenuBar1;

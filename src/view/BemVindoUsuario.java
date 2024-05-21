@@ -411,14 +411,14 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bt8ActionPerformed
 
     private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed
-       Extrato e = new Extrato(investidor);
-       e.setVisible(true);
-       this.setVisible(false);
+        VerificacaoDeSenha s = new VerificacaoDeSenha(investidor,2);
+        s.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt2ActionPerformed
 
     private void bt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt1ActionPerformed
-        ConsultarSaldo c = new ConsultarSaldo(investidor);
-        c.setVisible(true);
+        VerificacaoDeSenha s = new VerificacaoDeSenha(investidor,1);
+        s.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bt1ActionPerformed
 
@@ -435,14 +435,14 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bt4ActionPerformed
 
     private void bt5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt5ActionPerformed
-      ComprarCripto c = new ComprarCripto(investidor);
-      c.setVisible(true);
-      this.setVisible(false);
+        VerificacaoDeSenha s = new VerificacaoDeSenha(investidor,5);
+        s.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt5ActionPerformed
 
     private void bt6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt6ActionPerformed
-        VendaCriptomoedas v = new VendaCriptomoedas(investidor);
-        v.setVisible(true);
+        VerificacaoDeSenha s = new VerificacaoDeSenha(investidor,6);
+        s.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_bt6ActionPerformed
 

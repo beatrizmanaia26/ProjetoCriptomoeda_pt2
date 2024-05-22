@@ -13,7 +13,6 @@ public class Carteira {
     private double saldo;
 
     public Carteira(Moedas moedas, double saldo) {
-        this.moedas = moedas;
         this.saldo = saldo;
         this.moedas = new Moedas();
     }
@@ -39,9 +38,6 @@ public class Carteira {
 
     @Override
     public String toString() {
-        return "Carteira{" + "moedas=" + moedas + ", saldo=" + saldo + '}';
+        return   moedas.getNome() + ": " + saldo;
     }
-    
-    
-    
 }

@@ -12,6 +12,7 @@ import model.Investidor;
 import model.Moedas;
 import model.OutrasMoedas;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 /**
  *
@@ -115,15 +116,7 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
-
-    public ResultSet consultarParaAtualizarCriptomoedas() throws SQLException { 
-        String sql = "select * from moedas"; 
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.execute();
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
-    }
-       
+    
     public ResultSet consultarSaldo(Investidor investidor, String tipoMoeda) throws SQLException{ 
         String sql = "select \"Saldo\" from carteira where \"CPF\" = ? and \"NomeMoeda\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
@@ -171,6 +164,15 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
+    
+        public ResultSet consultarParaAtualizarCriptomoedas() throws SQLException { 
+        String sql = "select * from moedas"; 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
+    }
+       
   
     public void atualizarCriptomoedas(Moedas moeda) throws SQLException {
         String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = ?";
@@ -281,8 +283,8 @@ public class BancoDAO {
        }
     }
         
-    public void InserirExtrato(Investidor investidor, String moeda, String tipoOper, double valor, double saldoAtual) throws SQLException {
-        String sql = "INSERT INTO extrato (\"ID_Investidor\", \"ID_moeda\", \"DataHora\", \"TipoOper\", \"ValorOper\",  \"SaldoAtual\") VALUES (?, ?, ?, ?, ?, ?)";
+    public void InserirExtrato(Investidor investidor, String moeda, String tipoOper, double valor, double saldoAtual, String saldoMoedas) throws SQLException {
+        String sql = "INSERT INTO extrato (\"ID_Investidor\", \"ID_moeda\", \"DataHora\", \"TipoOper\", \"ValorOper\",  \"SaldoAtual\",  \"SaldoOutrasMoedas\") VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, investidor.getCpf());
@@ -293,6 +295,7 @@ public class BancoDAO {
             statement.setString(4, tipoOper);
             statement.setDouble(5, valor);
             statement.setDouble(6, saldoAtual);
+            statement.setString(7, saldoMoedas);
 
             statement.executeUpdate(); 
         }
@@ -311,35 +314,5 @@ public class BancoDAO {
         statement.setString(1, moeda.getNome());
         statement.execute();    
     }
-     
-    //se tem jeito mlhr pra fazer!!!!!!!!!!
-    
-    public ResultSet consultarCotacao(String moeda) throws SQLException { 
-        String sql = "SELECT \"Cotacao\" FROM moedas WHERE \"Nome\" = ?";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, moeda);
-        statement.execute();
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
-    }
-    
-    
-    public ResultSet consultarTaxaCompra(String moeda) throws SQLException { 
-        String sql = "SELECT \"Taxa_compra\" FROM moedas WHERE \"Nome\" = ?";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, moeda);
-        statement.execute();
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
-    }
-    
-    public ResultSet consultarTaxaVenda(String moeda) throws SQLException { 
-        String sql = "SELECT \"Taxa_venda\" FROM moedas WHERE \"Nome\" = ?";
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.setString(1, moeda);
-        statement.execute();
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
-    }
-        
+      
 }

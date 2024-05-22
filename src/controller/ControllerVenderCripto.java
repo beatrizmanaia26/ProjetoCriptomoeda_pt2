@@ -94,8 +94,8 @@ public class ControllerVenderCripto {
                             JOptionPane.showMessageDialog(view, "Venda realizada com sucesso.\nSaldo atual: " 
                                                                 + investidor.getCarteira().getSaldo()); 
                             //informações para extrato
-                            dao.InserirExtrato(investidor, "Real", "+", valorReais, novoSaldoReais);
-                            dao.InserirExtrato(investidor, nomeMoeda , "-", quantidadeVender , novoSaldoMoeda);
+                       //     dao.InserirExtrato(investidor, "Real", "+", valorReais, novoSaldoReais);
+                       //     dao.InserirExtrato(investidor, nomeMoeda , "-", quantidadeVender , novoSaldoMoeda);
                         } else {
                             JOptionPane.showMessageDialog(view, "Saldo em reais não encontrado.");
                         }    

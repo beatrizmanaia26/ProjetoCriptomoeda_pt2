@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.Investidor;
 import model.Moedas;
+import model.OutrasMoedas;
 import model.Real;
 
 /**
@@ -24,10 +25,24 @@ import model.Real;
 public class ControllerDepositarMoedas {
     private DepositoReais view;
     private Investidor investidor;
-
+    private ArrayList<String> carteiras = new ArrayList<>(); //cria pra adicionar no extrato os saldos das outras moedas que nao real
+    
     public ControllerDepositarMoedas(DepositoReais view, Investidor investidor) {
         this.view = view;
         this.investidor = investidor;
+    }
+    
+    public String arrayParaString() {
+        StringBuilder sb = new StringBuilder();
+    
+        for (String carteira : carteiras) {
+            sb.append(carteira); 
+            sb.append(", ");
+        }
+        if (!carteiras.isEmpty()) {
+            sb.delete(sb.length() - 2, sb.length()); // Remove a última vírgula e o espaço
+        }
+        return sb.toString(); 
     }
     
     public void buscaMoedas(){
@@ -71,6 +86,7 @@ public class ControllerDepositarMoedas {
 
     public void consultarCarteira(){
         Conexao conexao = new Conexao();
+        OutrasMoedas m = null;
         ArrayList<String> moedasExistentes = new ArrayList<>();
         try{
             Connection conn = conexao.getConnection();
@@ -96,7 +112,41 @@ public class ControllerDepositarMoedas {
                         JOptionPane.showMessageDialog(view,"Erro de carteira");
                     }   
                 }
-            }
+                if(!(moedasExistentes.get(i).equals("Real"))){
+                    ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
+                    System.out.println("entrou n real");
+              //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
+              // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
+                    if(resMoeda.next()){//cria moeda
+                        System.out.println("Entrou no cria moeda");
+                        double cotacao = resMoeda.getDouble("Cotacao");
+                        float taxaVenda = resMoeda.getFloat("Taxa_venda");
+                        float taxaCompra = resMoeda.getFloat("Taxa_compra");
+                        
+                        m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
+                       
+                        try{
+                            System.out.println("Entrou no try dps de cria moeda");
+                             //pegar saldo da moeda especifica
+                        if(res.next()){
+                            System.out.println("iffff");
+                            System.out.println("m antes double saldo "+ m);
+                            double saldo = res.getDouble("Saldo"); 
+                            investidor.getCarteira().setMoedas(m);
+                            System.out.println("m depoi investidor"+m);
+                            investidor.getCarteira().setSaldo(saldo);  
+                            }
+                        }
+                        catch(SQLException e){
+                            e.printStackTrace(); 
+                           JOptionPane.showMessageDialog(view,"Erro no if");
+                       }
+                    }    
+                }
+                String c = investidor.getCarteira().toString();
+                carteiras.add(c);
+              }
+           
             conn.close();
         }catch(SQLException e){
              e.printStackTrace(); 
@@ -112,8 +162,6 @@ public class ControllerDepositarMoedas {
                     Real r = new Real();
                     investidor.getCarteira().setMoedas(r);
                     investidor.getCarteira().setSaldo(doubleSaldo);
-                   
-
                 }else{
                     JOptionPane.showMessageDialog(view,"Login não foi feito");
                 }
@@ -122,9 +170,10 @@ public class ControllerDepositarMoedas {
             }
     }
     
-    public void DepositarReais(){
+    public void DepositarReais(){ //faz outrasmoedas aqui pq aqui que tem saldo do real
         double deposito = Double.parseDouble(view.getTxtReaisDeposito().getText());
         double valorFinal = deposito + investidor.getCarteira().getSaldo();
+        ArrayList<Carteira> saldoOutrasMoedas = new ArrayList<>(); //de carteira para depois ver de que moeda é o saldo
         investidor.getCarteira().setSaldo(valorFinal);
         Conexao conexao = new Conexao();
         try{
@@ -133,12 +182,14 @@ public class ControllerDepositarMoedas {
             dao.depositoReais(investidor);
             JOptionPane.showMessageDialog(view,"Deposito feito com sucesso\n"
                     + "Saldo atual: "+ investidor.getCarteira().getSaldo());
+            //transforma arraylist em string
             try{
-                dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal);
+                dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal,arrayParaString());
             }catch(SQLException e){
                 e.printStackTrace(); 
                 JOptionPane.showMessageDialog(view,"Erro de conexao");
             }
+            
         }catch(SQLException e){
              JOptionPane.showMessageDialog(view,"Erro de conexao");
         }

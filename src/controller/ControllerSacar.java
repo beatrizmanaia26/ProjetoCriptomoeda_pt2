@@ -97,7 +97,7 @@ public class ControllerSacar {
                 JOptionPane.showMessageDialog(view,"Saque feito com sucesso\n"
                         + "Valor atual de reais da conta: " 
                         + investidor.getCarteira().getSaldo());
-                dao.InserirExtrato(investidor, "Real", "-", valorRetirado, saldoFinal);
+             //   dao.InserirExtrato(investidor, "Real", "-", valorRetirado, saldoFinal);
 
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(view,"Erro de conexao");

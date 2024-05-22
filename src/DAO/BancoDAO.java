@@ -287,7 +287,9 @@ public class BancoDAO {
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, investidor.getCpf());
             statement.setString(2, moeda);
-            statement.setTimestamp(3, new Timestamp(System.currentTimeMillis())); // define a data e hora atuais
+            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+            String formattedTimestamp = timestamp.toString().split("\\.")[0]; // Remove a parte dos milissegundos
+            statement.setString(3, formattedTimestamp); // define a data e hora atuais
             statement.setString(4, tipoOper);
             statement.setDouble(5, valor);
             statement.setDouble(6, saldoAtual);

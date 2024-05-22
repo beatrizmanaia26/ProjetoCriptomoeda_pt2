@@ -85,12 +85,7 @@ public class ControllerExtrato {
                     String tipoOper = res.getString("TipoOper"); 
                     String valorOper = res.getString("ValorOper"); 
                     String saldo = res.getString("SaldoAtual");
-//                    System.out.println("ID Moeda: " + id_moeda);
-//                    System.out.println("Data Hora: " + hora);
-//                    System.out.println("Tipo Oper: " + tipoOper);
-//                    System.out.println("Valor Oper: " + valorOper);
-//                    System.out.println("Saldo Atual: " + saldo);
-//                    System.out.println("\n");
+
                     try{
                         ResultSet resulM = dao.consultarTodaMoeda();
                         while (resulM.next()) {
@@ -111,8 +106,8 @@ public class ControllerExtrato {
                     }
                 
                     texto = texto + hora + " " + tipoOper + " " + valorOper 
-                            + " " + id_moeda + " CT: " + cot + " TX: " + tax 
-                            + " " + id_moeda + ": " + saldo + "<br>";
+                            + " " + id_moeda + "<b> CT: </b>" + cot + "<b> TX: </b>" + tax 
+                            + " <b>" + id_moeda + ":</b> " + saldo + "<br>";
             }while(res.next());
                view.getLblExtratoInvest1().setText(texto);  
             }    

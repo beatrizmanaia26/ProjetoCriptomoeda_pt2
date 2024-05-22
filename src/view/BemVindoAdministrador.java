@@ -300,7 +300,9 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_bt7ActionPerformed
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
-        // TODO add your handling code here:
+        Sair s = new Sair();
+        s.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_bt8ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

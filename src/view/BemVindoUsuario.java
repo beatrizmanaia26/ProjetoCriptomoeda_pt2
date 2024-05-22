@@ -407,7 +407,9 @@ public class BemVindoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
-       
+        Sair s = new Sair();
+        s.setVisible(true);
+        this.setVisible(false); 
     }//GEN-LAST:event_bt8ActionPerformed
 
     private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed

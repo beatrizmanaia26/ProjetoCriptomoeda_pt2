@@ -85,7 +85,7 @@ public class ControllerExtrato {
                     String tipoOper = res.getString("TipoOper"); 
                     String valorOper = res.getString("ValorOper"); 
                     String saldo = res.getString("SaldoAtual");
-                    String outrasMoedas = res.getString("OutrasMoedas");
+                    String outrasMoedas = res.getString("SaldoOutrasMoedas");
 
                     try{
                         ResultSet resulM = dao.consultarTodaMoeda();

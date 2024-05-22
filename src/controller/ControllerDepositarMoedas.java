@@ -112,30 +112,39 @@ public class ControllerDepositarMoedas {
                         JOptionPane.showMessageDialog(view,"Erro de carteira");
                     }   
                 }else{
-                    if(!(moedasExistentes.get(i).equals("Real"))){
-                        ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
-                  //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
-                  // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
-                        if(resMoeda.next()){//cria moeda
-                            double cotacao = resMoeda.getDouble("Cotacao");
-                            float taxaVenda = resMoeda.getFloat("Taxa_venda");
-                            float taxaCompra = resMoeda.getFloat("Taxa_compra");
+                   if (!(moedasExistentes.get(i).equals("Real"))) {
+                    ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
+                    //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
+                    // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
+                    if (resMoeda.next()) {//cria moeda
+                        double cotacao = resMoeda.getDouble("Cotacao");
+                        float taxaVenda = resMoeda.getFloat("Taxa_venda");
+                        float taxaCompra = resMoeda.getFloat("Taxa_compra");
 
-                            m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
+                        m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
+                        System.out.println("m dps do m= " + m);
+                        double saldo = res.getDouble("Saldo"); 
+                        investidor.getCarteira().setMoedas(m);
+                        investidor.getCarteira().setSaldo(saldo);  
 
-                            double saldo = res.getDouble("Saldo"); 
-                            investidor.getCarteira().setMoedas(m);
-                            investidor.getCarteira().setSaldo(saldo);  
-
-                         
-                        }    
+                        String c = investidor.getCarteira().toString();
+                        carteiras.add(c);
+                        System.out.println("c" + c);
                     }
-                    String c = investidor.getCarteira().toString();
-                    carteiras.add(c);
-                    System.out.println(c);
+                    } else {
+                        String c = investidor.getCarteira().toString();
+                        carteiras.add(c);
+                        System.out.println("c" + c);
+                    }
                   }
             }
-           
+            for (int i = 0; i < carteiras.size(); i++) { //adiciona 2 ripple na lista, esse código apaga a primeira ripple
+                if (carteiras.get(i).startsWith("Ripple")) {
+                    carteiras.remove(i);
+                    break; // Para de percorrer a lista assim que encontrar a primeira ocorrência de Ripple
+                }
+            }
+
             conn.close();
         }catch(SQLException e){
              e.printStackTrace(); 

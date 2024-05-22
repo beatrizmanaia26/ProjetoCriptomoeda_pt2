@@ -408,6 +408,7 @@ public class BemVindoUsuario extends javax.swing.JFrame {
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
         this.setVisible(false); 
+
     }//GEN-LAST:event_bt8ActionPerformed
 
     private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed

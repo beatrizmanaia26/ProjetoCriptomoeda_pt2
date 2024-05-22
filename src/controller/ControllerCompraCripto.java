@@ -22,7 +22,8 @@ import view.ComprarCripto;
 public class ControllerCompraCripto {
     private ComprarCripto view;
     private Investidor investidor;
-
+    private ArrayList<String> carteiras = new ArrayList<>(); //cria pra adicionar no extrato os saldos das outras moedas que nao real
+    
     public ControllerCompraCripto(ComprarCripto view, Investidor investidor) {
         this.view = view;
         this.investidor = investidor;
@@ -64,6 +65,19 @@ public class ControllerCompraCripto {
              e.printStackTrace(); 
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
+    }
+    
+    public String arrayParaString() {
+        StringBuilder sb = new StringBuilder();
+    
+        for (String carteira : carteiras) {
+            sb.append(carteira); 
+            sb.append(", ");
+        }
+        if (!carteiras.isEmpty()) {
+            sb.delete(sb.length() - 2, sb.length()); // Remove a última vírgula e o espaço
+        }
+        return sb.toString(); 
     }
     
     public void mostrarCotacao(){
@@ -161,7 +175,7 @@ public class ControllerCompraCripto {
                         + "Valor atual de reais da conta: " 
                         + saldoFinal);
                 
-              // dao.InserirExtrato(investidor, "Real", "-", valorTotal, saldoFinal);
+               dao.InserirExtrato(investidor, "Real", "-", valorTotal, saldoFinal, arrayParaString());
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(view,"Erro de conexao ao "
                         + "atualizar Real");
@@ -172,9 +186,9 @@ public class ControllerCompraCripto {
                 double valorTotalCripto = investidor.getCarteira().getSaldo() + quant;
                 investidor.getCarteira().setSaldo(valorTotalCripto);
                 dao.AtualizarMoedaCompra(investidor);
-              //  dao.InserirExtrato(investidor, 
-               //         investidor.getCarteira().getMoedas().getNome(),
-              //          "+", quant, valorTotalCripto);
+                dao.InserirExtrato(investidor, 
+                        investidor.getCarteira().getMoedas().getNome(),
+                        "+", quant, valorTotalCripto, arrayParaString());
 
 
             }catch(SQLException e){

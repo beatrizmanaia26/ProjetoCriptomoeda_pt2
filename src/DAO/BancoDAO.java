@@ -318,21 +318,28 @@ public class BancoDAO {
         String sql = "SELECT \"Cotacao\" FROM moedas WHERE \"Nome\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, moeda);
-        return statement.executeQuery();
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
+    
     
     public ResultSet consultarTaxaCompra(String moeda) throws SQLException { 
         String sql = "SELECT \"Taxa_compra\" FROM moedas WHERE \"Nome\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, moeda);
-        return statement.executeQuery();
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
     
     public ResultSet consultarTaxaVenda(String moeda) throws SQLException { 
         String sql = "SELECT \"Taxa_venda\" FROM moedas WHERE \"Nome\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);
         statement.setString(1, moeda);
-        return statement.executeQuery();
+        statement.execute();
+        ResultSet resultado = statement.getResultSet();
+        return resultado;
     }
         
 }

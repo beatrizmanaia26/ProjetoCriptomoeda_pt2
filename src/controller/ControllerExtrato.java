@@ -76,63 +76,44 @@ public class ControllerExtrato {
             ResultSet res = dao.consultarExtrato(investidores);
             if (res == null || !res.next()) { // verifica se extrato é nulo
                 view.getLblExtratoInvest1().setText("Extrato inexistente");
-            } else { // se tiver coisa no extrato
-                StringBuilder texto = new StringBuilder("<html>");
-                do {
-                    String tempo = res.getString("DataHora");
-                    String tipoOperacao = res.getString("TipoOper");
-                    String moeda = res.getString("ID_moeda");
-                    String valorOper = res.getString("ValorOper");
-                    String saldoAtual = res.getString("SaldoAtual");
 
-                    // consultar a cotação da moeda especifica
-                    String cotacao = "";
-                    try {
-                        ResultSet resCotacao = dao.consultarCotacao(moeda);
-                        if (resCotacao.next()) {
-                            cotacao = resCotacao.getString("Cotacao");
-                        }
-                        resCotacao.close();
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        JOptionPane.showMessageDialog(view, "Erro ao consultar cotação");
-                    }
+            }else {
+                String texto = "<html>";
+                String cot = null;
+                String tax = null;
+                 do{
+                    String id_moeda = res.getString("ID_moeda"); 
+                    String hora = res.getString("DataHora"); 
+                    String tipoOper = res.getString("TipoOper"); 
+                    String valorOper = res.getString("ValorOper"); 
+                    String saldo = res.getString("SaldoAtual");
 
-                    // consulta taxa de compra/venda da moeda especifica
-                    String taxa = "";
-                    try {
-                        if (tipoOperacao.equals("+") && !"Real".equals(moeda)) {
-                            ResultSet resTaxaCompra = dao.consultarTaxaCompra(moeda);
-                            if (resTaxaCompra.next()) {
-                                taxa = resTaxaCompra.getString("Taxa_compra");
+                    try{
+                        ResultSet resulM = dao.consultarTodaMoeda();
+                        while (resulM.next()) {
+                            String nomeMoeda = resulM.getString("Nome");
+                            if(nomeMoeda.equals(id_moeda)){
+                                cot = resulM.getString("Cotacao");
+                                if(tipoOper.equals("+")){
+                                   tax = resulM.getString("Taxa_compra");
+                                }else{
+                                   tax = resulM.getString("Taxa_venda");
+                                }
                             }
-                            resTaxaCompra.close();
-                        } else if (tipoOperacao.equals("-") && !"Real".equals(moeda)) {
-                            ResultSet resTaxaVenda = dao.consultarTaxaVenda(moeda);
-                            if (resTaxaVenda.next()) {
-                                taxa = resTaxaVenda.getString("Taxa_Venda");
-                            }
-                            resTaxaVenda.close();
-                        } else {
-                            taxa = "0.00";
                         }
-                    } catch (SQLException e) {
+                        
+                    }catch (SQLException e) {
                         e.printStackTrace();
-                        JOptionPane.showMessageDialog(view, "Erro ao consultar taxa");
+                        JOptionPane.showMessageDialog(view, "Erro de conexão extrato busca moeda");
                     }
+                
+                    texto = texto + hora + " " + tipoOper + " " + valorOper 
+                            + " " + id_moeda + "<b> CT: </b>" + cot + "<b> TX: </b>" + tax 
+                            + " <b>" + id_moeda + ":</b> " + saldo + "<br>";
+            }while(res.next());
+               view.getLblExtratoInvest1().setText(texto);  
+            }    
 
-                    // coloca informações no extrato
-                    texto.append(tempo).append("   ").append(tipoOperacao).append("   ")
-                            .append(valorOper).append("   ").append(moeda).append("   ").append("<b>")
-                            .append("CT: ").append("</b>").append(cotacao).append("   ").append("<b>")
-                            .append("TX: ").append("</b>").append(taxa).append(" ").append("Saldo: ")
-                            .append(saldoAtual).append("<br>");
-                    
-                } while (res.next());
-                texto.append("</html>");
-                view.getLblExtratoInvest1().setText(texto.toString());
-            }
-            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(view, "Erro de conexão ao consultar extrato");

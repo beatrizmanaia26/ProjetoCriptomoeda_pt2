@@ -111,41 +111,30 @@ public class ControllerDepositarMoedas {
                     }catch(SQLException e){
                         JOptionPane.showMessageDialog(view,"Erro de carteira");
                     }   
-                }
-                if(!(moedasExistentes.get(i).equals("Real"))){
-                    ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
-                    System.out.println("entrou n real");
-              //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
-              // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
-                    if(resMoeda.next()){//cria moeda
-                        System.out.println("Entrou no cria moeda");
-                        double cotacao = resMoeda.getDouble("Cotacao");
-                        float taxaVenda = resMoeda.getFloat("Taxa_venda");
-                        float taxaCompra = resMoeda.getFloat("Taxa_compra");
-                        
-                        m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
-                       
-                        try{
-                            System.out.println("Entrou no try dps de cria moeda");
-                             //pegar saldo da moeda especifica
-                        if(res.next()){
-                            System.out.println("iffff");
-                            System.out.println("m antes double saldo "+ m);
+                }else{
+                    if(!(moedasExistentes.get(i).equals("Real"))){
+                        ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
+                  //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
+                  // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
+                        if(resMoeda.next()){//cria moeda
+                            double cotacao = resMoeda.getDouble("Cotacao");
+                            float taxaVenda = resMoeda.getFloat("Taxa_venda");
+                            float taxaCompra = resMoeda.getFloat("Taxa_compra");
+
+                            m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
+
                             double saldo = res.getDouble("Saldo"); 
                             investidor.getCarteira().setMoedas(m);
-                            System.out.println("m depoi investidor"+m);
                             investidor.getCarteira().setSaldo(saldo);  
-                            }
-                        }
-                        catch(SQLException e){
-                            e.printStackTrace(); 
-                           JOptionPane.showMessageDialog(view,"Erro no if");
-                       }
-                    }    
-                }
-                String c = investidor.getCarteira().toString();
-                carteiras.add(c);
-              }
+
+                         
+                        }    
+                    }
+                    String c = investidor.getCarteira().toString();
+                    carteiras.add(c);
+                    System.out.println(c);
+                  }
+            }
            
             conn.close();
         }catch(SQLException e){
@@ -173,7 +162,6 @@ public class ControllerDepositarMoedas {
     public void DepositarReais(){ //faz outrasmoedas aqui pq aqui que tem saldo do real
         double deposito = Double.parseDouble(view.getTxtReaisDeposito().getText());
         double valorFinal = deposito + investidor.getCarteira().getSaldo();
-        ArrayList<Carteira> saldoOutrasMoedas = new ArrayList<>(); //de carteira para depois ver de que moeda é o saldo
         investidor.getCarteira().setSaldo(valorFinal);
         Conexao conexao = new Conexao();
         try{

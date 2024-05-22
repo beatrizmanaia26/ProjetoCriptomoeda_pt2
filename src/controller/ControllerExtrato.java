@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package controller;
 
 import view.Extrato;
@@ -22,11 +26,11 @@ public class ControllerExtrato {
         this.view = view;
         this.investidores = investidores;
     }
-
-    public void buscaMoedas() { // cria carteira
+    
+    public void buscaMoedas(){ //cria carteira
         Conexao conexao = new Conexao();
         ArrayList<String> moedasExistentes = new ArrayList<>();
-        try {
+        try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
             ResultSet res = dao.consultarMoedas();
@@ -35,48 +39,42 @@ public class ControllerExtrato {
                 String id = res.getString("Nome"); // pego id da moeda para usar no resto
                 // Faça o que for necessário com os valores, por exemplo, imprima-os
                 moedasExistentes.add(id);
-            }
-            res.close();
-            conn.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(view, "Erro de conexão");
-        }
+                }
+                res.close();
 
-        try {
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        }
+        
+        try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-            for (String moeda : moedasExistentes) {
-                try {
-                    ResultSet res = dao.consultarSaldo(investidores, moeda);
-                    if (res == null || !res.next()) {
-                        try {
-                            dao.inserirCarteira(investidores, 0, moeda);
-                        } catch (SQLException e) {
-                            JOptionPane.showMessageDialog(view, "Erro de carteira");
-                        }
-                    }
-                    res.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    JOptionPane.showMessageDialog(view, "Erro ao consultar saldo");
+            for(int i = 0; i < moedasExistentes.size(); i++){
+                ResultSet res = dao.consultarSaldo(investidores,moedasExistentes.get(i));
+                if(res == null){
+                    try{
+                        dao.inserirCarteira(investidores,0,moedasExistentes.get(i));
+                    }catch(SQLException e){
+                        JOptionPane.showMessageDialog(view,"Erro de carteira");
+                    }   
                 }
+                
             }
             conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(view, "Erro de conexão");
-        }
+        }catch(SQLException e){
+             e.printStackTrace(); 
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        }       
     }
-
-    public void verificaExistenciaExtrato() {
+    
+    public void verificaExistenciaExtrato() { 
         Conexao conexao = new Conexao();
         try {
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
             ResultSet res = dao.consultarExtrato(investidores);
-            if (res == null || !res.next()) { // verifica se extrato é nulo
+            if (res == null) {
                 view.getLblExtratoInvest1().setText("Extrato inexistente");
-
             }else {
                 String texto = "<html>";
                 String cot = null;
@@ -113,7 +111,6 @@ public class ControllerExtrato {
             }while(res.next());
                view.getLblExtratoInvest1().setText(texto);  
             }    
-
         } catch (SQLException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(view, "Erro de conexão ao consultar extrato");

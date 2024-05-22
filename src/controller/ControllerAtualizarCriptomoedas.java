@@ -36,7 +36,7 @@ public class ControllerAtualizarCriptomoedas {
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-            ResultSet res= dao.consultarParaAtualizarCriptomoedas();
+            ResultSet res= dao.consultarTodaMoeda();
             while (res.next()) {
                 String nome = res.getString("Nome");
                 String cotacao = res.getString("Cotacao");

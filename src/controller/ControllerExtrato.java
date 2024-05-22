@@ -21,7 +21,6 @@ import model.Investidor;
 public class ControllerExtrato {
     public Extrato view;
     public Investidor investidores;
-    private ArrayList<String> carteiras = new ArrayList<>(); //cria pra adicionar no extrato os saldos das outras moedas que nao real
 
     public ControllerExtrato(Extrato view, Investidor investidores) {
         this.view = view;
@@ -66,19 +65,6 @@ public class ControllerExtrato {
              e.printStackTrace(); 
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }       
-    }
-    
-    public String arrayParaString() {
-        StringBuilder sb = new StringBuilder();
-    
-        for (String carteira : carteiras) {
-            sb.append(carteira); 
-            sb.append(", ");
-        }
-        if (!carteiras.isEmpty()) {
-            sb.delete(sb.length() - 2, sb.length()); // Remove a última vírgula e o espaço
-        }
-        return sb.toString(); 
     }
     
     public void verificaExistenciaExtrato() { 

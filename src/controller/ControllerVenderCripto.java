@@ -14,12 +14,26 @@ import model.OutrasMoedas;
 public class ControllerVenderCripto {
     private VendaCriptomoedas view;
     private Investidor investidor;
+    private ArrayList<String> carteiras = new ArrayList<>(); //cria pra adicionar no extrato os saldos das outras moedas que nao real
 
     public ControllerVenderCripto(VendaCriptomoedas view, Investidor investidor) {
         this.view = view;
         this.investidor = investidor;
     }
 
+    public String arrayParaString() {
+        StringBuilder sb = new StringBuilder();
+    
+        for (String carteira : carteiras) {
+            sb.append(carteira); 
+            sb.append(", ");
+        }
+        if (!carteiras.isEmpty()) {
+            sb.delete(sb.length() - 2, sb.length()); // Remove a última vírgula e o espaço
+        }
+        return sb.toString(); 
+    }
+    
     public void criarCarteira() {
          Conexao conexao = new Conexao();
         ArrayList<String> moedasExistentes = new ArrayList<>();

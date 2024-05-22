@@ -22,6 +22,7 @@ import model.Real;
  *
  * @author beatr
  */
+
 public class ControllerDepositarMoedas {
     private DepositoReais view;
     private Investidor investidor;

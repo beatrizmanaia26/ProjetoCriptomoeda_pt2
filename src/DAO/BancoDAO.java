@@ -164,16 +164,7 @@ public class BancoDAO {
         ResultSet resultado = statement.getResultSet();
         return resultado;
     }
-    
-        public ResultSet consultarParaAtualizarCriptomoedas() throws SQLException { 
-        String sql = "select * from moedas"; 
-        PreparedStatement statement = conn.prepareStatement(sql);
-        statement.execute();
-        ResultSet resultado = statement.getResultSet();
-        return resultado;
-    }
-       
-  
+
     public void atualizarCriptomoedas(Moedas moeda) throws SQLException {
         String sql = "update moedas set \"Cotacao\" = ? where \"Nome\" = ?";
         PreparedStatement statement = conn.prepareStatement(sql);

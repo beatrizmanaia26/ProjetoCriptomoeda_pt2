@@ -93,7 +93,7 @@ public class ControllerExtratoInvestidor {
                 
                     texto = texto + hora + " " + tipoOper + " " + valorOper 
                             + " " + id_moeda + "<b> CT: </b>" + cot + "<b> TX: </b>" + tax 
-                            + " <b>" + id_moeda + ":</b> " + saldo + outrasMoedas + "<br>";
+                            + " <b>" + id_moeda + ":</b> " + saldo + ", " + outrasMoedas + "<br>";
             }while(res.next());
                i.getLblExtratoInvest().setText(texto);  
             }    

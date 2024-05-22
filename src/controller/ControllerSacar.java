@@ -82,19 +82,16 @@ public class ControllerSacar {
                         float taxaCompra = resMoeda.getFloat("Taxa_compra");
 
                         m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
-                        System.out.println("m dps do m= " + m);
                         double saldo = res.getDouble("Saldo"); 
                         investidor.getCarteira().setMoedas(m);
                         investidor.getCarteira().setSaldo(saldo);  
 
                         String c = investidor.getCarteira().toString();
                         carteiras.add(c);
-                        System.out.println("c" + c);
                     }
                     } else {
                         String c = investidor.getCarteira().toString();
                         carteiras.add(c);
-                        System.out.println("c" + c);
                     }
                   }
             }

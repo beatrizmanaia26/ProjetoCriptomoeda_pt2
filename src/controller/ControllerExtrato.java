@@ -122,7 +122,7 @@ public class ControllerExtrato {
                 
                     texto = texto + hora + " " + tipoOper + " " + valorOper 
                             + " " + id_moeda + "<b> CT: </b>" + cot + "<b> TX: </b>" + tax 
-                            + " <b>" + id_moeda + ":</b> " + saldo + " " + outrasMoedas +  "<br>" ;
+                            + " <b>" + id_moeda + ":</b> " + saldo + ", " + outrasMoedas +  "<br>" ;
             }while(res.next());
                view.getLblExtratoInvest1().setText(texto);  
             }    

@@ -21,6 +21,7 @@ import model.Investidor;
 public class ControllerExtrato {
     public Extrato view;
     public Investidor investidores;
+    private ArrayList<String> carteiras = new ArrayList<>(); //cria pra adicionar no extrato os saldos das outras moedas que nao real
 
     public ControllerExtrato(Extrato view, Investidor investidores) {
         this.view = view;
@@ -67,6 +68,19 @@ public class ControllerExtrato {
         }       
     }
     
+    public String arrayParaString() {
+        StringBuilder sb = new StringBuilder();
+    
+        for (String carteira : carteiras) {
+            sb.append(carteira); 
+            sb.append(", ");
+        }
+        if (!carteiras.isEmpty()) {
+            sb.delete(sb.length() - 2, sb.length()); // Remove a última vírgula e o espaço
+        }
+        return sb.toString(); 
+    }
+    
     public void verificaExistenciaExtrato() { 
         Conexao conexao = new Conexao();
         try {
@@ -108,7 +122,7 @@ public class ControllerExtrato {
                 
                     texto = texto + hora + " " + tipoOper + " " + valorOper 
                             + " " + id_moeda + "<b> CT: </b>" + cot + "<b> TX: </b>" + tax 
-                            + " <b>" + id_moeda + ":</b> " + saldo + outrasMoedas + "<br>";
+                            + " <b>" + id_moeda + ":</b> " + saldo + " " + outrasMoedas +  "<br>" ;
             }while(res.next());
                view.getLblExtratoInvest1().setText(texto);  
             }    

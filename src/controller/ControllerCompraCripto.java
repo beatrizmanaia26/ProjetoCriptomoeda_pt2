@@ -22,7 +22,7 @@ import view.ComprarCripto;
 public class ControllerCompraCripto {
     private ComprarCripto view;
     private Investidor investidor;
-
+    
     public ControllerCompraCripto(ComprarCripto view, Investidor investidor) {
         this.view = view;
         this.investidor = investidor;

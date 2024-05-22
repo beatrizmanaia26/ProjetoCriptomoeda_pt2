@@ -303,6 +303,8 @@ public class BemVindoAdministrador extends javax.swing.JFrame {
 
     private void bt8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt8ActionPerformed
 
+        this.setVisible(false);
+
     }//GEN-LAST:event_bt8ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

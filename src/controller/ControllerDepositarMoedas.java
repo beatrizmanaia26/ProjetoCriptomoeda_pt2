@@ -126,7 +126,7 @@ public class ControllerDepositarMoedas {
         }
         carteiras = new ArrayList<>();
     }
-    
+    //apagueu funcao que era repetida 
     public void extrato(){//faz outrasmoedas aqui pq aqui que tem saldo do real
         Conexao conexao = new Conexao();
         OutrasMoedas m = null;

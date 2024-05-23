@@ -119,7 +119,7 @@ public class DepositoReais extends javax.swing.JFrame {
     }//GEN-LAST:event_txtReaisDepositoActionPerformed
 
     private void btDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepositarActionPerformed
-        controller.buscaMoedas();
+
         controller.consultarCarteira();
         controller.DepositarReais();
     }//GEN-LAST:event_btDepositarActionPerformed

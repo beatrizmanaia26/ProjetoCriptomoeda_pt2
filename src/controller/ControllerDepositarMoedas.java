@@ -44,6 +44,7 @@ public class ControllerDepositarMoedas {
         }
         return sb.toString(); 
     }
+<<<<<<< Updated upstream
     
     public void buscaMoedas(){
         Conexao conexao = new Conexao();
@@ -83,6 +84,8 @@ public class ControllerDepositarMoedas {
             JOptionPane.showMessageDialog(view,"Erro de conexao");
         }       
        }
+=======
+>>>>>>> Stashed changes
 
     public void consultarCarteira(){
         Conexao conexao = new Conexao();
@@ -137,7 +140,7 @@ public class ControllerDepositarMoedas {
             }
     }
     
-    public void DepositarReais(){ //faz outrasmoedas aqui pq aqui que tem saldo do real
+    public void DepositarReais(){ 
         double deposito = Double.parseDouble(view.getTxtReaisDeposito().getText());
         double valorFinal = deposito + investidor.getCarteira().getSaldo();
         investidor.getCarteira().setSaldo(valorFinal);
@@ -163,7 +166,7 @@ public class ControllerDepositarMoedas {
         carteiras = new ArrayList<>();
     }
     
-    public void extrato(){
+    public void extrato(){//faz outrasmoedas aqui pq aqui que tem saldo do real
         Conexao conexao = new Conexao();
         OutrasMoedas m = null;
         ArrayList<String> moedasExistentes = new ArrayList<>();

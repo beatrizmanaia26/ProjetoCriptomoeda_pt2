@@ -46,49 +46,7 @@ public class ControllerDepositarMoedas {
         }
         return sb.toString(); 
     }
-<<<<<<< Updated upstream
-    
-    public void buscaMoedas(){ //cria carteira, para fazer isso precisa criar moeda
-        Conexao conexao = new Conexao();
-        ArrayList<String> moedasExistentes = new ArrayList<>();
-        try{
-            Connection conn = conexao.getConnection();
-            BancoDAO dao = new BancoDAO(conn);
-            ResultSet res = dao.consultarMoedas();
-            while (res.next()) {
-                // Acesse os valores das colunas para a linha atual
-                String id = res.getString("Nome"); // pego id de todas as moedas para usar no resto
-                // Faça o que for necessário com os valores, por exemplo, imprima-os
-                moedasExistentes.add(id);
-                }
-                res.close();
   
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(view,"Erro de conexao");
-        }
-        
-        try{
-            Connection conn = conexao.getConnection();
-            BancoDAO dao = new BancoDAO(conn);
-            for(int i = 0; i < moedasExistentes.size(); i++){
-                ResultSet res = dao.consultarSaldo(investidor,moedasExistentes.get(i)); 
-            //consulta o saldo de todas as moedas e adiciona na carteira
-                if(res == null){
-                    try{
-                        dao.inserirCarteira(investidor,0,moedasExistentes.get(i));
-                    }catch(SQLException e){
-                        JOptionPane.showMessageDialog(view,"Erro de carteira");
-                    }   
-                }  
-            }
-            conn.close();
-        }catch(SQLException e){
-             e.printStackTrace(); 
-            JOptionPane.showMessageDialog(view,"Erro de conexao");
-        }       
-       }
-=======
->>>>>>> Stashed changes
 
     public void consultarCarteira(){ 
         Conexao conexao = new Conexao();

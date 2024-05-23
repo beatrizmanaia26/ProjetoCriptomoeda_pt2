@@ -170,7 +170,8 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-       
+        controller.buscaUsuario();
+        controller.verificaExistenciaExtrato();
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void jMenuItemMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMenuActionPerformed
@@ -210,7 +211,7 @@ public class ExtratoInvestidor extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-     private ControllerExtratoInvestidor controller;
+    private ControllerExtratoInvestidor controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btConsultar;
     private javax.swing.JMenuBar jMenuBar1;

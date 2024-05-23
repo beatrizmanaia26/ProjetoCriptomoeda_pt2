@@ -111,40 +111,9 @@ public class ControllerDepositarMoedas {
                     }catch(SQLException e){
                         JOptionPane.showMessageDialog(view,"Erro de carteira");
                     }   
-                }else{
-                   if (!(moedasExistentes.get(i).equals("Real"))) {
-                    ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
-                    //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
-                    // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
-                    if (resMoeda.next()) {//cria moeda
-                        double cotacao = resMoeda.getDouble("Cotacao");
-                        float taxaVenda = resMoeda.getFloat("Taxa_venda");
-                        float taxaCompra = resMoeda.getFloat("Taxa_compra");
-
-                        m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
-
-                        double saldo = res.getDouble("Saldo"); 
-                        investidor.getCarteira().setMoedas(m);
-                        investidor.getCarteira().setSaldo(saldo);  
-
-                        String c = investidor.getCarteira().toString();
-                        carteiras.add(c);
-
-                    }
-                    } else {
-                        String c = investidor.getCarteira().toString();
-                        carteiras.add(c);
-
-                    }
-                  }
+                } 
             }
-            for (int i = 0; i < carteiras.size(); i++) { //adiciona 2 ripple na lista, esse código apaga a primeira ripple
-                if (carteiras.get(i).startsWith("Ripple")) {
-                    carteiras.remove(i);
-                    break; // Para de percorrer a lista assim que encontrar a primeira ocorrência de Ripple
-                }
-            }
-
+            
             conn.close();
         }catch(SQLException e){
              e.printStackTrace(); 
@@ -181,6 +150,7 @@ public class ControllerDepositarMoedas {
                     + "Saldo atual: "+ investidor.getCarteira().getSaldo());
             //transforma arraylist em string
             try{
+                extrato();
                 dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal,arrayParaString());
             }catch(SQLException e){
                 e.printStackTrace(); 
@@ -190,6 +160,80 @@ public class ControllerDepositarMoedas {
         }catch(SQLException e){
              JOptionPane.showMessageDialog(view,"Erro de conexao");
         }
-        
+        carteiras = new ArrayList<>();
+    }
+    
+    public void extrato(){
+        Conexao conexao = new Conexao();
+        OutrasMoedas m = null;
+        ArrayList<String> moedasExistentes = new ArrayList<>();
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+            ResultSet res = dao.consultarMoedas();
+            while (res.next()) {
+                String id = res.getString("Nome");
+                moedasExistentes.add(id);
+                }
+                res.close();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        }
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+            for(int i = 0; i < moedasExistentes.size(); i++){
+                ResultSet res = dao.consultarSaldo(investidor,moedasExistentes.get(i));
+                if(res == null){
+                    try{
+                        dao.inserirCarteira(investidor,0,moedasExistentes.get(i));
+                    }catch(SQLException e){
+                        JOptionPane.showMessageDialog(view,"Erro de carteira");
+                    }   
+                }else{
+                   if (!(moedasExistentes.get(i).equals("Real"))) {
+                    ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
+                    //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
+                    // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
+                    if (resMoeda.next()) {//cria moeda
+                        double cotacao = resMoeda.getDouble("Cotacao");
+                        float taxaVenda = resMoeda.getFloat("Taxa_venda");
+                        float taxaCompra = resMoeda.getFloat("Taxa_compra");
+
+                        m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
+
+                        double saldo = res.getDouble("Saldo"); 
+                        investidor.getCarteira().setMoedas(m);
+                        investidor.getCarteira().setSaldo(saldo);  
+
+                        String c = investidor.getCarteira().toString();
+                        carteiras.add(c);
+
+                    }
+                    } 
+                  }
+            }
+            
+            conn.close();
+        }catch(SQLException e){
+             e.printStackTrace(); 
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        } 
+            try{
+                Connection conn = conexao.getConnection();
+                BancoDAO dao = new BancoDAO(conn);
+                ResultSet res = dao.consultarReais(investidor);
+                if(res.next()){
+                    String Saldo = res.getString("Saldo");
+                    double doubleSaldo = Double.parseDouble(Saldo);
+                    Real r = new Real();
+                    investidor.getCarteira().setMoedas(r);
+                    investidor.getCarteira().setSaldo(doubleSaldo);
+                }else{
+                    JOptionPane.showMessageDialog(view,"Login não foi feito");
+                }
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(view,"Erro de conexao");
+            }
     }
 }

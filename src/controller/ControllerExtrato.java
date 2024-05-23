@@ -16,7 +16,9 @@ import model.Investidor;
 
 /**
  *
- * @author beatr
+ * @author beatr é o extrato do investidor que ele mesmo acessa, consultamos as informações dele, além disso verificamos se 
+ * existe extrato ou nao na tabela de extrato do banco de dados e pegamos dela todos os dados necessários para mostrar na 
+ * tela do GUI as informações do usuário
  */
 public class ControllerExtrato {
     public Extrato view;

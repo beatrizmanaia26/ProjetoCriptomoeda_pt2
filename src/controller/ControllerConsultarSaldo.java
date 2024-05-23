@@ -16,7 +16,8 @@ import view.ConsultarSaldo;
 
 /**
  *
- * @author luana
+ * @author luana Para o investidor consultar seu prórpio saldo acessamos o saldo de todas as moedas de sua carteira e 
+ * os mostramos no GUI
  */
 public class ControllerConsultarSaldo {
     

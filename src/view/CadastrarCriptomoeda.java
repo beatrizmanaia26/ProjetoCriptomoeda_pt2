@@ -312,7 +312,7 @@ public class CadastrarCriptomoeda extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeCriptoActionPerformed
 
  
-     private ControllerCadastroCripto control;
+    private ControllerCadastroCripto control;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
     private javax.swing.JMenuBar jMenuBar1;

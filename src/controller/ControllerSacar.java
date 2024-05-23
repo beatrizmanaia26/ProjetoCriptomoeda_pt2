@@ -19,7 +19,10 @@ import model.Real;
 
 /**
  *
- * @author luana
+ * @author luana Para sacar um valor em real, pegamos o valor do real digitado pelo usuario e o retiramos do saldo
+ * atual do investidor e setamos o resultado na sua carteira e no seu extrato (ou seja, adicionamos "menos" esse valor
+ * no extrato. Também criamos um arraylist com todas as outras moedas que nao sao real para adicionar seus saldos na coluna 
+ * referente a isso da tabela extrato para que possamos mostrar os saldos no exato momento do extrato.
  */
 public class ControllerSacar {
     private SacarReais view;
@@ -103,6 +106,7 @@ public class ControllerSacar {
             JOptionPane.showMessageDialog(view,"Valor excede o saldo!");
         }else{
             double saldoFinal = investidor.getCarteira().getSaldo() - valorRetirado;
+            System.out.println("valor retirado "+ valorRetirado);
             investidor.getCarteira().setSaldo(saldoFinal);
 
             Conexao conexao = new Conexao();

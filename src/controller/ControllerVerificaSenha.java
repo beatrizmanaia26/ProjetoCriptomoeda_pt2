@@ -14,7 +14,8 @@ import view.VerificacaoDeSenha;
 
 /**
  *
- * @author luana
+ * @author luana Verifica se a senha digitada é igual a senha desse investidor e direcionamos a tela na qual a pessoa digitou
+ * a senha para ser verificada ao respectivo gui 
  */
 public class ControllerVerificaSenha {
     private VerificacaoDeSenha view;

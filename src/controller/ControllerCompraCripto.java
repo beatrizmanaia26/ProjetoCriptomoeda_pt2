@@ -20,7 +20,13 @@ import view.ComprarCripto;
 
 /**
  *
- * @author luana
+ * @author luana  Para comprar uma criptomoeda acessamos o banco de dados e, com base na taxa de compra de cada moeda 
+ * cadastrada, pegamos a moeda que o usuario digitou que quer comprar, fazemos o calculo para adiciona-la ao saldo do
+ * investidor e sutrair o valor referente a ela como real na carteira do investidor, afinal, se deseja comprar uma 
+ * criptomoeda ele "troca" o valor monetário do real para seu correspondente em criptomoeda desejada. Além disso pegamos 
+ * esses resultados para o saldo da moeda e do real e adicionamos com os respectivos tipos de operacao (real - e moeda +)
+ * na tabela extrato do banco de dados. * Também  criamos 2 arraylist com todas as outras moedas para adicionar os saldos 
+ * das moedas exceto real ou a moeda vendida) na coluna referente a elas da tabela extrato para que possamos mostrar os saldos no exato momento do extrato. 
  */
 public class ControllerCompraCripto {
     private ComprarCripto view;

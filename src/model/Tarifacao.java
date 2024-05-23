@@ -6,7 +6,8 @@ package model;
 
 /**
  *
- * @author beatr
+ * @author beatr aplicamos o diagrama de classe pedido no projeto, nele, tarifacao é uma interface e todas as moedas a 
+ * implementam
  */
 public interface Tarifacao {
     public double TaxaCompra();

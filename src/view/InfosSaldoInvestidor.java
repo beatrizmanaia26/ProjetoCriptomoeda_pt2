@@ -64,8 +64,6 @@ public class InfosSaldoInvestidor extends javax.swing.JFrame {
         this.jMenuMenu = jMenuMenu;
     }
 
-
-
     public JLabel getLblCPFInvest() {
         return lblCPFInvest;
     }
@@ -81,8 +79,6 @@ public class InfosSaldoInvestidor extends javax.swing.JFrame {
     public void setLblCpf(JLabel lblCpf) {
         this.lblCpf = lblCpf;
     }
-
-
 
     public JLabel getLblNome() {
         return lblNome;
@@ -190,9 +186,6 @@ public class InfosSaldoInvestidor extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItemMenuActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
 //    public static void main(String args[]) {
 //        /* Set the Nimbus look and feel */
 //        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

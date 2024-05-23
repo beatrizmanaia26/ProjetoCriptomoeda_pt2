@@ -1,0 +1,129 @@
+O único insert de pré-requisito das tabelas é que tem que ter no mínimo a moeda Real na tabela Moedas
+(Nome é Real, o resto tudo é 0.0)
+
+-- Table: public.carteira
+
+-- DROP TABLE IF EXISTS public.carteira;
+
+CREATE TABLE IF NOT EXISTS public.carteira
+(
+    "ID_carteira" integer NOT NULL DEFAULT nextval('"carteira_ID_carteira_seq"'::regclass),
+    "CPF" character varying COLLATE pg_catalog."default" NOT NULL,
+    "NomeMoeda" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Saldo" character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT carteira_pkey PRIMARY KEY ("ID_carteira"),
+    CONSTRAINT "CPF" FOREIGN KEY ("CPF")
+        REFERENCES public.investidores ("CPF") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "NomeMoeda" FOREIGN KEY ("NomeMoeda")
+        REFERENCES public.moedas ("Nome") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.carteira
+    OWNER to postgres;
+-- Index: fki_ID_Investidor
+
+-- DROP INDEX IF EXISTS public."fki_ID_Investidor";
+
+CREATE INDEX IF NOT EXISTS "fki_ID_Investidor"
+    ON public.carteira USING btree
+    ("CPF" COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+-- Index: fki_NomeMoeda
+
+-- DROP INDEX IF EXISTS public."fki_NomeMoeda";
+
+CREATE INDEX IF NOT EXISTS "fki_NomeMoeda"
+    ON public.carteira USING btree
+    ("NomeMoeda" COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+-------------------------------------------------------------------------------
+
+-- Table: public.extrato
+
+-- DROP TABLE IF EXISTS public.extrato;
+
+CREATE TABLE IF NOT EXISTS public.extrato
+(
+    "ID_extrato" integer NOT NULL DEFAULT nextval('"extrato_ID_extrato_seq"'::regclass),
+    "ID_Investidor" character varying COLLATE pg_catalog."default" NOT NULL,
+    "ID_moeda" character varying COLLATE pg_catalog."default" NOT NULL,
+    "DataHora" character varying COLLATE pg_catalog."default" NOT NULL,
+    "TipoOper" character varying COLLATE pg_catalog."default" NOT NULL,
+    "ValorOper" character varying COLLATE pg_catalog."default" NOT NULL,
+    "SaldoAtual" character varying COLLATE pg_catalog."default" NOT NULL,
+    "SaldoOutrasMoedas" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Cot_Atual" character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT extrato_pkey PRIMARY KEY ("ID_extrato"),
+    CONSTRAINT "ID_Investidor" FOREIGN KEY ("ID_Investidor")
+        REFERENCES public.investidores ("CPF") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID,
+    CONSTRAINT "NomeMoeda" FOREIGN KEY ("ID_moeda")
+        REFERENCES public.moedas ("Nome") MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        NOT VALID
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.extrato
+    OWNER to postgres;
+-- Index: fki_ID_moeda
+
+-- DROP INDEX IF EXISTS public."fki_ID_moeda";
+
+CREATE INDEX IF NOT EXISTS "fki_ID_moeda"
+    ON public.extrato USING btree
+    ("ID_moeda" COLLATE pg_catalog."default" ASC NULLS LAST)
+    TABLESPACE pg_default;
+
+-------------------------------------------------------------------------------
+
+-- Table: public.investidores
+
+-- DROP TABLE IF EXISTS public.investidores;
+
+CREATE TABLE IF NOT EXISTS public.investidores
+(
+    "Nome" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Senha" character varying COLLATE pg_catalog."default" NOT NULL,
+    "CPF" character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT investidores_pkey PRIMARY KEY ("CPF")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.investidores
+    OWNER to postgres;
+
+-------------------------------------------------------------------------------
+
+-- Table: public.moedas
+
+-- DROP TABLE IF EXISTS public.moedas;
+
+CREATE TABLE IF NOT EXISTS public.moedas
+(
+    "Nome" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Cotacao" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Taxa_compra" character varying COLLATE pg_catalog."default" NOT NULL,
+    "Taxa_venda" character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT moedas_pkey PRIMARY KEY ("Nome")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.moedas
+    OWNER to postgres;
+

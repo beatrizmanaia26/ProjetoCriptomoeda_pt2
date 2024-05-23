@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
+import model.Carteira;
 import model.Investidor;
 import model.OutrasMoedas;
 import view.ComprarCripto;
@@ -278,11 +281,11 @@ public class ControllerCompraCripto {
         } 
     }
     
-    public void extratoCripto() {
+public void extratoCripto() {
     Conexao conexao = new Conexao();
     ArrayList<String> moedasExistentes = new ArrayList<>();
     String nomeMoeda = view.getTxtMoeda().getText();
-    
+
     try {
         Connection conn = conexao.getConnection();
         BancoDAO dao = new BancoDAO(conn);
@@ -294,23 +297,29 @@ public class ControllerCompraCripto {
         res.close();
         conn.close();
     } catch (SQLException e) {
-        JOptionPane.showMessageDialog(view, "Erro de conexão");
+        JOptionPane.showMessageDialog(view, "Erro de conexão ao consultar moedas");
         return;
     }
-    
+
     try {
         Connection conn = conexao.getConnection();
         BancoDAO dao = new BancoDAO(conn);
         for (String moeda : moedasExistentes) {
             ResultSet res = dao.consultarSaldo(investidor, moeda);
-            if (res == null) {
+            Carteira carteiraTemp = new Carteira(); // Cria uma nova instância de Carteira
+
+            if (res == null || !res.next()) {
+                // Se não há saldo, cria uma nova carteira com saldo zero
                 try {
                     dao.inserirCarteira(investidor, 0, moeda);
+                    carteiraTemp.setSaldo(0);
+                    carteiraTemp.setMoedas(new OutrasMoedas(moeda, 0, 0, 0)); // Defina a moeda com valores padrão
                 } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(view, "Erro de carteira");
+                    JOptionPane.showMessageDialog(view, "Erro ao inserir carteira para moeda: " + moeda);
+                    continue;
                 }
             } else {
-                OutrasMoedas m = null;
+                // Se há saldo, processa a moeda e o saldo
                 if (!moeda.equals(nomeMoeda)) {
                     ResultSet resMoeda = dao.consultarMoedaExp(moeda);
                     if (resMoeda.next()) {
@@ -318,27 +327,31 @@ public class ControllerCompraCripto {
                         float taxaVenda = resMoeda.getFloat("Taxa_venda");
                         float taxaCompra = resMoeda.getFloat("Taxa_compra");
 
-                        m = new OutrasMoedas(moeda, cotacao, taxaCompra, taxaVenda);
+                        OutrasMoedas m = new OutrasMoedas(moeda, cotacao, taxaCompra, taxaVenda);
                         double saldo = res.getDouble("Saldo");
-                        investidor.getCarteira().setMoedas(m);
-                        investidor.getCarteira().setSaldo(saldo);
+                        carteiraTemp.setMoedas(m);
+                        carteiraTemp.setSaldo(saldo);
                     }
                     resMoeda.close();
                 } else {
                     double saldo = res.getDouble("Saldo");
-                    investidor.getCarteira().setSaldo(saldo);
+                    carteiraTemp.setMoedas(new OutrasMoedas(moeda, 0, 0, 0)); // Defina a moeda com valores padrão
+                    carteiraTemp.setSaldo(saldo);
                 }
-                res.close();
-
-                String c = investidor.getCarteira().toString();
-                carteiras2.add(c);
             }
+            res.close();
+
+            // Adiciona a carteira temporária à lista carteiras2
+            String c = carteiraTemp.toString();
+            carteiras2.add(c);
         }
         conn.close();
     } catch (SQLException e) {
         e.printStackTrace();
-        JOptionPane.showMessageDialog(view, "Erro de conexão");
+        JOptionPane.showMessageDialog(view, "Erro de conexão ao consultar saldo");
     }
 }
+
+
 
 }

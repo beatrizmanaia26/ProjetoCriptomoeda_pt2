@@ -3,18 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerDepositarMoedas.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerAtualizarCriptomoedas.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerExcluirCripto.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerCompraCripto.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/ComprarCripto.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/DAO/BancoDAO.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerSacar.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/controller/ControllerVenderCripto.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/DepositoReais.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/BemVindoUsuario.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/VendaCriptomoedas.java</file>
-            <file>file:/C:/ProjetoCriptomoeda/JAVA2/src/view/ExtratoInvestidor.java</file>
+            <file>file:/C:/ProjetoCriptomoedas/JAVA2/src/view/InfosExtratoInvestidor.java</file>
+            <file>file:/C:/ProjetoCriptomoedas/JAVA2/src/controller/ControllerVerificaSenha.java</file>
+            <file>file:/C:/ProjetoCriptomoedas/JAVA2/src/view/ExtratoInvestidor.java</file>
         </group>
     </open-files>
 </project-private>

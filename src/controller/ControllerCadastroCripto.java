@@ -14,7 +14,8 @@ import view.CadastrarCriptomoeda;
 
 /**
  *
- * @author beatr
+ * @author beatr Para cadastrar uma criptomoeda pegamos as informações que o usuario digitou no GUI, criamos uma moeda com 
+ * esses dados e a inserimos no banco de dados
  */
 public class ControllerCadastroCripto {
    

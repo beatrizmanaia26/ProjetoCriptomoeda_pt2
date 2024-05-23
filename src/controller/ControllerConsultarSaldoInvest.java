@@ -17,7 +17,9 @@ import view.SaldoInvestidor;
 
 /**
  *
- * @author luana
+ * @author luana Para que o administrador veja o saldo de um investidor utlizamos uma funcao do banco dao para consultar o
+ * saldo do investidor em sua carteira e mostrá-lo no GUI, para isso primeiro verificamos se o cpf digitado corresponde ao 
+ * cpf de algum investidor cadastrado
  */
 public class ControllerConsultarSaldoInvest {
     private SaldoInvestidor view;
@@ -35,7 +37,7 @@ public class ControllerConsultarSaldoInvest {
         try{
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
-            ResultSet res = dao.consultarInvestidor(invest);//////////
+            ResultSet res = dao.consultarInvestidor(invest);
             if(res.next()){
                 String nome = res.getString("Nome");
                 String cpf = res.getString("CPF");
@@ -49,7 +51,7 @@ public class ControllerConsultarSaldoInvest {
         }
     }
     
-    public void buscaMoedas(){
+    public void buscaMoedas(){ //cria carteira
         Conexao conexao = new Conexao();
         ArrayList<String> moedasExistentes = new ArrayList<>();
         try{

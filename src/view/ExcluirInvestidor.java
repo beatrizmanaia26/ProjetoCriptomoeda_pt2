@@ -176,10 +176,6 @@ public class ExcluirInvestidor extends javax.swing.JFrame {
     public void setTxtCpfInvest(JTextField txtCpfInvest) {
         this.txtCpfInvest = txtCpfInvest;
     }
-
-    /**
-     * @param args the command line arguments
-     */
   
     private ControllerExcluirInvestidor controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables

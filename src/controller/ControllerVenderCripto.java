@@ -11,6 +11,16 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import model.OutrasMoedas;
 
+/**
+ *
+ * @author beatr  acessamos o banco de dados e, com base na taxa de venda de cada moeda cadastrada, pegamos a moeda que o 
+ * usuario digitou que quer vender, fazemos o calculo para subtraí-la do saldo do investidor e adicionar o valor referente
+ * a ela como real na carteira do investidor, afinal, se deseja vender uma criptomoeda ele "troca" o valor monetário da moeda
+ * para seu correspondente em real. Além disso pegamos esses resultados para o saldo da moeda e do real e adicionamos com os 
+ * respectivos tipos de operacao (real + e moeda -) na tabela extrato do banco de dados.
+ * Também  criamos 2 arraylist com todas as outras moedas para adicionar os saldos das moedas exceto real ou a moeda vendida) 
+ * na coluna referente a elas da tabela extrato para que possamos mostrar os saldos no exato momento do extrato. 
+ */
 public class ControllerVenderCripto {
     private VendaCriptomoedas view;
     private Investidor investidor;
@@ -22,6 +32,7 @@ public class ControllerVenderCripto {
         this.investidor = investidor;
     }
     
+    //transforma array em string pra adicionar na coluna da tabela extrato do banco de dados
     public String arrayParaString(ArrayList<String> carteiras) {
         StringBuilder sb = new StringBuilder();
     
@@ -267,7 +278,6 @@ public class ControllerVenderCripto {
 
                         String c = investidor.getCarteira().toString();
                         carteiras2.add(c);
-
                     }
                     } 
                   }

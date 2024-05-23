@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author beatr
+ * @author beatr aplicamos o diagrama de classe pedido no projeto, nele, moeda é composicao de carteira
  */
 public class Carteira {
     private Moedas moedas;//composicao

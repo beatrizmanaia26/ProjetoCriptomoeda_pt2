@@ -109,6 +109,8 @@ public class ControllerVenderCripto {
                             JOptionPane.showMessageDialog(view, "Venda realizada com sucesso.\nSaldo atual: " 
                                                                 + investidor.getCarteira().getSaldo()); 
                             //informações para extrato
+                            extratoReal();
+                            extratoCripto();
                             dao.InserirExtrato(investidor, "Real", "+", valorReais, novoSaldoReais,arrayParaString(carteiras));
                             dao.InserirExtrato(investidor, nomeMoeda , "-", quantidadeVender , novoSaldoMoeda,arrayParaString(carteiras2));
                         } else {
@@ -129,7 +131,9 @@ public class ControllerVenderCripto {
     } catch (SQLException e) {
         e.printStackTrace();
         JOptionPane.showMessageDialog(view, "Erro de conexão.");
-    }     
+    }
+    carteiras = new ArrayList<>();
+    carteiras2 = new ArrayList<>();
 }
 
     public void mostrarCotacoes(){

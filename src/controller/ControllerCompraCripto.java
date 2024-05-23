@@ -194,10 +194,9 @@ public class ControllerCompraCripto {
                 dao.AtualizarMoedaCompra(investidor);
                 extratoReal();
                 extratoCripto();
-                dao.InserirExtrato(investidor, "Real", "-", valorTotal, saldoFinal,arrayParaString(carteiras));
-                dao.InserirExtrato(investidor, 
-                       nomeMoeda,
-                        "+", quant, valorTotalCripto,arrayParaString(carteiras2));//
+                dao.InserirExtrato(investidor, "Real", "-", valorTotal, saldoFinal,arrayParaString(carteiras),0);
+                dao.InserirExtrato(investidor, nomeMoeda,
+                        "+", quant, valorTotalCripto,arrayParaString(carteiras2),moeda.getCotacao());//
 
 
             }catch(SQLException e){

@@ -111,8 +111,8 @@ public class ControllerVenderCripto {
                             //informações para extrato
                             extratoReal();
                             extratoCripto();
-                            dao.InserirExtrato(investidor, "Real", "+", valorReais, novoSaldoReais,arrayParaString(carteiras));
-                            dao.InserirExtrato(investidor, nomeMoeda , "-", quantidadeVender , novoSaldoMoeda,arrayParaString(carteiras2));
+                            dao.InserirExtrato(investidor, "Real", "+", valorReais, novoSaldoReais,arrayParaString(carteiras),0);
+                            dao.InserirExtrato(investidor, nomeMoeda , "-", quantidadeVender , novoSaldoMoeda,arrayParaString(carteiras2),cotacao);
                         } else {
                             JOptionPane.showMessageDialog(view, "Saldo em reais não encontrado.");
                         }    

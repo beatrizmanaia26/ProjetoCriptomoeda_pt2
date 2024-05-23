@@ -283,8 +283,8 @@ public class BancoDAO {
        }
     }
         
-    public void InserirExtrato(Investidor investidor, String moeda, String tipoOper, double valor, double saldoAtual, String saldoMoedas) throws SQLException {
-        String sql = "INSERT INTO extrato (\"ID_Investidor\", \"ID_moeda\", \"DataHora\", \"TipoOper\", \"ValorOper\",  \"SaldoAtual\",  \"SaldoOutrasMoedas\") VALUES (?, ?, ?, ?, ?, ?, ?)";
+    public void InserirExtrato(Investidor investidor, String moeda, String tipoOper, double valor, double saldoAtual, String saldoMoedas, double cot) throws SQLException {
+        String sql = "INSERT INTO extrato (\"ID_Investidor\", \"ID_moeda\", \"DataHora\", \"TipoOper\", \"ValorOper\",  \"SaldoAtual\",  \"SaldoOutrasMoedas\", \"Cot_Atual\") VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, investidor.getCpf());
@@ -296,6 +296,7 @@ public class BancoDAO {
             statement.setDouble(5, valor);
             statement.setDouble(6, saldoAtual);
             statement.setString(7, saldoMoedas);
+            statement.setDouble(8, cot);
 
             statement.executeUpdate(); 
         }

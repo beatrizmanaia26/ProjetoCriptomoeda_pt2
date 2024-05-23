@@ -91,7 +91,6 @@ public class ControllerExtrato {
                 view.getLblExtratoInvest1().setText("Extrato inexistente");
             }else {
                 String texto = "<html>";
-                String cot = null;
                 String tax = null;
                  do{
                     String id_moeda = res.getString("ID_moeda"); 
@@ -100,13 +99,14 @@ public class ControllerExtrato {
                     String valorOper = res.getString("ValorOper"); 
                     String saldo = res.getString("SaldoAtual");
                     String outrasMoedas = res.getString("SaldoOutrasMoedas");
+                    String cot = res.getString("Cot_Atual");
 
                     try{
                         ResultSet resulM = dao.consultarTodaMoeda();
                         while (resulM.next()) {
                             String nomeMoeda = resulM.getString("Nome");
                             if(nomeMoeda.equals(id_moeda)){
-                                cot = resulM.getString("Cotacao");
+                                
                                 if(tipoOper.equals("+")){
                                    tax = resulM.getString("Taxa_compra");
                                 }else{

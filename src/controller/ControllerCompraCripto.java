@@ -257,23 +257,9 @@ public class ControllerCompraCripto {
                         carteiras.add(c);
 
                     }
-                    } else {
-                        String c = investidor.getCarteira().toString();
-                        carteiras.add(c);
-
-                    }
+                    } 
                   }
-            }
-            for (int i = 0; i < carteiras.size(); i++) { //adiciona 2 ripple na lista, esse código apaga a primeira ripple
-                if (carteiras.get(i).startsWith("Ripple")) {
-                    carteiras.remove(i);
-                    break; // Para de percorrer a lista assim que encontrar a primeira ocorrência de Ripple
-                }
-                
-            }
-                
-                
-            
+            }        
             conn.close();
         }catch(SQLException e){
              e.printStackTrace(); 
@@ -281,77 +267,66 @@ public class ControllerCompraCripto {
         } 
     }
     
-public void extratoCripto() {
-    Conexao conexao = new Conexao();
-    ArrayList<String> moedasExistentes = new ArrayList<>();
-    String nomeMoeda = view.getTxtMoeda().getText();
-
-    try {
-        Connection conn = conexao.getConnection();
-        BancoDAO dao = new BancoDAO(conn);
-        ResultSet res = dao.consultarMoedas();
-        while (res.next()) {
-            String id = res.getString("Nome");
-            moedasExistentes.add(id);
-        }
-        res.close();
-        conn.close();
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(view, "Erro de conexão ao consultar moedas");
-        return;
-    }
-
-    try {
-        Connection conn = conexao.getConnection();
-        BancoDAO dao = new BancoDAO(conn);
-        for (String moeda : moedasExistentes) {
-            ResultSet res = dao.consultarSaldo(investidor, moeda);
-            Carteira carteiraTemp = new Carteira(); // Cria uma nova instância de Carteira
-
-            if (res == null || !res.next()) {
-                // Se não há saldo, cria uma nova carteira com saldo zero
-                try {
-                    dao.inserirCarteira(investidor, 0, moeda);
-                    carteiraTemp.setSaldo(0);
-                    carteiraTemp.setMoedas(new OutrasMoedas(moeda, 0, 0, 0)); // Defina a moeda com valores padrão
-                } catch (SQLException e) {
-                    JOptionPane.showMessageDialog(view, "Erro ao inserir carteira para moeda: " + moeda);
-                    continue;
+    public void extratoCripto(){
+       Conexao conexao = new Conexao();
+        ArrayList<String> moedasExistentes = new ArrayList<>();
+        OutrasMoedas m = null;
+        String nomeMoeda = view.getTxtMoeda().getText();
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+            ResultSet res = dao.consultarMoedas();
+            while (res.next()) {
+                String id = res.getString("Nome"); 
+                moedasExistentes.add(id);
                 }
-            } else {
-                // Se há saldo, processa a moeda e o saldo
-                if (!moeda.equals(nomeMoeda)) {
-                    ResultSet resMoeda = dao.consultarMoedaExp(moeda);
-                    if (resMoeda.next()) {
+                res.close();
+
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        }
+        
+        try{
+            Connection conn = conexao.getConnection();
+            BancoDAO dao = new BancoDAO(conn);
+            for(int i = 0; i < moedasExistentes.size(); i++){
+                ResultSet res = dao.consultarSaldo(investidor,moedasExistentes.get(i));
+                if(res == null){
+                    try{
+                        dao.inserirCarteira(investidor,0,moedasExistentes.get(i));
+                    }catch(SQLException e){
+                        JOptionPane.showMessageDialog(view,"Erro de carteira");
+                    }   
+                }else{
+                   if (!(moedasExistentes.get(i).equals(nomeMoeda))) {
+                    ResultSet resMoeda = dao.consultarMoedaExp(moedasExistentes.get(i));
+                    //pega td da moeda pra criar moeda (precisa de moeda pra criar carteira), precisa criar carteira pra
+                    // ter nome da moeda e conseguir relacionar ao saldo na coluna de string do extrato 
+                    if (resMoeda.next()) {//cria moeda
                         double cotacao = resMoeda.getDouble("Cotacao");
                         float taxaVenda = resMoeda.getFloat("Taxa_venda");
                         float taxaCompra = resMoeda.getFloat("Taxa_compra");
 
-                        OutrasMoedas m = new OutrasMoedas(moeda, cotacao, taxaCompra, taxaVenda);
-                        double saldo = res.getDouble("Saldo");
-                        carteiraTemp.setMoedas(m);
-                        carteiraTemp.setSaldo(saldo);
+                        m = new OutrasMoedas(moedasExistentes.get(i), cotacao, taxaCompra, taxaVenda);
+
+                        double saldo = res.getDouble("Saldo"); 
+                        investidor.getCarteira().setMoedas(m);
+                        investidor.getCarteira().setSaldo(saldo);  
+
+                        String c = investidor.getCarteira().toString();
+                        carteiras2.add(c);
+
                     }
-                    resMoeda.close();
-                } else {
-                    double saldo = res.getDouble("Saldo");
-                    carteiraTemp.setMoedas(new OutrasMoedas(moeda, 0, 0, 0)); // Defina a moeda com valores padrão
-                    carteiraTemp.setSaldo(saldo);
-                }
+                    } 
+                  }
             }
-            res.close();
 
-            // Adiciona a carteira temporária à lista carteiras2
-            String c = carteiraTemp.toString();
-            carteiras2.add(c);
-        }
         conn.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
-        JOptionPane.showMessageDialog(view, "Erro de conexão ao consultar saldo");
+        }catch(SQLException e){
+             e.printStackTrace(); 
+            JOptionPane.showMessageDialog(view,"Erro de conexao");
+        } 
     }
-}
-
 
 
 }

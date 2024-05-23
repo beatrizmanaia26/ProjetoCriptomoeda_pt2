@@ -131,18 +131,8 @@ public class ControllerDepositarMoedas {
                         carteiras.add(c);
 
                     }
-                    } else {
-                        String c = investidor.getCarteira().toString();
-                        carteiras.add(c);
-
-                    }
+                    } 
                   }
-            }
-            for (int i = 0; i < carteiras.size(); i++) { //adiciona 2 ripple na lista, esse código apaga a primeira ripple
-                if (carteiras.get(i).startsWith("Ripple")) {
-                    carteiras.remove(i);
-                    break; // Para de percorrer a lista assim que encontrar a primeira ocorrência de Ripple
-                }
             }
 
             conn.close();

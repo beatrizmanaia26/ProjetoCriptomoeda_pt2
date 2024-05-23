@@ -16,7 +16,9 @@ import view.BemVindoUsuario;
 
 /**
  *
- * @author beatr
+ * @author beatr criamos um método que atualiza a cotação das criptomoedas (até 5% para cima ou para baixo do valor atual.
+ * O valor atual foi pego na internet, e associamos essa classe ao botao do GUI do administrador (BemVindoAdministrador) e do 
+ * usuario (BemVindoUsuario) 
  */
 public class ControllerAtualizarCriptomoedas {
     private BemVindoAdministrador view;

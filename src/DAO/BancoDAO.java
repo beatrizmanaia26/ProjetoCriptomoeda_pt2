@@ -16,7 +16,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author beatr
+ * @author beatr Nessa classe criamos metodos de consulta, insercao, remoção e tualização para acessar as tabelas 
+ * do banco de dados e seus conteúdos para, com eles, realizarmos mas operações que desejamos no projeto 
  */
 
 public class BancoDAO {

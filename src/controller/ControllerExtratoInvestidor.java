@@ -17,7 +17,9 @@ import view.InfosExtratoInvestidor;
 
 /**
  *
- * @author beatr
+ * @author beatr Aqui é o extrato de um usuario (administrado acessa) entao verificamos se o cpf informado corresonde a
+ * algum investidor e consultamos as informações dele, além disso verificamos se existe extrato ou nao na tabela de extrato
+ * do banco de dados e pegamos dela todos os dados do usuario informado necessários para mostrar na tela do GUI
  */
 public class ControllerExtratoInvestidor {
     private ExtratoInvestidor view;

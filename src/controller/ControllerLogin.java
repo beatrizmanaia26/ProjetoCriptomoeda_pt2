@@ -18,7 +18,9 @@ import view.BemVindoUsuario;
 
 /**
  *
- * @author beatr
+ * @author beatr Verificamos se  cpf nao possuir . ou - e se o digitado (cpf e senha) é igual ao cpf e senha de algum
+ * investidor cadastrado, se sim redirecionamos ele para o gui do investidor, ou se for igual ao cpf e senha do administrador
+ * redirecionamos para o gui do administrador
  */
 public class ControllerLogin {
     private Login view;

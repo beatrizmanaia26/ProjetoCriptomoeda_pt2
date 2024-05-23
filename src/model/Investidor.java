@@ -6,7 +6,9 @@ package model;
 
 /**
  *
- * @author beatr
+ * @author beatr aplicamos o diagrama de classe pedido no projeto, nele, carteira é composicao de investidor, por isso,
+ * em todos os botoes referentes ao usuario setamos uma nova carteira para ele, carteira essa atualizada com todas as moedas
+ * que existem. Além disso, todo investidor herda de Pessoa.
  */
 public class Investidor extends Pessoa {
     

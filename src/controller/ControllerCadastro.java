@@ -14,7 +14,8 @@ import view.CadastroInvestidor;
 
 /**
  *
- * @author luana
+ * @author luana Para cadastrar um investidor pegamos os dados digitados pelo usuario, verificamos se o cpf nao tem . nem -
+ * e se a senha tem exatos 6 digitos, se esses criterios forem cumpridos inserimos um investidor no banco 
  */
 public class ControllerCadastro {
     private CadastroInvestidor view;

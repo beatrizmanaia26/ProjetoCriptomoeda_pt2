@@ -15,7 +15,8 @@ import java.sql.SQLException;
 
 /**
  *
- * @author beatr
+ * @author beatr Para o administrador excluir um investidor primeiro verificamos se tem um investidor com o cpf informado,
+ * após isso excluimos o investidor, sua carteira e seu extrato
  */
 
 public class ControllerExcluirInvestidor {

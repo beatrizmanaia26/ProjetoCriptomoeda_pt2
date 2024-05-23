@@ -15,7 +15,8 @@ import model.OutrasMoedas;
 
 /**
  *
- * @author beatr
+ * @author beatr Para o administrador excluir uma criptomoeda primeiro verificamos se existe uma moeda com o nome digitado
+ * e após isso excluímos a moeda se ela existir, além de excluí-la do extrato e das carteiras
  */
 public class ControllerExcluirCripto {
      private ExcluirCriptomoeda view;

@@ -8,7 +8,7 @@ import java.util.Random;
 
 /**
  *
- * @author beatr
+ * @author beatr aplicamos o diagrama de classe pedido no projeto, nele, todos os tipos de moeda herdam de Moedas
  */
 public class Moedas {
     private String nome;

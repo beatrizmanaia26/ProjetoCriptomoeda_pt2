@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author beatr
+ * @author beatr plicamos o diagrama de classe pedido no projeto, nele, todo Administrador herda de Pessoa
  */
 public class Administrador extends Pessoa{
     

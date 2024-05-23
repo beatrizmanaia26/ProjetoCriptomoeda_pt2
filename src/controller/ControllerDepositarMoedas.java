@@ -20,7 +20,9 @@ import model.Real;
 
 /**
  *
- * @author beatr
+ * @author beatr Aqui depositamos o valor do real digitado pelo usuario na carteira do investidor e no seu extrato. Também
+ * criamos um arraylist com todas as outras moedas que nao sao real para adicionar seus saldos na coluna referente a isso da 
+ * tabela extrato para que possamos mostrar os saldos no exato momento do extrato 
  */
 public class ControllerDepositarMoedas {
     private DepositoReais view;
@@ -46,7 +48,7 @@ public class ControllerDepositarMoedas {
     }
 <<<<<<< Updated upstream
     
-    public void buscaMoedas(){
+    public void buscaMoedas(){ //cria carteira, para fazer isso precisa criar moeda
         Conexao conexao = new Conexao();
         ArrayList<String> moedasExistentes = new ArrayList<>();
         try{
@@ -55,7 +57,7 @@ public class ControllerDepositarMoedas {
             ResultSet res = dao.consultarMoedas();
             while (res.next()) {
                 // Acesse os valores das colunas para a linha atual
-                String id = res.getString("Nome"); // pego id da moeda para usar no resto
+                String id = res.getString("Nome"); // pego id de todas as moedas para usar no resto
                 // Faça o que for necessário com os valores, por exemplo, imprima-os
                 moedasExistentes.add(id);
                 }
@@ -69,7 +71,8 @@ public class ControllerDepositarMoedas {
             Connection conn = conexao.getConnection();
             BancoDAO dao = new BancoDAO(conn);
             for(int i = 0; i < moedasExistentes.size(); i++){
-                ResultSet res = dao.consultarSaldo(investidor,moedasExistentes.get(i));
+                ResultSet res = dao.consultarSaldo(investidor,moedasExistentes.get(i)); 
+            //consulta o saldo de todas as moedas e adiciona na carteira
                 if(res == null){
                     try{
                         dao.inserirCarteira(investidor,0,moedasExistentes.get(i));
@@ -87,7 +90,7 @@ public class ControllerDepositarMoedas {
 =======
 >>>>>>> Stashed changes
 
-    public void consultarCarteira(){
+    public void consultarCarteira(){ 
         Conexao conexao = new Conexao();
         OutrasMoedas m = null;
         ArrayList<String> moedasExistentes = new ArrayList<>();

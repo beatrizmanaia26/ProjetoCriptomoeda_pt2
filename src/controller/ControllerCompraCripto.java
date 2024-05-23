@@ -35,7 +35,7 @@ public class ControllerCompraCripto {
         this.investidor = investidor;
     }
     
-     public String arrayParaString(ArrayList<String> carteiras) {
+    public String arrayParaString(ArrayList<String> carteiras) {
         StringBuilder sb = new StringBuilder();
     
         for (String carteira : carteiras) {
@@ -206,7 +206,10 @@ public class ControllerCompraCripto {
         }
             
         }
+        carteiras = new ArrayList<>();
+        carteiras2 = new ArrayList<>();
     }
+    
     public void extratoReal(){
        Conexao conexao = new Conexao();
         ArrayList<String> moedasExistentes = new ArrayList<>();

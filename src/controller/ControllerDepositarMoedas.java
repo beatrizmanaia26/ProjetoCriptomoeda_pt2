@@ -151,7 +151,7 @@ public class ControllerDepositarMoedas {
             //transforma arraylist em string
             try{
                 extrato();
-                dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal,arrayParaString());
+                dao.InserirExtrato(investidor, "Real", "+", deposito, valorFinal,arrayParaString(),0);
             }catch(SQLException e){
                 e.printStackTrace(); 
                 JOptionPane.showMessageDialog(view,"Erro de conexao");

@@ -114,7 +114,7 @@ public class ControllerSacar {
                         + "Valor atual de reais da conta: " 
                         + investidor.getCarteira().getSaldo());
                 extrato();
-                dao.InserirExtrato(investidor, "Real", "-", valorRetirado, saldoFinal, arrayParaString());
+                dao.InserirExtrato(investidor, "Real", "-", valorRetirado, saldoFinal, arrayParaString(),0);
 
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(view,"Erro de conexao");
